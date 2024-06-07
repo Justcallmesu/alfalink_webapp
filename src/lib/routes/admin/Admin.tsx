@@ -1,4 +1,6 @@
 import SuspenseLoading from "@/views/Base/SuspenseLoading";
+import PrivateRoute from "@/views/Guard/PrivateRoute";
+import PublicRoute from "@/views/Guard/PublicRoute";
 import { lazy } from "react";
 import { Navigate, Route } from "react-router-dom";
 
@@ -18,22 +20,27 @@ const AdminLogin = lazy(() => import("@/views/auth/admin-login/AdminLogin"));
 
 export default (
   <Route path="/admin">
-    <Route index />
-    <Route
-      element={
-        <SuspenseLoading>
-          <LoginLayout />
-        </SuspenseLoading>
-      }
-    >
+    <Route element={<PrivateRoute url="./login" />}>
+      <Route index element={<SuspenseLoading></SuspenseLoading>} />
+    </Route>
+
+    <Route element={<PublicRoute url="/admin" />}>
       <Route
-        path="login"
         element={
           <SuspenseLoading>
-            <AdminLogin />
+            <LoginLayout />
           </SuspenseLoading>
         }
-      ></Route>
+      >
+        <Route
+          path="login"
+          element={
+            <SuspenseLoading>
+              <AdminLogin />
+            </SuspenseLoading>
+          }
+        ></Route>
+      </Route>
 
       <Route path="*" element={<Navigate to="/admin" />} />
     </Route>
