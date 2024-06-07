@@ -1,6 +1,5 @@
 import SuspenseLoading from "@/views/Base/SuspenseLoading";
-import { LoadingOverlay } from "@mantine/core";
-import { Suspense, lazy } from "react";
+import { lazy } from "react";
 import { Navigate, Route } from "react-router-dom";
 
 /**
@@ -11,7 +10,7 @@ const LoginLayout = lazy(() => import("@/views/Layout/LoginLayout"));
 /**
  * Components
  */
-const AdminLogin = lazy(() => import("@/views/Auth/AdminLogin"));
+const AdminLogin = lazy(() => import("@/views/auth/admin-login/AdminLogin"));
 
 /**
  * Instances

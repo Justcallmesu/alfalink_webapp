@@ -1,4 +1,4 @@
-import { Navigate, Routes } from "react-router-dom";
+import { Routes } from "react-router-dom";
 import { Suspense } from "react";
 
 /**
