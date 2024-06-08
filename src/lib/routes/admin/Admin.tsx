@@ -20,16 +20,23 @@ const AdminLogin = lazy(() => import("@/views/auth/admin-login/AdminLogin"));
  */
 
 export default (
-  <Route path="/admin">
+  <Route>
     <Route element={<PrivateRoute url="./login" />}>
       <Route
-        index
+        path="/admin"
+        
         element={
           <SuspenseLoading>
             <AdminLayout />
           </SuspenseLoading>
         }
-      />
+      >
+        <Route index element={<>test</>}></Route>
+        <Route
+          path="customers"
+          element={<SuspenseLoading>Hello</SuspenseLoading>}
+        ></Route>
+      </Route>
     </Route>
 
     <Route element={<PublicRoute url="/admin" />}>
