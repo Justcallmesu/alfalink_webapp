@@ -11,6 +11,7 @@ import {
 import { useDisclosure } from "@mantine/hooks";
 import { Outlet } from "react-router-dom";
 import NavbarBottomSection from "../Navbar/NavbarBottomSection/Navbar-BottomSection";
+import NavigationRender from "../Navbar/NavigationItems/NavigationRender";
 
 function AdminLayout() {
   const [opened, { toggle }] = useDisclosure();
@@ -37,15 +38,16 @@ function AdminLayout() {
         </Group>
       </AppShell.Header>
       <AppShell.Navbar>
-        <AppShell.Section grow my="md" px="md" component={ScrollArea}>
-          60 links in a scrollable section
-          {Array(60)
-            .fill(0)
-            .map((_, index) => (
-              <Skeleton key={index} h={28} mt="sm" animate={false} />
-            ))}
+        <AppShell.Section
+          h={"100%"}
+          grow
+          my="md"
+          px="md"
+          component={ScrollArea}
+        >
+          <NavigationRender />
         </AppShell.Section>
-        <AppShell.Section h={"15rem"}>
+        <AppShell.Section h={"5rem"}>
           <Paper shadow="lg" h={"100%"} py={"0.2rem"}>
             <NavbarBottomSection />
           </Paper>
