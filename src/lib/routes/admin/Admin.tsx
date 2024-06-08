@@ -8,6 +8,7 @@ import { Navigate, Route } from "react-router-dom";
  * Layout
  */
 const LoginLayout = lazy(() => import("@/views/Layout/LoginLayout"));
+const AdminLayout = lazy(() => import("@/views/Layout/AdminLayout"));
 
 /**
  * Components
@@ -21,7 +22,14 @@ const AdminLogin = lazy(() => import("@/views/auth/admin-login/AdminLogin"));
 export default (
   <Route path="/admin">
     <Route element={<PrivateRoute url="./login" />}>
-      <Route index element={<SuspenseLoading></SuspenseLoading>} />
+      <Route
+        index
+        element={
+          <SuspenseLoading>
+            <AdminLayout />
+          </SuspenseLoading>
+        }
+      />
     </Route>
 
     <Route element={<PublicRoute url="/admin" />}>
