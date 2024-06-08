@@ -22,21 +22,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <MantineProvider>
     <QueryClientProvider client={queryClient}>
       <Notifications position="bottom-right" />
-      <AppShell
-        styles={(theme) => ({
-          main: {
-            height: "100vh",
-            display: "flex",
-            flexDirection: "column",
-          },
-        })}
-      >
-        <App />
-        <ReactQueryDevtools
-          initialIsOpen={false}
-          buttonPosition="bottom-left"
-        />
-      </AppShell>
+      <App />
+      <ReactQueryDevtools initialIsOpen={false} buttonPosition="bottom-right" />
     </QueryClientProvider>
   </MantineProvider>
 );

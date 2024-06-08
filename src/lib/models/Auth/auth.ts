@@ -24,5 +24,5 @@ export interface RoleModel extends BaseModel {
 export interface UserModel extends BaseModel {
   name: string;
   username: string;
-  role_id: RoleModel;
+  role_id?: RoleModel;
 }
