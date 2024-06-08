@@ -10,8 +10,8 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { Outlet } from "react-router-dom";
-import NavbarBottomSection from "../Navbar/NavbarBottomSection/Navbar-BottomSection";
-import NavigationRender from "../Navbar/NavigationItems/NavigationRender";
+import NavbarBottomSection from "../Admin/Navbar/NavbarBottomSection/Navbar-BottomSection";
+import NavigationRender from "../Admin/Navbar/NavigationItems/NavigationRender";
 
 function AdminLayout() {
   const [opened, { toggle }] = useDisclosure();

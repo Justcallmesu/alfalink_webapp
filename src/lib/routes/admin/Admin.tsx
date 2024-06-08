@@ -13,7 +13,7 @@ const AdminLayout = lazy(() => import("@/views/Layout/AdminLayout"));
 /**
  * Components
  */
-const AdminLogin = lazy(() => import("@/views/auth/admin-login/AdminLogin"));
+const AdminLogin = lazy(() => import("@/views/Admin/auth/admin-login/AdminLogin"));
 
 /**
  * Instances
