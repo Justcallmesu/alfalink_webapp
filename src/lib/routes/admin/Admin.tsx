@@ -1,6 +1,7 @@
 import SuspenseLoading from "@/views/Base/SuspenseLoading";
-import { LoadingOverlay } from "@mantine/core";
-import { Suspense, lazy } from "react";
+import PrivateRoute from "@/views/Guard/PrivateRoute";
+import PublicRoute from "@/views/Guard/PublicRoute";
+import { lazy } from "react";
 import { Navigate, Route } from "react-router-dom";
 
 /**
@@ -11,7 +12,7 @@ const LoginLayout = lazy(() => import("@/views/Layout/LoginLayout"));
 /**
  * Components
  */
-const AdminLogin = lazy(() => import("@/views/Auth/AdminLogin"));
+const AdminLogin = lazy(() => import("@/views/auth/admin-login/AdminLogin"));
 
 /**
  * Instances
@@ -19,22 +20,27 @@ const AdminLogin = lazy(() => import("@/views/Auth/AdminLogin"));
 
 export default (
   <Route path="/admin">
-    <Route index />
-    <Route
-      element={
-        <SuspenseLoading>
-          <LoginLayout />
-        </SuspenseLoading>
-      }
-    >
+    <Route element={<PrivateRoute url="./login" />}>
+      <Route index element={<SuspenseLoading></SuspenseLoading>} />
+    </Route>
+
+    <Route element={<PublicRoute url="/admin" />}>
       <Route
-        path="login"
         element={
           <SuspenseLoading>
-            <AdminLogin />
+            <LoginLayout />
           </SuspenseLoading>
         }
-      ></Route>
+      >
+        <Route
+          path="login"
+          element={
+            <SuspenseLoading>
+              <AdminLogin />
+            </SuspenseLoading>
+          }
+        ></Route>
+      </Route>
 
       <Route path="*" element={<Navigate to="/admin" />} />
     </Route>

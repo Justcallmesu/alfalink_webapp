@@ -1,7 +1,7 @@
 import { LoadingOverlay } from "@mantine/core";
 import React, { Suspense } from "react";
 
-function SuspenseLoading(props: React.PropsWithChildren) {
+function SuspenseLoading(props: React.PropsWithChildren<{}>) {
   return (
     <Suspense
       fallback={

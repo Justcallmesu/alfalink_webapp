@@ -1,8 +1,6 @@
 import { UserModel } from "../models/Auth/auth";
 
-export async function setUserData(data: UserModel) {
-  console.log(data);
-
+export function setUserData(data: UserModel) {
   const userData = {
     name: data.name,
     username: data.username,
@@ -21,4 +19,9 @@ export async function setUserData(data: UserModel) {
     "permissions",
     JSON.stringify(data.role_id.permissions_id)
   );
+}
+
+export function getUserData() {
+  const user = localStorage.getItem("user");
+  return user ? JSON.parse(user) : null;
 }

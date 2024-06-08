@@ -4,7 +4,7 @@ import {
   useMutation,
   useQuery,
 } from "@tanstack/react-query";
-import { getMe, login } from "../services/Auth/auth.service";
+import { getMe, login } from "@/lib/services/Auth/auth.service";
 import { AuthLoginDto, UserModel } from "../models/Auth/auth";
 
 export const useLoginQuery = () => {
