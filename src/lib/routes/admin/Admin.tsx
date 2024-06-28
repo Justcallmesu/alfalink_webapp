@@ -11,27 +11,32 @@ const LoginLayout = lazy(() => import("@/views/Layout/LoginLayout"));
 const AdminLayout = lazy(() => import("@/views/Layout/AdminLayout"));
 
 /**
- * Components
+ * Pages
  */
-const AdminLogin = lazy(() => import("@/views/Admin/auth/admin-login/AdminLogin"));
-
-/**
- * Instances
- */
+const AdminLogin = lazy(
+  () => import("@/views/Admin/auth/admin-login/AdminLogin")
+);
+const AdminHome = lazy(() => import("@/views/Admin/admin-home/admin-home"));
 
 export default (
   <Route>
     <Route element={<PrivateRoute url="./login" />}>
       <Route
         path="/admin"
-        
         element={
           <SuspenseLoading>
             <AdminLayout />
           </SuspenseLoading>
         }
       >
-        <Route index element={<>test</>}></Route>
+        <Route
+          index
+          element={
+            <SuspenseLoading>
+              <AdminHome />
+            </SuspenseLoading>
+          }
+        ></Route>
         <Route
           path="customers"
           element={<SuspenseLoading>Hello</SuspenseLoading>}
