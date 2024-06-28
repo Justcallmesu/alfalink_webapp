@@ -1,4 +1,5 @@
 import SuspenseLoading from "@/views/Base/SuspenseLoading";
+import CustomerIndex from "@/views/Customer/CustomerIndex/CustomerIndex";
 import PrivateRoute from "@/views/Guard/PrivateRoute";
 import PublicRoute from "@/views/Guard/PublicRoute";
 import { lazy } from "react";
@@ -39,7 +40,11 @@ export default (
         ></Route>
         <Route
           path="customers"
-          element={<SuspenseLoading>Hello</SuspenseLoading>}
+          element={
+            <SuspenseLoading>
+              <CustomerIndex />
+            </SuspenseLoading>
+          }
         ></Route>
       </Route>
     </Route>
