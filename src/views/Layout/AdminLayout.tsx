@@ -12,9 +12,19 @@ import { useDisclosure } from "@mantine/hooks";
 import { Outlet } from "react-router-dom";
 import NavbarBottomSection from "../Admin/Navbar/NavbarBottomSection/Navbar-BottomSection";
 import NavigationRender from "../Admin/Navbar/NavigationItems/NavigationRender";
+import { getMe } from "@/lib/services/Auth/auth.service";
+import { removeAllCredentials } from "@/lib/utils/LocalStorage";
+import { AxiosError } from "axios";
 
 function AdminLayout() {
   const [opened, { toggle }] = useDisclosure();
+
+  getMe().catch((res: AxiosError) => {
+    if (res?.response?.status === 401) {
+      removeAllCredentials();
+      window.location.href = "/login";
+    }
+  });
 
   return (
     <AppShell
