@@ -1,20 +1,39 @@
 import { Button, Card, Grid, Input, Table } from "@mantine/core";
 import useCustomerIndexController from "./CustomerIndexController";
-import { IconPlus, IconReload } from "@tabler/icons-react";
+import { IconMoodEmpty, IconPlus, IconReload } from "@tabler/icons-react";
+import { DataTable } from "mantine-datatable";
 
 function CustomerIndex() {
-  const { tableColumns } = useCustomerIndexController();
+  const {
+    /**
+     * Models
+     */
+    customerData,
+    isCustomerFetching,
+    refetchCustomer,
+
+    /**
+     * Controllers
+     */
+    tableColumns,
+    handleSearch,
+  } = useCustomerIndexController();
 
   return (
-    <Card pt={20} px={0} shadow="md">
+    <Card pt={20} px={0} shadow="md" className="overflow-x-scroll">
       <Grid px={20}>
         <Grid.Col span={12}>
           <Grid>
             <Grid.Col span={6}>
-              <Input placeholder="Search" />
+              <Input
+                placeholder="Search"
+                onChange={(event) => {
+                  handleSearch(event.target.value);
+                }}
+              />
             </Grid.Col>
             <Grid.Col span={2}>
-              <Button>
+              <Button onClick={async () => await refetchCustomer()}>
                 <IconReload />
               </Button>
             </Grid.Col>
@@ -26,15 +45,23 @@ function CustomerIndex() {
           </Grid>
         </Grid.Col>
         <Grid.Col span={12}>
-          <Table>
-            <Table.Thead>
-              <Table.Tr>
-                {tableColumns.map((column) => (
-                  <Table.Th key={column}>{column}</Table.Th>
-                ))}
-              </Table.Tr>
-            </Table.Thead>
-          </Table>
+          <DataTable
+            withColumnBorders
+            withRowBorders
+            striped
+            withTableBorder
+            idAccessor="_id"
+            highlightOnHover
+            columns={tableColumns}
+            // noRecordsText="Tidak Ada Data"
+            // noRecordsIcon={<IconMoodEmpty />}
+            fetching={isCustomerFetching}
+            records={customerData?.data}
+            totalRecords={customerData?.meta.itemsCount}
+            recordsPerPage={customerData?.meta?.limit!}
+            onPageChange={(page) => {}}
+            page={customerData?.meta.page!}
+          />
         </Grid.Col>
       </Grid>
     </Card>

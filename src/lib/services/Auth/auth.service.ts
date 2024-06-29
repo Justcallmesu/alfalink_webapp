@@ -1,4 +1,4 @@
-import api from "../../instances/Index";
+import api from "../../instances/axios";
 import { AuthLoginDto, UserModel } from "../../models/Auth/auth";
 import { ResponseModel } from "../../models/base";
 
