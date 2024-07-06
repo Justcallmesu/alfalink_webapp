@@ -13,6 +13,7 @@ function useCustomerDetailsController() {
    */
   const handleDeleteCustomer = (id: string) => {
     mutateDeleteCustomer({ id });
+    navigate("../");
   };
 
   return {

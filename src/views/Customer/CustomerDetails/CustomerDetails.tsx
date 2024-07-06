@@ -4,6 +4,7 @@ import { Button, Card, Divider, Flex, Grid, Stack } from "@mantine/core";
 import DataDisplay from "@/lib/Components/DataDisplay/DataDisplay";
 import dayjs from "dayjs";
 import { IconEdit, IconTrash } from "@tabler/icons-react";
+import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 
 function CustomerDetails() {
   const { customerData, handleDeleteCustomer, isCustomerFetching, navigate } =
@@ -74,9 +75,14 @@ function CustomerDetails() {
               <IconEdit /> Edit
             </Button>
 
-            <Button color="red">
-              <IconTrash /> Delete
-            </Button>
+            <Popconfirm
+              description="Yakin ingin menghapus data ini ?"
+              onConfirm={() => handleDeleteCustomer(customerData?.data._id!)}
+            >
+              <Button color="red">
+                <IconTrash /> Hapus
+              </Button>
+            </Popconfirm>
           </Stack>
         </Card>
       </Grid.Col>
