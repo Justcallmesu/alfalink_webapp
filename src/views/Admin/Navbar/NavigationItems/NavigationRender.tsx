@@ -11,6 +11,7 @@ function NavigationRender() {
     if (!href) return false;
 
     if (currentPath.length <= 2) return location.pathname.includes(href);
+
     return currentPath[2] === href?.split("/")[2];
   };
 
@@ -19,7 +20,7 @@ function NavigationRender() {
       {NavigationItems().map((item) => {
         return (
           <NavLink
-            key={item.href}
+            key={item.label}
             href={item.href}
             label={item.label}
             description={item.description}
@@ -31,7 +32,7 @@ function NavigationRender() {
             {item.children?.map((child) => {
               return (
                 <NavLink
-                  key={child.href}
+                  key={child.label}
                   href={child.href}
                   label={child.label}
                   description={child.description}

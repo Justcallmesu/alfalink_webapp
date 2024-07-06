@@ -4,6 +4,7 @@ import PublicRoute from "@/views/Guard/PublicRoute";
 import { lazy } from "react";
 import { Navigate, Route } from "react-router-dom";
 import CustomerRoutes from "./Customers/Customer";
+import { MasterDataRoutes } from "./MasterData/MasterData";
 
 /**
  * Layout
@@ -39,6 +40,9 @@ export default (
           }
         ></Route>
         {CustomerRoutes}
+
+        {/* Master Data */}
+        {MasterDataRoutes}
       </Route>
     </Route>
 
