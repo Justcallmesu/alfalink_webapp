@@ -18,6 +18,7 @@ function CustomerIndex() {
     tableColumns,
     handleSearch,
     navigate,
+    handlePageChange,
   } = useCustomerIndexController();
 
   return (
@@ -53,14 +54,13 @@ function CustomerIndex() {
             withTableBorder
             idAccessor="_id"
             highlightOnHover
+            minHeight={400}
             columns={tableColumns}
-            // noRecordsText="Tidak Ada Data"
-            // noRecordsIcon={<IconMoodEmpty />}
             fetching={isCustomerFetching}
             records={customerData?.data}
-            totalRecords={customerData?.meta.itemsCount}
+            totalRecords={customerData?.meta.totalItems}
             recordsPerPage={customerData?.meta?.limit!}
-            onPageChange={(page) => {}}
+            onPageChange={handlePageChange}
             page={customerData?.meta.page!}
           />
         </Grid.Col>

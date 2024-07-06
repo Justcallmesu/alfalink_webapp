@@ -13,7 +13,7 @@ function useCustomerFormController({ formType }: FormType) {
     mode: "uncontrolled",
     initialValues: {
       address: "",
-      birthDate: dayjs(),
+      birthDate: undefined,
       birthPlace: "",
       email: "",
       fullName: "",
@@ -28,8 +28,8 @@ function useCustomerFormController({ formType }: FormType) {
         }
       },
       nik: (value) => {
-        if (value.length < 16) {
-          return "NIK minimal 16 karakter";
+        if (!value) {
+          return "NIK tidak boleh kosong";
         }
       },
       phoneNumber: (value) => {

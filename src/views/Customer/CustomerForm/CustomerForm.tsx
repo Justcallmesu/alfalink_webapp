@@ -56,6 +56,7 @@ function CustomerForm(formType: FormType) {
                 label="Alamat"
                 name="address"
                 {...form.getInputProps("address")}
+                withAsterisk
               />
             </Grid.Col>
             <Grid.Col span={6}>
@@ -88,13 +89,9 @@ function CustomerForm(formType: FormType) {
               />
             </Grid.Col>
             <Grid.Col span={6}>
-              <NumberInput
+              <TextInput
                 label="Nomor Telepon"
                 name="phoneNumber"
-                allowNegative={false}
-                allowDecimal={false}
-                allowLeadingZeros={false}
-                hideControls
                 type="tel"
                 {...form.getInputProps("phoneNumber")}
                 key={form.key("phoneNumber")}
@@ -102,16 +99,11 @@ function CustomerForm(formType: FormType) {
               />
             </Grid.Col>
             <Grid.Col span={6}>
-              <NumberInput
+              <TextInput
                 label="Nomor Whatsapp"
                 name="whatsappNumber"
-                allowNegative={false}
-                allowDecimal={false}
-                allowLeadingZeros={false}
-                hideControls
                 {...form.getInputProps("whatsappNumber")}
                 key={form.key("whatsappNumber")}
-                type="tel"
               />
             </Grid.Col>
           </Grid>

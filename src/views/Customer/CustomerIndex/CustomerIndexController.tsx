@@ -11,6 +11,7 @@ import {
   IconTrash,
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
+import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 
 function useCustomerIndexController() {
   /**
@@ -48,6 +49,16 @@ function useCustomerIndexController() {
     });
   };
 
+  /**
+   * Handle Page Change
+   */
+  const handlePageChange = (page: number) => {
+    setCustomerQuery((prevState) => ({
+      ...prevState,
+      page,
+    }));
+  };
+
   const tableColumns: DataTableColumn<CustomerModel>[] = [
     {
       accessor: "actions",
@@ -66,13 +77,14 @@ function useCustomerIndexController() {
             >
               <IconEdit />
             </ActionIcon>
-            <ActionIcon
-              variant="light"
-              color="red"
-              onClick={() => handleDeleteCustomer(record._id)}
+            <Popconfirm
+              description="Yakin ingin menghapus data ini ?"
+              onConfirm={() => handleDeleteCustomer(record._id)}
             >
-              <IconTrash />
-            </ActionIcon>
+              <ActionIcon variant="light" color="red">
+                <IconTrash />
+              </ActionIcon>
+            </Popconfirm>
           </div>
         );
       },
@@ -114,6 +126,7 @@ function useCustomerIndexController() {
     tableColumns,
     handleSearch,
     navigate,
+    handlePageChange,
   };
 }
 

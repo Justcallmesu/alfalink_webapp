@@ -10,6 +10,7 @@ export interface PaginationModel<T> extends ResponseMessage {
     limit: number;
     totalPage: number;
     itemsCount: number;
+    totalItems: number;
   };
 }
 
