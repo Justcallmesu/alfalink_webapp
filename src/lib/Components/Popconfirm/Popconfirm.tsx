@@ -22,9 +22,7 @@ export function Popconfirm(props: PopconfirmProps) {
   return (
     <Popover opened={opened} width={size} position={placement}>
       <Popover.Target>
-        <UnstyledButton onClick={() => setOpened(true)}>
-          {children}
-        </UnstyledButton>
+        <div onClick={() => setOpened(true)}>{children}</div>
       </Popover.Target>
       <Popover.Dropdown>
         <Text size="sm" style={{ marginBottom: 10 }}>

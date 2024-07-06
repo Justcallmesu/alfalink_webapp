@@ -79,7 +79,7 @@ function CustomerDetails() {
               description="Yakin ingin menghapus data ini ?"
               onConfirm={() => handleDeleteCustomer(customerData?.data._id!)}
             >
-              <Button color="red">
+              <Button color="red" fullWidth>
                 <IconTrash /> Hapus
               </Button>
             </Popconfirm>
