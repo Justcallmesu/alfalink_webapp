@@ -70,7 +70,6 @@ function useAdminLoginController() {
         navigate("/admin");
       }
     } catch (error: any) {
-      console.log(error);
       if (error?.response && error?.response?.status === 400) {
         notifications.show({
           title: "Error",

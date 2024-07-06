@@ -7,9 +7,30 @@ export function getAllCustomers(): AxiosRequestConfig {
   };
 }
 
-export function getAllCustomer(id: string): AxiosRequestConfig {
+export function getCustomer(id: string): AxiosRequestConfig {
   return {
     method: "GET",
+    url: `/customer/${id}`,
+  };
+}
+
+export function postCustomer(): AxiosRequestConfig {
+  return {
+    method: "POST",
+    url: "/customer",
+  };
+}
+
+export function updateCustomer(id: string): AxiosRequestConfig {
+  return {
+    method: "PUT",
+    url: `/customer/${id}`,
+  };
+}
+
+export function deleteCustomer(id: string): AxiosRequestConfig {
+  return {
+    method: "DELETE",
     url: `/customer/${id}`,
   };
 }

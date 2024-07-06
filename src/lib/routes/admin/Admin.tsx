@@ -1,9 +1,9 @@
 import SuspenseLoading from "@/views/Base/SuspenseLoading";
-import CustomerIndex from "@/views/Customer/CustomerIndex/CustomerIndex";
 import PrivateRoute from "@/views/Guard/PrivateRoute";
 import PublicRoute from "@/views/Guard/PublicRoute";
 import { lazy } from "react";
 import { Navigate, Route } from "react-router-dom";
+import CustomerRoutes from "./Customers/Customer";
 
 /**
  * Layout
@@ -38,14 +38,7 @@ export default (
             </SuspenseLoading>
           }
         ></Route>
-        <Route
-          path="customers"
-          element={
-            <SuspenseLoading>
-              <CustomerIndex />
-            </SuspenseLoading>
-          }
-        ></Route>
+        {CustomerRoutes}
       </Route>
     </Route>
 

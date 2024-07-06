@@ -17,6 +17,7 @@ function CustomerIndex() {
      */
     tableColumns,
     handleSearch,
+    navigate,
   } = useCustomerIndexController();
 
   return (
@@ -38,7 +39,7 @@ function CustomerIndex() {
               </Button>
             </Grid.Col>
             <Grid.Col span={4} className="flex justify-end">
-              <Button>
+              <Button onClick={() => navigate("./create")}>
                 <IconPlus />
               </Button>
             </Grid.Col>

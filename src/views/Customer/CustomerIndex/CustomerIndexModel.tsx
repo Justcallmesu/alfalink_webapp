@@ -1,4 +1,8 @@
-import { getAllCustomers } from "@/lib/axios-config/customer/customer";
+import {
+  deleteCustomer,
+  getAllCustomers,
+} from "@/lib/axios-config/customer/customer";
+import { useAxiosDelete } from "@/lib/hooks/axios/UseAxiosDelete";
 import useGetAxios from "@/lib/hooks/axios/UseAxiosGet";
 import { CustomerModel, CustomerQuery } from "@/lib/models/customer/customer";
 import { PaginationModel } from "@/lib/models/globals/ResponseModel";
@@ -24,11 +28,21 @@ function useCustomerIndexModel() {
     queryKey: customerKeys.lists(customerQuery).queryKey,
   });
 
+  /**
+   * Delete Customer
+   */
+  const { mutate: mutateDeleteCustomer } = useAxiosDelete({
+    config: (id) => deleteCustomer(id!),
+    invalidateQueryKey: customerKeys.lists(customerQuery).queryKey,
+    invalidateType: "all",
+  });
+
   return {
     customerData,
     isCustomerFetching,
     refetchCustomer,
     setCustomerQuery,
+    mutateDeleteCustomer,
   };
 }
 
