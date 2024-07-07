@@ -7,14 +7,14 @@ import { Route } from "react-router-dom";
  * Components
  */
 const CustomerIndex = lazy(
-  () => import("@/views/Customer/CustomerIndex/CustomerIndex")
+  () => import("@/views/Admin/Customer/CustomerIndex/CustomerIndex")
 );
 const CustomerForm = lazy(
-  () => import("@/views/Customer/CustomerForm/CustomerForm")
+  () => import("@/views/Admin/Customer/CustomerForm/CustomerForm")
 );
 
 const CustomerDetails = lazy(
-  () => import("@/views/Customer/CustomerDetails/CustomerDetails")
+  () => import("@/views/Admin/Customer/CustomerDetails/CustomerDetails")
 );
 
 const CustomerRoutes = (
