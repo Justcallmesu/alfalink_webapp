@@ -1,5 +1,14 @@
+import { FormTypeEnum } from "@/lib/enum/FormType";
 import SuspenseLoading from "@/views/Base/SuspenseLoading";
+import { lazy } from "react";
 import { Route } from "react-router-dom";
+
+const ColorIndex = lazy(
+  () => import("@/views/Admin/MasterData/Color/Index/ColorIndex")
+);
+const ColorForm = lazy(
+  () => import("@/views/Admin/MasterData/Color/Form/ColorForm")
+);
 
 export const ColorRoutes = (
   <Route path="color">
@@ -7,7 +16,7 @@ export const ColorRoutes = (
       index
       element={
         <SuspenseLoading>
-          <h1>Hello</h1>
+          <ColorIndex />
         </SuspenseLoading>
       }
     ></Route>
@@ -16,7 +25,7 @@ export const ColorRoutes = (
       path="create"
       element={
         <SuspenseLoading>
-          <h1>Hello</h1>
+          <ColorForm formType={FormTypeEnum.CREATE} />
         </SuspenseLoading>
       }
     ></Route>
@@ -25,16 +34,7 @@ export const ColorRoutes = (
       path=":id/edit"
       element={
         <SuspenseLoading>
-          <h1>Hello</h1>
-        </SuspenseLoading>
-      }
-    ></Route>
-
-    <Route
-      path=":id"
-      element={
-        <SuspenseLoading>
-          <h1>Hello</h1>
+          <ColorForm formType={FormTypeEnum.UPDATE} />
         </SuspenseLoading>
       }
     ></Route>

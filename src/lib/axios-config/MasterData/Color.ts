@@ -1,34 +1,34 @@
 import { AxiosRequestConfig } from "axios";
 
-export function getColors(): AxiosRequestConfig {
+export function axiosGetColors(): AxiosRequestConfig {
   return {
     method: "GET",
     url: "/warnamobil",
   };
 }
 
-export function getColor(id: string): AxiosRequestConfig {
+export function axiosGetColor(id: string): AxiosRequestConfig {
   return {
     method: "GET",
     url: `/warnamobil/${id}`,
   };
 }
 
-export function postColor(): AxiosRequestConfig {
+export function axiosPostColor(): AxiosRequestConfig {
   return {
     method: "POST",
     url: "/warnamobil",
   };
 }
 
-export function updateColor(id: string): AxiosRequestConfig {
+export function axiosUpdateColor(id: string): AxiosRequestConfig {
   return {
     method: "PUT",
     url: `/warnamobil/${id}`,
   };
 }
 
-export function deleteColor(id: string): AxiosRequestConfig {
+export function axiosDeleteColor(id: string): AxiosRequestConfig {
   return {
     method: "DELETE",
     url: `/warnamobil/${id}`,

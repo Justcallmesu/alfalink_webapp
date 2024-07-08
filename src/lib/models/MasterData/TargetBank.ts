@@ -16,5 +16,5 @@ export interface CreateTargetBankDto {
 export interface UpdateTargetBankDto extends CreateTargetBankDto {}
 
 export interface TargetBankQueryDto extends BaseRequestModel {
-  bankName: string;
+  bankName?: string;
 }

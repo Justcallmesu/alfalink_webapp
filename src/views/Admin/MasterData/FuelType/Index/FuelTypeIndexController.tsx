@@ -1,24 +1,24 @@
 import React from "react";
-import useCarModelModel from "./CarModelModel";
 import { DataTableColumn } from "mantine-datatable";
-import { CarModelModel } from "@/lib/models/MasterData/CarModel";
 import { ActionIcon } from "@mantine/core";
 import { IconEdit, IconFile, IconTrash } from "@tabler/icons-react";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import { useNavigate } from "react-router-dom";
+import { FuelTypeModel } from "@/lib/models/MasterData/FuelType";
+import useFuelTypeIndexModel from "./FuelTypeIndexModel";
 
-function useCarModelController() {
+function useFuelTypeIndexController() {
   /**
    * Models
    */
   const {
-    carModelData,
-    carModelQuery,
-    carModelRefetch,
-    isCarModelFetching,
-    setCarModelQuery,
-    mutateDeleteCarModel,
-  } = useCarModelModel();
+    fuelTypeData,
+
+    fuelTypeRefetch,
+    isFuelTypeFetching,
+    setFuelTypeQuery,
+    mutateDeleteFuelType,
+  } = useFuelTypeIndexModel();
 
   /**
    * Navigate
@@ -28,15 +28,15 @@ function useCarModelController() {
   /**
    * Handle Delete Car Model
    */
-  const handleDeleteCarModel = (id: string) => {
-    mutateDeleteCarModel({ id });
+  const handleDeleteFuelType = (id: string) => {
+    mutateDeleteFuelType({ id });
   };
 
   /**
    * Handle Search
    */
   const handleSearch = (value: string) => {
-    setCarModelQuery((prevState) => ({
+    setFuelTypeQuery((prevState) => ({
       ...prevState,
       name: value,
     }));
@@ -46,13 +46,13 @@ function useCarModelController() {
    * Handle Page Change
    */
   const handlePageChange = (page: number) => {
-    setCarModelQuery((prevState) => ({
+    setFuelTypeQuery((prevState) => ({
       ...prevState,
       page,
     }));
   };
 
-  const CarModelTableColumns: DataTableColumn<CarModelModel>[] = [
+  const FuelTypeTableColumns: DataTableColumn<FuelTypeModel>[] = [
     {
       accessor: "actions",
       title: "Actions",
@@ -70,7 +70,7 @@ function useCarModelController() {
             </ActionIcon>
             <Popconfirm
               description="Yakin ingin menghapus data ini ?"
-              onConfirm={() => handleDeleteCarModel(record._id)}
+              onConfirm={() => handleDeleteFuelType(record._id)}
             >
               <ActionIcon variant="light" color="red">
                 <IconTrash />
@@ -82,7 +82,7 @@ function useCarModelController() {
     },
     {
       accessor: "name",
-      title: "Nama",
+      title: "Nama Tipe Mobil",
     },
   ];
 
@@ -90,18 +90,18 @@ function useCarModelController() {
     /**
      * Models
      */
-    carModelData,
-    carModelRefetch,
-    isCarModelFetching,
+    fuelTypeData,
+    fuelTypeRefetch,
+    isFuelTypeFetching,
 
     /**
      * Controllers
      */
     handleSearch,
-    CarModelTableColumns,
+    FuelTypeTableColumns,
     navigate,
     handlePageChange,
   };
 }
 
-export default useCarModelController;
+export default useFuelTypeIndexController;

@@ -1,19 +1,19 @@
 import React from "react";
-import useCarModelController from "./CarModelController";
+import useColorIndexController from "./ColorController";
 import { Button, Card, Grid, Input } from "@mantine/core";
 import { IconPlus, IconReload } from "@tabler/icons-react";
 import { DataTable } from "mantine-datatable";
 
-function CarModelIndex() {
+function ColorIndex() {
   const {
-    CarModelTableColumns,
-    carModelData,
-    carModelRefetch,
+    ColorTableColumns,
+    colorData,
+    colorRefetch,
     handleSearch,
-    isCarModelFetching,
+    isColorFetching,
     navigate,
     handlePageChange,
-  } = useCarModelController();
+  } = useColorIndexController();
 
   return (
     <Card pt={20} px={0} shadow="md" className="overflow-x-scroll">
@@ -29,7 +29,7 @@ function CarModelIndex() {
               />
             </Grid.Col>
             <Grid.Col span={2}>
-              <Button onClick={async () => await carModelRefetch()}>
+              <Button onClick={async () => await colorRefetch()}>
                 <IconReload />
               </Button>
             </Grid.Col>
@@ -49,13 +49,13 @@ function CarModelIndex() {
             idAccessor="_id"
             highlightOnHover
             minHeight={400}
-            columns={CarModelTableColumns}
-            fetching={isCarModelFetching}
-            records={carModelData?.data}
-            totalRecords={carModelData?.meta.totalItems}
-            recordsPerPage={carModelData?.meta?.limit!}
+            columns={ColorTableColumns}
+            fetching={isColorFetching}
+            records={colorData?.data}
+            totalRecords={colorData?.meta.totalItems}
+            recordsPerPage={colorData?.meta?.limit!}
             onPageChange={handlePageChange}
-            page={carModelData?.meta.page!}
+            page={colorData?.meta.page!}
           />
         </Grid.Col>
       </Grid>
@@ -63,4 +63,4 @@ function CarModelIndex() {
   );
 }
 
-export default CarModelIndex;
+export default ColorIndex;

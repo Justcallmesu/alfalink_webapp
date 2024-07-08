@@ -1,19 +1,19 @@
 import React from "react";
-import useCarModelController from "./CarModelController";
 import { Button, Card, Grid, Input } from "@mantine/core";
 import { IconPlus, IconReload } from "@tabler/icons-react";
 import { DataTable } from "mantine-datatable";
+import useTargetBankFormController from "./TargetBankIndexController";
 
-function CarModelIndex() {
+function targetBankIndex() {
   const {
-    CarModelTableColumns,
-    carModelData,
-    carModelRefetch,
+    TargetBankTableColumns,
+    targetBankData,
+    targetBankRefetch,
     handleSearch,
-    isCarModelFetching,
+    isTargetBankFetching,
     navigate,
     handlePageChange,
-  } = useCarModelController();
+  } = useTargetBankFormController();
 
   return (
     <Card pt={20} px={0} shadow="md" className="overflow-x-scroll">
@@ -29,7 +29,7 @@ function CarModelIndex() {
               />
             </Grid.Col>
             <Grid.Col span={2}>
-              <Button onClick={async () => await carModelRefetch()}>
+              <Button onClick={async () => await targetBankRefetch()}>
                 <IconReload />
               </Button>
             </Grid.Col>
@@ -49,13 +49,13 @@ function CarModelIndex() {
             idAccessor="_id"
             highlightOnHover
             minHeight={400}
-            columns={CarModelTableColumns}
-            fetching={isCarModelFetching}
-            records={carModelData?.data}
-            totalRecords={carModelData?.meta.totalItems}
-            recordsPerPage={carModelData?.meta?.limit!}
+            columns={TargetBankTableColumns}
+            fetching={isTargetBankFetching}
+            records={targetBankData?.data}
+            totalRecords={targetBankData?.meta.totalItems}
+            recordsPerPage={targetBankData?.meta?.limit!}
             onPageChange={handlePageChange}
-            page={carModelData?.meta.page!}
+            page={targetBankData?.meta.page!}
           />
         </Grid.Col>
       </Grid>
@@ -63,4 +63,4 @@ function CarModelIndex() {
   );
 }
 
-export default CarModelIndex;
+export default targetBankIndex;

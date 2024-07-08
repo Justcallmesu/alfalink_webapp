@@ -1,24 +1,25 @@
 import React from "react";
-import useCarModelModel from "./CarModelModel";
 import { DataTableColumn } from "mantine-datatable";
-import { CarModelModel } from "@/lib/models/MasterData/CarModel";
 import { ActionIcon } from "@mantine/core";
 import { IconEdit, IconFile, IconTrash } from "@tabler/icons-react";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import { useNavigate } from "react-router-dom";
+import { FuelTypeModel } from "@/lib/models/MasterData/FuelType";
+import useFuelTypeIndexModel from "./TargetBankIndexModel";
+import { TargetBankModel } from "@/lib/models/MasterData/TargetBank";
 
-function useCarModelController() {
+function useTargetBankIndexController() {
   /**
    * Models
    */
   const {
-    carModelData,
-    carModelQuery,
-    carModelRefetch,
-    isCarModelFetching,
-    setCarModelQuery,
-    mutateDeleteCarModel,
-  } = useCarModelModel();
+    targetBankData,
+
+    targetBankRefetch,
+    isTargetBankFetching,
+    settargetBankQuery,
+    mutateDeleteTargetBank,
+  } = useFuelTypeIndexModel();
 
   /**
    * Navigate
@@ -28,17 +29,17 @@ function useCarModelController() {
   /**
    * Handle Delete Car Model
    */
-  const handleDeleteCarModel = (id: string) => {
-    mutateDeleteCarModel({ id });
+  const handleDeleteTargetBank = (id: string) => {
+    mutateDeleteTargetBank({ id });
   };
 
   /**
    * Handle Search
    */
   const handleSearch = (value: string) => {
-    setCarModelQuery((prevState) => ({
+    settargetBankQuery((prevState) => ({
       ...prevState,
-      name: value,
+      bankName: value,
     }));
   };
 
@@ -46,13 +47,13 @@ function useCarModelController() {
    * Handle Page Change
    */
   const handlePageChange = (page: number) => {
-    setCarModelQuery((prevState) => ({
+    settargetBankQuery((prevState) => ({
       ...prevState,
       page,
     }));
   };
 
-  const CarModelTableColumns: DataTableColumn<CarModelModel>[] = [
+  const TargetBankTableColumns: DataTableColumn<TargetBankModel>[] = [
     {
       accessor: "actions",
       title: "Actions",
@@ -70,7 +71,7 @@ function useCarModelController() {
             </ActionIcon>
             <Popconfirm
               description="Yakin ingin menghapus data ini ?"
-              onConfirm={() => handleDeleteCarModel(record._id)}
+              onConfirm={() => handleDeleteTargetBank(record._id)}
             >
               <ActionIcon variant="light" color="red">
                 <IconTrash />
@@ -81,8 +82,16 @@ function useCarModelController() {
       },
     },
     {
-      accessor: "name",
-      title: "Nama",
+      accessor: "bankName",
+      title: "Nama Bank",
+    },
+    {
+      accessor: "bankNumber",
+      title: "Nomor Rekening",
+    },
+    {
+      accessor: "bankOwnerName",
+      title: "Nama Pemilik Rekening",
     },
   ];
 
@@ -90,18 +99,18 @@ function useCarModelController() {
     /**
      * Models
      */
-    carModelData,
-    carModelRefetch,
-    isCarModelFetching,
+    targetBankData,
+    targetBankRefetch,
+    isTargetBankFetching,
 
     /**
      * Controllers
      */
     handleSearch,
-    CarModelTableColumns,
+    TargetBankTableColumns,
     navigate,
     handlePageChange,
   };
 }
 
-export default useCarModelController;
+export default useTargetBankIndexController;

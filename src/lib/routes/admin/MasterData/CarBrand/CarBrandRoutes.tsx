@@ -1,5 +1,14 @@
+import { FormTypeEnum } from "@/lib/enum/FormType";
 import SuspenseLoading from "@/views/Base/SuspenseLoading";
+import { lazy } from "react";
 import { Route } from "react-router-dom";
+
+const CarBrandIndex = lazy(
+  () => import("@/views/Admin/MasterData/CarBrand/Index/CarBrandIndex")
+);
+const CarBrandForm = lazy(
+  () => import("@/views/Admin/MasterData/CarBrand/Form/CarBrandForm")
+);
 
 export const CarBrandRoutes = (
   <Route path="car-brand">
@@ -7,7 +16,7 @@ export const CarBrandRoutes = (
       index
       element={
         <SuspenseLoading>
-          <h1>Hello</h1>
+          <CarBrandIndex />
         </SuspenseLoading>
       }
     ></Route>
@@ -16,7 +25,7 @@ export const CarBrandRoutes = (
       path="create"
       element={
         <SuspenseLoading>
-          <h1>Hello</h1>
+          <CarBrandForm formType={FormTypeEnum.CREATE} />
         </SuspenseLoading>
       }
     ></Route>
@@ -25,16 +34,7 @@ export const CarBrandRoutes = (
       path=":id/edit"
       element={
         <SuspenseLoading>
-          <h1>Hello</h1>
-        </SuspenseLoading>
-      }
-    ></Route>
-
-    <Route
-      path=":id"
-      element={
-        <SuspenseLoading>
-          <h1>Hello</h1>
+          <CarBrandForm formType={FormTypeEnum.UPDATE} />
         </SuspenseLoading>
       }
     ></Route>

@@ -1,34 +1,34 @@
 import { AxiosRequestConfig } from "axios";
 
-export function getTargetBanks(): AxiosRequestConfig {
+export function axiosGetTargetBanks(): AxiosRequestConfig {
   return {
     method: "GET",
     url: "/banktujuan",
   };
 }
 
-export function getTargetBank(id: string): AxiosRequestConfig {
+export function axiosGetTargetBank(id: string): AxiosRequestConfig {
   return {
     method: "GET",
     url: `/banktujuan/${id}`,
   };
 }
 
-export function postTargetBank(): AxiosRequestConfig {
+export function axiosPostTargetBank(): AxiosRequestConfig {
   return {
     method: "POST",
     url: "/banktujuan",
   };
 }
 
-export function updateTargetBank(id: string): AxiosRequestConfig {
+export function axiosUpdateTargetBank(id: string): AxiosRequestConfig {
   return {
     method: "PUT",
     url: `/banktujuan/${id}`,
   };
 }
 
-export function deleteTargetBank(id: string): AxiosRequestConfig {
+export function axiosDeleteTargetBank(id: string): AxiosRequestConfig {
   return {
     method: "DELETE",
     url: `/banktujuan/${id}`,

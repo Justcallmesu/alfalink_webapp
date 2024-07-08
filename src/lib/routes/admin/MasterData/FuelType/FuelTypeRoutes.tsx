@@ -1,5 +1,14 @@
+import { FormTypeEnum } from "@/lib/enum/FormType";
 import SuspenseLoading from "@/views/Base/SuspenseLoading";
+import { lazy } from "react";
 import { Route } from "react-router-dom";
+
+const FuelTypeIndex = lazy(
+  () => import("@/views/Admin/MasterData/FuelType/Index/FuelTypeIndex")
+);
+const FuelTypeForm = lazy(
+  () => import("@/views/Admin/MasterData/FuelType/Form/FuelTypeForm")
+);
 
 export const FuelTypeRoutes = (
   <Route path="fuel-type">
@@ -7,7 +16,7 @@ export const FuelTypeRoutes = (
       index
       element={
         <SuspenseLoading>
-          <h1>Hello</h1>
+          <FuelTypeIndex />
         </SuspenseLoading>
       }
     ></Route>
@@ -16,7 +25,7 @@ export const FuelTypeRoutes = (
       path="create"
       element={
         <SuspenseLoading>
-          <h1>Hello</h1>
+          <FuelTypeForm formType={FormTypeEnum.CREATE} />
         </SuspenseLoading>
       }
     ></Route>
@@ -25,16 +34,7 @@ export const FuelTypeRoutes = (
       path=":id/edit"
       element={
         <SuspenseLoading>
-          <h1>Hello</h1>
-        </SuspenseLoading>
-      }
-    ></Route>
-
-    <Route
-      path=":id"
-      element={
-        <SuspenseLoading>
-          <h1>Hello</h1>
+          <FuelTypeForm formType={FormTypeEnum.UPDATE} />
         </SuspenseLoading>
       }
     ></Route>

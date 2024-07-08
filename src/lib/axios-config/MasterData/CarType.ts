@@ -1,34 +1,34 @@
 import { AxiosRequestConfig } from "axios";
 
-export function getCarTypes(): AxiosRequestConfig {
+export function axiosGetCarTypes(): AxiosRequestConfig {
   return {
     method: "GET",
     url: "/tipemobil",
   };
 }
 
-export function getCarType(id: string): AxiosRequestConfig {
+export function axiosGetCarType(id: string): AxiosRequestConfig {
   return {
     method: "GET",
     url: `/tipemobil/${id}`,
   };
 }
 
-export function postCarType(): AxiosRequestConfig {
+export function axiosPostCarType(): AxiosRequestConfig {
   return {
     method: "POST",
     url: "/tipemobil",
   };
 }
 
-export function updateCarType(id: string): AxiosRequestConfig {
+export function axiosUpdateCarType(id: string): AxiosRequestConfig {
   return {
     method: "PUT",
     url: `/tipemobil/${id}`,
   };
 }
 
-export function deleteCarType(id: string): AxiosRequestConfig {
+export function axiosDeleteCarType(id: string): AxiosRequestConfig {
   return {
     method: "DELETE",
     url: `/tipemobil/${id}`,
