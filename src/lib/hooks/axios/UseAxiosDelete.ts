@@ -3,6 +3,13 @@ import { UseAxiosDeleteProps } from "@/lib/models/globals/AxiosProps";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { DeleteDto } from "@/lib/models/globals/AxiosProps";
 import { useNavigate } from "react-router-dom";
+import { notificationSystem } from "@/lib/notification-system/NotificationSystem";
+import { NotificationSystemType } from "@/lib/notification-system/enum/NotificationSystemType";
+import {
+  ErrorResponse,
+  ResponseMessage,
+} from "@/lib/models/globals/ResponseModel";
+import { AxiosError } from "axios";
 
 export function useAxiosDelete(props: UseAxiosDeleteProps) {
   const {
@@ -33,6 +40,26 @@ export function useAxiosDelete(props: UseAxiosDeleteProps) {
     return response.data;
   };
 
+  const errorFunction = (error: ErrorResponse) => {
+    console.log(error);
+    if (Array.isArray(error.message)) {
+      error.message.forEach((message) => {
+        notificationSystem({
+          message: message,
+          notificationType: NotificationSystemType.ERROR,
+          title: "Error",
+        });
+      });
+      return;
+    }
+
+    notificationSystem({
+      message: error.message,
+      notificationType: NotificationSystemType.ERROR,
+      title: "Error",
+    });
+  };
+
   const onSuccessHandler = () => {
     if (removeQueryKey) {
       queryClient.removeQueries({ queryKey: removeQueryKey, type: removeType });
@@ -45,6 +72,12 @@ export function useAxiosDelete(props: UseAxiosDeleteProps) {
       });
     }
 
+    notificationSystem({
+      message: "Success",
+      notificationType: NotificationSystemType.SUCCESS,
+      title: "Data Berhasil Dihapus",
+    });
+
     if (redirect) navigate(redirect);
   };
 
@@ -53,6 +86,11 @@ export function useAxiosDelete(props: UseAxiosDeleteProps) {
       return axiosDelete({ id, id2 });
     },
     onSuccess: onSuccessHandler,
+    onError: (error: AxiosError) => {
+      const errorResponse: ErrorResponse = error.response
+        ?.data as ErrorResponse;
+      errorFunction(errorResponse);
+    },
   });
 
   return { ...mutation };

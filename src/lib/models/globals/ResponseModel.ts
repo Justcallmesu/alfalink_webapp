@@ -17,3 +17,9 @@ export interface PaginationModel<T> extends ResponseMessage {
 export interface ResponseData<T> extends ResponseMessage {
   data: T;
 }
+
+export interface ErrorResponse {
+  message: string | string[];
+  error: string;
+  statusCode: number;
+}
