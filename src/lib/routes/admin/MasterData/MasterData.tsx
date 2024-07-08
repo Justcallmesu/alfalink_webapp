@@ -5,6 +5,7 @@ import { FuelTypeRoutes } from "./FuelType/FuelTypeRoutes";
 import { ColorRoutes } from "./Color/ColorRoutes";
 import { CarTypeRoutes } from "./CarType/CarTypeRoutes";
 import { TargetBankRoutes } from "./TargetBank/TargetBankRoutes";
+import { BodyStyleRoutes } from "./BodyStyle/BodyStyle";
 
 export const MasterDataRoutes = (
   <>
@@ -14,5 +15,6 @@ export const MasterDataRoutes = (
     {ColorRoutes}
     {FuelTypeRoutes}
     {TargetBankRoutes}
+    {BodyStyleRoutes}
   </>
 );
