@@ -3,6 +3,8 @@ import PrivateRoute from "@/views/Guard/PrivateRoute";
 import PublicRoute from "@/views/Guard/PublicRoute";
 import { lazy } from "react";
 import { Navigate, Route } from "react-router-dom";
+import CustomerRoutes from "./Customers/Customer";
+import { MasterDataRoutes } from "./MasterData/MasterData";
 
 /**
  * Layout
@@ -11,31 +13,36 @@ const LoginLayout = lazy(() => import("@/views/Layout/LoginLayout"));
 const AdminLayout = lazy(() => import("@/views/Layout/AdminLayout"));
 
 /**
- * Components
+ * Pages
  */
-const AdminLogin = lazy(() => import("@/views/auth/admin-login/AdminLogin"));
-
-/**
- * Instances
- */
+const AdminLogin = lazy(
+  () => import("@/views/Admin/auth/admin-login/AdminLogin")
+);
+const AdminHome = lazy(() => import("@/views/Admin/admin-home/admin-home"));
 
 export default (
   <Route>
     <Route element={<PrivateRoute url="./login" />}>
       <Route
         path="/admin"
-        
         element={
           <SuspenseLoading>
             <AdminLayout />
           </SuspenseLoading>
         }
       >
-        <Route index element={<>test</>}></Route>
         <Route
-          path="customers"
-          element={<SuspenseLoading>Hello</SuspenseLoading>}
+          index
+          element={
+            <SuspenseLoading>
+              <AdminHome />
+            </SuspenseLoading>
+          }
         ></Route>
+        {CustomerRoutes}
+
+        {/* Master Data */}
+        {MasterDataRoutes}
       </Route>
     </Route>
 
