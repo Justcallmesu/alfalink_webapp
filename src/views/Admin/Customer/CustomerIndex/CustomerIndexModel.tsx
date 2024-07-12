@@ -13,7 +13,10 @@ function useCustomerIndexModel() {
   /**
    * Customer Query
    */
-  const [customerQuery, setCustomerQuery] = useState<CustomerQuery>({});
+  const [customerQuery, setCustomerQuery] = useState<CustomerQuery>({
+    page: 1,
+    limit: 10,
+  });
 
   /**
    * Get Customer

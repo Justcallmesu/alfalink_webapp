@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { MantineProvider } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
+import { ModalsProvider } from "@mantine/modals";
 
 /**
  * CSS
@@ -23,10 +24,15 @@ const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <MantineProvider>
-    <QueryClientProvider client={queryClient}>
-      <Notifications position="bottom-right" />
-      <App />
-      <ReactQueryDevtools initialIsOpen={false} buttonPosition="bottom-right" />
-    </QueryClientProvider>
+    <ModalsProvider>
+      <QueryClientProvider client={queryClient}>
+        <Notifications position="bottom-right" />
+        <App />
+        <ReactQueryDevtools
+          initialIsOpen={false}
+          buttonPosition="bottom-right"
+        />
+      </QueryClientProvider>
+    </ModalsProvider>
   </MantineProvider>
 );

@@ -5,6 +5,7 @@ import { lazy } from "react";
 import { Navigate, Route } from "react-router-dom";
 import CustomerRoutes from "./Customers/Customer";
 import { MasterDataRoutes } from "./MasterData/MasterData";
+import CarRoutes from "./Car/CarRoutes";
 
 /**
  * Layout
@@ -39,7 +40,12 @@ export default (
             </SuspenseLoading>
           }
         ></Route>
+
+        {/* Customer Routes */}
         {CustomerRoutes}
+
+        {/* Cars Routes */}
+        {CarRoutes}
 
         {/* Master Data */}
         {MasterDataRoutes}
