@@ -12,6 +12,7 @@ import {
   IconKey,
   IconPaint,
   IconSteeringWheel,
+  IconZoomCheck,
 } from "@tabler/icons-react";
 
 function NavigationItems() {
@@ -33,6 +34,12 @@ function NavigationItems() {
       leftSection: <IconCar />,
       description: "Data Mobil",
       href: "/admin/cars",
+    },
+    {
+      label: "Inspeksi",
+      leftSection: <IconZoomCheck />,
+      description: "Data Inspeksi mobil",
+      href: "/admin/inspections",
     },
     {
       label: "Master Data",

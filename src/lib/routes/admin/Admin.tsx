@@ -6,6 +6,7 @@ import { Navigate, Route } from "react-router-dom";
 import CustomerRoutes from "./Customers/Customer";
 import { MasterDataRoutes } from "./MasterData/MasterData";
 import CarRoutes from "./Car/CarRoutes";
+import { InspeksiRoutes } from "./Inspeksi/InspeksiRoutes";
 
 /**
  * Layout
@@ -46,6 +47,9 @@ export default (
 
         {/* Cars Routes */}
         {CarRoutes}
+
+        {/* Inspection Routes */}
+        {InspeksiRoutes}
 
         {/* Master Data */}
         {MasterDataRoutes}

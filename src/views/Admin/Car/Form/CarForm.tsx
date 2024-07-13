@@ -199,7 +199,6 @@ function CarForm({ formType }: FormType) {
                 label="Tahun Rakit Mobil"
                 placeholder="Tahun Rakit Mobil"
                 min={1990}
-                withAsterisk
                 name="tahunRakit"
                 {...form.getInputProps("tahunRakit")}
                 key={form.key("tahunRakit")}
