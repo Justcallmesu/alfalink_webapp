@@ -34,6 +34,7 @@ function useInspeksiIndexModel() {
     config: (id) => axiosDeleteInspection(id!),
     invalidateQueryKey: inspeksiKeys.lists(inspectionQuery).queryKey,
     invalidateType: "all",
+    redirect: "../",
   });
 
   const { mutate: mutateUpdateInspection } = useAxiosPostPatch({
