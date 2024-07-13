@@ -2,6 +2,8 @@ import { NavigationItemsProps } from "./Interface/NavigationItems.interface";
 import {
   IconBrand4chan,
   IconBuildingFactory,
+  IconCar,
+  IconCar4wd,
   IconCashBanknote,
   IconFile,
   IconFriends,
@@ -10,6 +12,7 @@ import {
   IconKey,
   IconPaint,
   IconSteeringWheel,
+  IconZoomCheck,
 } from "@tabler/icons-react";
 
 function NavigationItems() {
@@ -25,6 +28,18 @@ function NavigationItems() {
       leftSection: <IconFriends />,
       description: "Customer Terdaftar",
       href: "/admin/customers",
+    },
+    {
+      label: "Mobil",
+      leftSection: <IconCar />,
+      description: "Data Mobil",
+      href: "/admin/cars",
+    },
+    {
+      label: "Inspeksi",
+      leftSection: <IconZoomCheck />,
+      description: "Data Inspeksi mobil",
+      href: "/admin/inspections",
     },
     {
       label: "Master Data",
@@ -66,6 +81,12 @@ function NavigationItems() {
           description: "Master Data Bank Tujuan",
           leftSection: <IconCashBanknote />,
           href: "/admin/target-bank",
+        },
+        {
+          label: "Body Style",
+          description: "Master Data Bank Tujuan",
+          leftSection: <IconCar4wd />,
+          href: "/admin/body-style",
         },
       ],
     },
