@@ -1,12 +1,10 @@
-import { axiosGetRoles } from "@/lib/axios-config/roles/Roles";
-import { axiosDeleteUser, axiosGetUsers } from "@/lib/axios-config/users/Users";
+import { axiosDeleteRole, axiosGetRoles } from "@/lib/axios-config/roles/Roles";
 import { useAxiosDelete } from "@/lib/hooks/axios/UseAxiosDelete";
 import useGetAxios from "@/lib/hooks/axios/UseAxiosGet";
-import { RoleModel, UserModel } from "@/lib/models/Auth/auth";
+import { RoleModel } from "@/lib/models/Auth/auth";
 import { RolesQueryDto } from "@/lib/models/Roles/Roles";
-import { UserQueryDto } from "@/lib/models/Users/Users";
 import { PaginationModel } from "@/lib/models/globals/ResponseModel";
-import { rolesKeys, usersKeys } from "@/lib/queryKeys/Auth/AuthKeys";
+import { rolesKeys } from "@/lib/queryKeys/Auth/AuthKeys";
 import React, { useState } from "react";
 
 function useRolesIndexModel() {
@@ -26,7 +24,7 @@ function useRolesIndexModel() {
   });
 
   const { mutate: mutateDeleteRole } = useAxiosDelete({
-    config: (id) => axiosDeleteUser(id!),
+    config: (id) => axiosDeleteRole(id!),
     invalidateQueryKey: rolesKeys.lists(roleQuery).queryKey,
     invalidateType: "all",
   });
