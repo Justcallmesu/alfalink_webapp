@@ -18,11 +18,13 @@ export interface PermissionsModel extends BaseModel {
 
 export interface RoleModel extends BaseModel {
   role_name: string;
+  role_description: string;
   permissions_id: PermissionsModel[];
 }
 
 export interface UserModel extends BaseModel {
   name: string;
   username: string;
-  role_id?: RoleModel;
+  date_created: Date;
+  role_id: RoleModel;
 }

@@ -8,6 +8,8 @@ import { MasterDataRoutes } from "./MasterData/MasterData";
 import CarRoutes from "./Car/CarRoutes";
 import { InspeksiRoutes } from "./Inspeksi/InspeksiRoutes";
 import { PenjualanRoutes } from "./Penjualan/PenjualanRoutes";
+import { UsersRoutes } from "./Users/UsersRoutes";
+import { RolesRoutes } from "./Roles/RolesRoutes";
 
 /**
  * Layout
@@ -57,9 +59,16 @@ export default (
 
         {/* Master Data */}
         {MasterDataRoutes}
+
+        {/* Users Routes */}
+        {UsersRoutes}
+
+        {/* Roles Routes */}
+        {RolesRoutes}
       </Route>
     </Route>
 
+    {/* Login Route */}
     <Route element={<PublicRoute url="/admin" />}>
       <Route
         element={

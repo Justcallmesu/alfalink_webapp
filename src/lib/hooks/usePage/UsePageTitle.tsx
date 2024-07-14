@@ -8,7 +8,7 @@ function usePageTitle(props: PageTitleProps) {
 
   useEffect(() => {
     setPageTitleProps(props);
-  });
+  }, []);
 }
 
 export default usePageTitle;

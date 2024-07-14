@@ -19,19 +19,21 @@ import { removeAllCredentials } from "@/lib/utils/LocalStorage";
 import { AxiosError } from "axios";
 import { IconArrowLeft } from "@tabler/icons-react";
 import PageTitle, { PageTitleProps } from "@/lib/Components/Layout/PageTitle";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function AdminLayout() {
   const [opened, { toggle }] = useDisclosure();
 
-  getMe().catch((res: AxiosError) => {
-    if (res?.response?.status === 401) {
-      removeAllCredentials();
-      window.location.href = "/login";
-    }
-  });
-
   const [pageTitleProps, setPageTitleProps] = useState<PageTitleProps>({});
+
+  useEffect(() => {
+    getMe().catch((res: AxiosError) => {
+      if (res?.response?.status === 401) {
+        removeAllCredentials();
+        window.location.href = "/login";
+      }
+    });
+  }, []);
 
   return (
     <AppShell

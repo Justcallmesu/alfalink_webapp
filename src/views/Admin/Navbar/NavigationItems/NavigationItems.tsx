@@ -13,6 +13,8 @@ import {
   IconKey,
   IconPaint,
   IconSteeringWheel,
+  IconTag,
+  IconUsers,
   IconZoomCheck,
 } from "@tabler/icons-react";
 
@@ -47,6 +49,26 @@ function NavigationItems() {
       leftSection: <IconCurrencyDollar />,
       description: "Data Penjualan mobil",
       href: "/admin/penjualan",
+    },
+
+    {
+      label: "Auth",
+      leftSection: <IconUsers />,
+      description: "Data Auth",
+      children: [
+        {
+          label: "Users",
+          leftSection: <IconUsers />,
+          description: "Data Users",
+          href: "/admin/users",
+        },
+        {
+          label: "Roles",
+          leftSection: <IconTag />,
+          description: "Data Roles",
+          href: "/admin/roles",
+        },
+      ],
     },
     {
       label: "Master Data",
