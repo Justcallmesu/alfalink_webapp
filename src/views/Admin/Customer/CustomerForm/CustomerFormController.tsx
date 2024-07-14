@@ -75,7 +75,7 @@ function useCustomerFormController({ formType }: FormType) {
       });
   }, [customerData]);
 
-  usePageTitle({ title: "Form Customer", prevRoute: "../" });
+  usePageTitle({ title: "Form Customer", prevRoute: -1 });
 
   return {
     /**

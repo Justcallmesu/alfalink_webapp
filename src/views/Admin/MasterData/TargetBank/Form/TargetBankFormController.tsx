@@ -65,7 +65,7 @@ function useTargetBankFormController({ formType }: FormType) {
       });
   }, [targetBankData]);
 
-  usePageTitle({ title: "Form Bank Tujuan", prevRoute: "../" });
+  usePageTitle({ title: "Form Bank Tujuan", prevRoute: -1 });
 
   return {
     form,

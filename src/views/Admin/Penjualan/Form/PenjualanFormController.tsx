@@ -5,6 +5,7 @@ import {
   metodePembayaran,
 } from "@/lib/models/penjualan/Penjualan";
 import { useForm } from "@mantine/form";
+import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
 
 function usePenjualanFormController() {
   const {
@@ -83,6 +84,8 @@ function usePenjualanFormController() {
     form.setFieldValue("mobil", value);
     form.setFieldValue("totalTerbayar", selectedCar?.harga ?? 0);
   };
+
+  usePageTitle({ title: "Form Penjualan", prevRoute: -1 });
 
   useEffect(() => {
     if (dataPenjualan?.data)

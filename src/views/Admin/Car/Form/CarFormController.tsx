@@ -145,7 +145,7 @@ function useCarFormController({ formType }: FormType) {
       });
   }, [carData]);
 
-  usePageTitle({ title: "Mobil Form", prevRoute: "../" });
+  usePageTitle({ title: "Mobil Form", prevRoute: -1 });
 
   return {
     /**

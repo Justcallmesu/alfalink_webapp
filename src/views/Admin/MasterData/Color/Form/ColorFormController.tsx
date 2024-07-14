@@ -43,7 +43,7 @@ function useColorFormController({ formType }: FormType) {
       });
   }, [colorData]);
 
-  usePageTitle({ title: "Form Warna", prevRoute: "../" });
+  usePageTitle({ title: "Form Warna", prevRoute: -1 });
 
   return {
     form,

@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import dayjs from "dayjs";
 import PenjualanStatusNode from "../Components/PenjualanStatusNode";
+import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
 
 function usePenjualanIndexController() {
   const {
@@ -110,6 +111,8 @@ function usePenjualanIndexController() {
       },
     },
   ];
+
+  usePageTitle({ title: "Penjualan" });
 
   return {
     isPenjualanFetching,

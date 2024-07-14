@@ -121,7 +121,7 @@ function useInspeksiDetailsController() {
     }
   }, [inspectionData]);
 
-  usePageTitle({ title: "Detail Inspeksi", prevRoute: "../" });
+  usePageTitle({ title: "Detail Inspeksi", prevRoute: -1 });
 
   return {
     form,

@@ -87,7 +87,7 @@ function useBodyStyleIndexController() {
     },
   ];
 
-  usePageTitle({ title: "Body Style" });
+  usePageTitleusePageTitle({ title: "Body Style" });
 
   return {
     /**

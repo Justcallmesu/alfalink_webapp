@@ -46,7 +46,7 @@ function useFuelTypeFormController({ formType }: FormType) {
       });
   }, [fuelTypeData]);
 
-  usePageTitle({ title: "Form Jenis Bahan Bakar", prevRoute: "../" });
+  usePageTitle({ title: "Form Jenis Bahan Bakar", prevRoute: -1 });
 
   return {
     form,

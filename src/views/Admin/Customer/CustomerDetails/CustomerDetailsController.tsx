@@ -17,7 +17,7 @@ function useCustomerDetailsController() {
     navigate("../");
   };
 
-  usePageTitle({ title: "Detail Customer", prevRoute: "../" });
+  usePageTitle({ title: "Detail Customer", prevRoute: -1 });
 
   return {
     customerData,

@@ -44,7 +44,7 @@ function useCarBrandFormController({ formType }: FormType) {
       });
   }, [carBrandData]);
 
-  usePageTitle({ title: "Form Brand Mobil", prevRoute: "../" });
+  usePageTitle({ title: "Form Brand Mobil", prevRoute: -1 });
 
   return {
     form,

@@ -1,11 +1,11 @@
 import { Container, Flex, Text } from "@mantine/core";
 import { IconArrowLeft } from "@tabler/icons-react";
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { To, useNavigate } from "react-router-dom";
 
 export type PageTitleProps = {
   title?: string;
-  prevRoute?: string;
+  prevRoute?: string | number;
 };
 
 function PageTitle(props: PageTitleProps) {
@@ -20,7 +20,7 @@ function PageTitle(props: PageTitleProps) {
           <IconArrowLeft
             color="white"
             cursor={"pointer"}
-            onClick={() => navigate(prevRoute)}
+            onClick={() => navigate(prevRoute as To)}
           />
         )}
         <Text c="white" fw={"bolder"}>

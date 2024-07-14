@@ -44,7 +44,7 @@ function useBodyStyleFormController({ formType }: FormType) {
       });
   }, [bodyStyleData]);
 
-  usePageTitle({ title: "Form Body Style", prevRoute: "../" });
+  usePageTitle({ title: "Form Body Style", prevRoute: -1 });
 
   return {
     form,

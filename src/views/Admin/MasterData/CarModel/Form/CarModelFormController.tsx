@@ -44,7 +44,7 @@ function useCarModelFormController({ formType }: FormType) {
       });
   }, [carModelData]);
 
-  usePageTitle({ title: "Form Model Mobil", prevRoute: "../" });
+  usePageTitle({ title: "Form Model Mobil", prevRoute: -1 });
 
   return {
     form,
