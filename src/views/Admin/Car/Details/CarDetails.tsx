@@ -10,11 +10,12 @@ import {
 } from "@mantine/core";
 import React from "react";
 import useCarDetailsController from "./CarDetailsController";
-import { IconEdit, IconTrash } from "@tabler/icons-react";
+import { IconEdit, IconLink, IconTrash } from "@tabler/icons-react";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import CarStatusNode from "../Components/CarStatusNode/CarStatusNode";
 import { Form } from "@mantine/form";
 import { StatusMobil } from "@/lib/models/Car/Car";
+import { Link } from "react-router-dom";
 
 function CarDetails() {
   const {
@@ -97,6 +98,19 @@ function CarDetails() {
                   <CarStatusNode carRecord={carData?.data!} />
                 </DataDisplay>
               </Grid.Col>
+              {carData?.data.inspeksi && (
+                <Grid.Col span={6}>
+                  <DataDisplay title="Inspeksi Mobil">
+                    <Link
+                      to={`/admin/inspections/${carData?.data.inspeksi}`}
+                      className="flex gap-2 text-blue-500"
+                    >
+                      <IconLink />
+                      Lihat Inspeksi
+                    </Link>
+                  </DataDisplay>
+                </Grid.Col>
+              )}
             </Grid>
 
             <Divider label="Harga Mobil" my="lg"></Divider>
@@ -123,7 +137,7 @@ function CarDetails() {
               <Grid.Col span={6}>
                 <DataDisplay title="Total Pajak Mobil">
                   Rp.
-                  {`${carData?.data.totalPajak}`.replace(
+                  {`${carData?.data.totalPajak ?? 0}`.replace(
                     /\B(?=(\d{3})+(?!\d))/g,
                     ","
                   )}

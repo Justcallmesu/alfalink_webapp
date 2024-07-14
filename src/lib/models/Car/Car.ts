@@ -28,6 +28,7 @@ export enum StatusMobil {
 
 export interface CarModel extends BaseModel {
   nama: string;
+  inspeksi?: string;
   merk: CarBrandModel;
   bodyStyle?: BodyStyleModel;
   warnaInterior?: ColorModel;
@@ -76,4 +77,5 @@ export interface CarQueryDto extends BaseRequestModel {
   warnaExterior?: string;
   tahunRakit?: string;
   transmisi?: CarTransmisionEnum;
+  status?: StatusMobil;
 }

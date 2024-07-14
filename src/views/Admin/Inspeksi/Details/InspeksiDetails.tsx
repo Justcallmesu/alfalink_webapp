@@ -13,11 +13,17 @@ import {
 } from "@mantine/core";
 import React from "react";
 import useInspeksiDetailsController from "./InspeksiDetailsController";
-import { IconEdit, IconSettingsCheck, IconTrash } from "@tabler/icons-react";
+import {
+  IconEdit,
+  IconLink,
+  IconSettingsCheck,
+  IconTrash,
+} from "@tabler/icons-react";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import { Form } from "@mantine/form";
 import InspeksiStatusNode from "../Components/InspeksiStatusNode";
 import InspeksiStatusModal from "../Components/Modal/InspeksiStatusModal";
+import { Link } from "react-router-dom";
 
 function InspeksiDetails() {
   const {
@@ -48,7 +54,13 @@ function InspeksiDetails() {
               </Grid.Col>
               <Grid.Col span={6}>
                 <DataDisplay title="Nomor Polisi Mobil">
-                  {inspectionData?.data.mobil?.noPolisi ?? "-"}
+                  <Link
+                    to={`/admin/cars/${inspectionData?.data.mobil._id}`}
+                    className="flex gap-2 text-blue-500"
+                  >
+                    <IconLink />
+                    {inspectionData?.data.mobil.noPolisi}
+                  </Link>
                 </DataDisplay>
               </Grid.Col>
               <Grid.Col span={6}>

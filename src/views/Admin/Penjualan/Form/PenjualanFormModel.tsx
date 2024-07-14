@@ -8,7 +8,7 @@ import {
 } from "@/lib/axios-config/penjualan/Penjualan";
 import useGetAxios from "@/lib/hooks/axios/UseAxiosGet";
 import { useAxiosPostPatch } from "@/lib/hooks/axios/UseAxiosPostPatch";
-import { CarModel, CarQueryDto } from "@/lib/models/Car/Car";
+import { CarModel, CarQueryDto, StatusMobil } from "@/lib/models/Car/Car";
 import {
   TargetBankModel,
   TargetBankQueryDto,
@@ -59,6 +59,7 @@ function usePenjualanFormModel() {
   const [carQuery, setCarQuery] = useState<CarQueryDto>({
     page: 1,
     limit: 10,
+    status: StatusMobil.Ready,
   });
 
   /**
@@ -67,7 +68,7 @@ function usePenjualanFormModel() {
   const { data: dataCar } = useGetAxios<PaginationModel<CarModel>>({
     config: axiosGetCars(),
     queryKey: carKeys.lists(carQuery).queryKey,
-    queryParams: carKeys,
+    queryParams: carQuery,
   });
 
   /**

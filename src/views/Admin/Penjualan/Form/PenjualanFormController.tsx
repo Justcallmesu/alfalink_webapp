@@ -46,7 +46,7 @@ function usePenjualanFormController() {
       isDP: false,
       metodePembayaran: metodePembayaran.CASH,
       tanggalPenjualan: new Date(),
-      bankTujuan: "",
+      bankTujuan: undefined,
       totalDP: 0,
       totalTerbayar: 0,
     },
