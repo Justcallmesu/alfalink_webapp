@@ -16,6 +16,7 @@ import useInspeksiDetailsController from "./InspeksiDetailsController";
 import { IconEdit, IconTrash } from "@tabler/icons-react";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import { Form } from "@mantine/form";
+import InspeksiStatusNode from "../Components/InspeksiStatusNode";
 
 function InspeksiDetails() {
   const {
@@ -56,6 +57,19 @@ function InspeksiDetails() {
             <Grid.Col span={6}>
               <DataDisplay title="Tahun Rakit Mobil">
                 {inspectionData?.data.mobil?.tahunRakit ?? "-"}
+              </DataDisplay>
+            </Grid.Col>
+
+            <Grid.Col span={6}>
+              <DataDisplay title="Status">
+                <InspeksiStatusNode
+                  status={inspectionData?.data.status!}
+                ></InspeksiStatusNode>
+              </DataDisplay>
+            </Grid.Col>
+            <Grid.Col span={12}>
+              <DataDisplay title="Catatan">
+                {inspectionData?.data.catatan ?? "-"}
               </DataDisplay>
             </Grid.Col>
           </Grid>

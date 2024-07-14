@@ -6,6 +6,8 @@ import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import { IconEdit, IconLink, IconTrash } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
 import dayjs from "dayjs";
+import PenjualanStatusNode from "../Components/PenjualanStatusNode";
+import { PenjualanStatus } from "@/lib/models/penjualan/Penjualan";
 
 function PenjualanDetails() {
   const {
@@ -64,9 +66,14 @@ function PenjualanDetails() {
               </DataDisplay>
             </Grid.Col>
           </Grid>
-          <Divider label="Harga Penjualan" my="lg"></Divider>
+          <Divider label="Detail Penjualan" my="lg"></Divider>
 
           <Grid>
+            <Grid.Col span={6}>
+              <DataDisplay title="Status Penjualan">
+                <PenjualanStatusNode status={penjualanData?.data.status!} />
+              </DataDisplay>
+            </Grid.Col>
             <Grid.Col span={6}>
               <DataDisplay title="Tanggal Penjualan">
                 {dayjs(penjualanData?.data.tanggalPenjualan).format(

@@ -12,6 +12,7 @@ export enum PenjualanStatus {
   MOBIL_DISERAHKAN = "Mobil Diserahkan",
   SELESAI = "Selesai",
   PELUNASAN_DP = "Pelunasan DP",
+  BARU = "Baru",
 
   /**
    * Status Kredit

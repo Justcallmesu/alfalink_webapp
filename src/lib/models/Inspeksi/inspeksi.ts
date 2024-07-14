@@ -3,7 +3,7 @@ import { BaseModel } from "../base";
 import { BaseRequestModel } from "../globals/RequestModel";
 
 export enum InspeksiStatus {
-  BARU = "Mobil baru ",
+  BARU = "Mobil baru",
   CUCI = "CUCI Mobil",
   POLES = "POLES Mobil",
   BENGKEL = "SERVIS Mobil",
@@ -19,6 +19,7 @@ export interface InspeksiField {
 export interface InspeksiModel extends BaseModel {
   mobil: CarModel;
   catatan?: string;
+  status: InspeksiStatus;
   ketebalanBanBenjolan?: InspeksiField;
   bautBan?: InspeksiField;
   tekananAngin?: InspeksiField;

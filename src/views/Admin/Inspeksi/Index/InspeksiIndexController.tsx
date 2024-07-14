@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { ActionIcon } from "@mantine/core";
 import { IconEdit, IconFile, IconTrash } from "@tabler/icons-react";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
+import InspeksiStatusNode from "../Components/InspeksiStatusNode";
 
 function useInspeksiIndexController() {
   const {
@@ -94,6 +95,13 @@ function useInspeksiIndexController() {
       title: "Merk Mobil",
       render(record) {
         return record.mobil.merk.name ?? "-";
+      },
+    },
+    {
+      accessor: "status",
+      title: "Status",
+      render(record) {
+        return <InspeksiStatusNode status={record.status} />;
       },
     },
   ];

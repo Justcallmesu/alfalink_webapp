@@ -7,6 +7,7 @@ import { IconEdit, IconFile, IconTrash } from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import dayjs from "dayjs";
+import PenjualanStatusNode from "../Components/PenjualanStatusNode";
 
 function usePenjualanIndexController() {
   const {
@@ -99,6 +100,13 @@ function usePenjualanIndexController() {
       title: "Tanggal Penjualan",
       render(record) {
         return dayjs(record.tanggalPenjualan).format("DD MMMM YYYY");
+      },
+    },
+    {
+      accessor: "status",
+      title: "Status",
+      render(record) {
+        return <PenjualanStatusNode status={record.status} />;
       },
     },
   ];
