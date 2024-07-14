@@ -12,6 +12,10 @@ export const getMe = async (): Promise<ResponseModel<UserModel>> => {
   return response.data;
 };
 
+export const refreshToken = async (): Promise<void> => {
+  const response = await api.post<any>("/auth/refresh-token");
+};
+
 export const logout = async () => {
   const response = await api.get<any>("/auth/logout");
   return response.data;

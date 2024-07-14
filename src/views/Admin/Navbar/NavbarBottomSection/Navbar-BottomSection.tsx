@@ -25,7 +25,8 @@ function NavbarBottomSection() {
   /**
    * Controller
    */
-  const { handleLogout, userData } = useNavbarBottomSectionController();
+  const { handleLogout, userData, navigate } =
+    useNavbarBottomSectionController();
 
   return (
     <Menu
@@ -58,8 +59,18 @@ function NavbarBottomSection() {
       </Menu.Target>
       <MenuDropdown>
         <Menu.Label>User Settings</Menu.Label>
-        <Menu.Item leftSection={<IconKey />}>Change Password</Menu.Item>
-        <Menu.Item leftSection={<IconEdit />}>Update User</Menu.Item>
+        <Menu.Item
+          leftSection={<IconKey />}
+          onClick={() => navigate("./change-password")}
+        >
+          Change Password
+        </Menu.Item>
+        <Menu.Item
+          leftSection={<IconEdit />}
+          onClick={() => navigate("./update-me")}
+        >
+          Update User
+        </Menu.Item>
         <Menu.Label>Application</Menu.Label>
         <Menu.Item leftSection={<IconLogout />} onClick={handleLogout}>
           Logout

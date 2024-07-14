@@ -31,6 +31,7 @@ function useNavbarBottomSectionController() {
   return {
     handleLogout,
     userData,
+    navigate,
   };
 }
 

@@ -19,3 +19,7 @@ export const permissionsKeys = createQueryKeys("permissions", {
   byId: (id: string) => [id],
   lists: <T>(params?: T) => [params],
 });
+
+export const passwordKeys = createQueryKeys("password", {});
+
+export const meKeys = createQueryKeys("me", {});

@@ -82,6 +82,8 @@ export function useAxiosPostPatch<T extends any>(
         type: invalidateType,
       });
 
+    onSuccess?.(data);
+
     if (redirect) navigate(redirect);
   };
 

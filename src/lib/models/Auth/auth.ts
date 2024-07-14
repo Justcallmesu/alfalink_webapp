@@ -28,3 +28,14 @@ export interface UserModel extends BaseModel {
   date_created: Date;
   role_id: RoleModel;
 }
+
+export interface ChangePasswordDto {
+  password: string;
+  confirmPassword: string;
+  oldPassword: string;
+}
+
+export interface UpdateMeDto {
+  name: string;
+  username: string;
+}

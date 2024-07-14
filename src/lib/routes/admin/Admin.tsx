@@ -16,6 +16,10 @@ import { RolesRoutes } from "./Roles/RolesRoutes";
  */
 const LoginLayout = lazy(() => import("@/views/Layout/LoginLayout"));
 const AdminLayout = lazy(() => import("@/views/Layout/AdminLayout"));
+const ChangePassword = lazy(
+  () => import("@/views/Admin/auth/ChangePassword/ChangePassword")
+);
+const UpdateMe = lazy(() => import("@/views/Admin/auth/UpdateMe/UpdateMe"));
 
 /**
  * Pages
@@ -65,6 +69,24 @@ export default (
 
         {/* Roles Routes */}
         {RolesRoutes}
+
+        <Route
+          path="change-password"
+          element={
+            <SuspenseLoading>
+              <ChangePassword />
+            </SuspenseLoading>
+          }
+        ></Route>
+
+        <Route
+          path="update-me"
+          element={
+            <SuspenseLoading>
+              <UpdateMe />
+            </SuspenseLoading>
+          }
+        ></Route>
       </Route>
     </Route>
 

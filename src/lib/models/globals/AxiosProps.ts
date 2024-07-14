@@ -13,7 +13,7 @@ export interface UseAxiosPostPatchProps<T> {
   config: (id?: string, id2?: string) => AxiosRequestConfig<any>;
   data?: T;
   queryParams?: any;
-  onSuccess?: () => void;
+  onSuccess?: (data?: T) => void;
   removeQueryKey?: readonly any[];
   removeType?: "all" | "active" | "inactive";
   invalidateType?: "all" | "active" | "inactive";
