@@ -13,6 +13,8 @@ import {
 import dayjs from "dayjs";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
+import { checkPermissions } from "@/lib/utils/CheckPermission";
+import { PermissionsEnum } from "@/lib/enum/PermissionsEnum";
 
 function useCustomerIndexController() {
   /**
@@ -75,6 +77,12 @@ function useCustomerIndexController() {
               variant="light"
               color="orange"
               onClick={() => navigate(`./${record._id}/edit`)}
+              disabled={
+                !checkPermissions({
+                  permissionsCode: PermissionsEnum.UPDATE_CUSTOMER,
+                  type: "action",
+                })
+              }
             >
               <IconEdit />
             </ActionIcon>
@@ -82,7 +90,16 @@ function useCustomerIndexController() {
               description="Yakin ingin menghapus data ini ?"
               onConfirm={() => handleDeleteCustomer(record._id)}
             >
-              <ActionIcon variant="light" color="red">
+              <ActionIcon
+                variant="light"
+                color="red"
+                disabled={
+                  !checkPermissions({
+                    permissionsCode: PermissionsEnum.DELETE_CUSTOMER,
+                    type: "action",
+                  })
+                }
+              >
                 <IconTrash />
               </ActionIcon>
             </Popconfirm>

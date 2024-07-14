@@ -4,6 +4,8 @@ import usePenjualanIndexController from "./PenjualanIndexController";
 import { IconPlus, IconReload } from "@tabler/icons-react";
 import { DataTable } from "mantine-datatable";
 import PenjualanStatusModal from "../Components/Modal/PenjualanStatusModal";
+import { checkPermissions } from "@/lib/utils/CheckPermission";
+import { PermissionsEnum } from "@/lib/enum/PermissionsEnum";
 
 function PenjualanIndex() {
   const {
@@ -41,7 +43,15 @@ function PenjualanIndex() {
                 </Button>
               </Grid.Col>
               <Grid.Col span={4} className="flex justify-end">
-                <Button onClick={() => navigate("./create")}>
+                <Button
+                  onClick={() => navigate("./create")}
+                  disabled={
+                    !checkPermissions({
+                      permissionsCode: PermissionsEnum.CREATE_PENJUALAN,
+                      type: "action",
+                    })
+                  }
+                >
                   <IconPlus />
                 </Button>
               </Grid.Col>

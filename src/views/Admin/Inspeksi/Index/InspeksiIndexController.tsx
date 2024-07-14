@@ -19,6 +19,8 @@ import InspeksiStatusNode from "../Components/InspeksiStatusNode";
 import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
 import { useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
+import { PermissionsEnum } from "@/lib/enum/PermissionsEnum";
+import { checkPermissions } from "@/lib/utils/CheckPermission";
 
 function useInspeksiIndexController() {
   const {
@@ -112,6 +114,12 @@ function useInspeksiIndexController() {
               variant="light"
               color="orange"
               onClick={() => navigate(`./${record._id}/edit`)}
+              disabled={
+                !checkPermissions({
+                  permissionsCode: PermissionsEnum.UPDATE_INSPEKSI,
+                  type: "action",
+                })
+              }
             >
               <IconEdit />
             </ActionIcon>
@@ -119,7 +127,16 @@ function useInspeksiIndexController() {
               description="Yakin ingin menghapus data ini ?"
               onConfirm={() => handleDelete(record._id)}
             >
-              <ActionIcon variant="light" color="red">
+              <ActionIcon
+                variant="light"
+                color="red"
+                disabled={
+                  !checkPermissions({
+                    permissionsCode: PermissionsEnum.DELETE_INSPEKSI,
+                    type: "action",
+                  })
+                }
+              >
                 <IconTrash />
               </ActionIcon>
             </Popconfirm>
@@ -127,6 +144,12 @@ function useInspeksiIndexController() {
               variant="light"
               color="orange"
               onClick={() => handleOpenFormModal(record)}
+              disabled={
+                !checkPermissions({
+                  permissionsCode: PermissionsEnum.UPDATE_INSPEKSI,
+                  type: "action",
+                })
+              }
             >
               <IconSettingsCheck />
             </ActionIcon>

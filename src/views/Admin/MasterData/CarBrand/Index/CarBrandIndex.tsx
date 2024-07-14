@@ -3,6 +3,8 @@ import useCarBrandIndexController from "./CarBrandIndexController";
 import { IconPlus, IconReload } from "@tabler/icons-react";
 import { Button, Card, Grid, Input } from "@mantine/core";
 import { DataTable } from "mantine-datatable";
+import { PermissionsEnum } from "@/lib/enum/PermissionsEnum";
+import { checkPermissions } from "@/lib/utils/CheckPermission";
 
 function CarBrandIndex() {
   const {
@@ -34,7 +36,15 @@ function CarBrandIndex() {
               </Button>
             </Grid.Col>
             <Grid.Col span={4} className="flex justify-end">
-              <Button onClick={() => navigate("./create")}>
+              <Button
+                onClick={() => navigate("./create")}
+                disabled={
+                  !checkPermissions({
+                    permissionsCode: PermissionsEnum.CREATE_MERK,
+                    type: "action",
+                  })
+                }
+              >
                 <IconPlus />
               </Button>
             </Grid.Col>

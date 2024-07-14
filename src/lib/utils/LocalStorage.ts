@@ -1,4 +1,4 @@
-import { RoleModel, UserModel } from "../models/Auth/auth";
+import { PermissionsModel, RoleModel, UserModel } from "../models/Auth/auth";
 
 export function setUserData(data: UserModel) {
   const userData = {
@@ -36,4 +36,9 @@ export function getUserData(): UserModel {
 export function getRoleData(): RoleModel {
   const role = localStorage.getItem("role");
   return role ? JSON.parse(role) : null;
+}
+
+export function getPermissionsData(): PermissionsModel[] {
+  const permissions = localStorage.getItem("permissions");
+  return permissions ? JSON.parse(permissions) : null;
 }

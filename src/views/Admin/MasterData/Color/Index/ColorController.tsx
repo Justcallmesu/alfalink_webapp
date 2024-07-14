@@ -7,6 +7,8 @@ import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import { useNavigate } from "react-router-dom";
 import { ColorModel } from "@/lib/models/MasterData/Color";
 import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
+import { checkPermissions } from "@/lib/utils/CheckPermission";
+import { PermissionsEnum } from "@/lib/enum/PermissionsEnum";
 
 function useColorIndexController() {
   /**
@@ -66,6 +68,12 @@ function useColorIndexController() {
               variant="light"
               color="orange"
               onClick={() => navigate(`./${record._id}/edit`)}
+              disabled={
+                !checkPermissions({
+                  permissionsCode: PermissionsEnum.UPDATE_WARNA,
+                  type: "action",
+                })
+              }
             >
               <IconEdit />
             </ActionIcon>
@@ -73,7 +81,16 @@ function useColorIndexController() {
               description="Yakin ingin menghapus data ini ?"
               onConfirm={() => handleDeleteColor(record._id)}
             >
-              <ActionIcon variant="light" color="red">
+              <ActionIcon
+                variant="light"
+                color="red"
+                disabled={
+                  !checkPermissions({
+                    permissionsCode: PermissionsEnum.DELETE_WARNA,
+                    type: "action",
+                  })
+                }
+              >
                 <IconTrash />
               </ActionIcon>
             </Popconfirm>

@@ -5,6 +5,8 @@ import DataDisplay from "@/lib/Components/DataDisplay/DataDisplay";
 import dayjs from "dayjs";
 import { IconEdit, IconTrash } from "@tabler/icons-react";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
+import { checkPermissions } from "@/lib/utils/CheckPermission";
+import { PermissionsEnum } from "@/lib/enum/PermissionsEnum";
 
 function CustomerDetails() {
   const { customerData, handleDeleteCustomer, isCustomerFetching, navigate } =
@@ -71,7 +73,16 @@ function CustomerDetails() {
       <Grid.Col span={3}>
         <Card shadow="md">
           <Stack>
-            <Button color="orange" onClick={() => navigate("./edit")}>
+            <Button
+              color="orange"
+              onClick={() => navigate("./edit")}
+              disabled={
+                !checkPermissions({
+                  permissionsCode: PermissionsEnum.UPDATE_CUSTOMER,
+                  type: "action",
+                })
+              }
+            >
               <IconEdit /> Edit
             </Button>
 
@@ -79,7 +90,16 @@ function CustomerDetails() {
               description="Yakin ingin menghapus data ini ?"
               onConfirm={() => handleDeleteCustomer(customerData?.data._id!)}
             >
-              <Button color="red" fullWidth>
+              <Button
+                color="red"
+                fullWidth
+                disabled={
+                  !checkPermissions({
+                    permissionsCode: PermissionsEnum.DELETE_CUSTOMER,
+                    type: "action",
+                  })
+                }
+              >
                 <IconTrash /> Hapus
               </Button>
             </Popconfirm>

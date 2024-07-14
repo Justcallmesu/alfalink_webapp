@@ -8,6 +8,8 @@ import { FuelTypeModel } from "@/lib/models/MasterData/FuelType";
 import useFuelTypeIndexModel from "./TargetBankIndexModel";
 import { TargetBankModel } from "@/lib/models/MasterData/TargetBank";
 import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
+import { checkPermissions } from "@/lib/utils/CheckPermission";
+import { PermissionsEnum } from "@/lib/enum/PermissionsEnum";
 
 function useTargetBankIndexController() {
   /**
@@ -67,6 +69,12 @@ function useTargetBankIndexController() {
               variant="light"
               color="orange"
               onClick={() => navigate(`./${record._id}/edit`)}
+              disabled={
+                !checkPermissions({
+                  permissionsCode: PermissionsEnum.UPDATE_BANK_TUJUAN,
+                  type: "action",
+                })
+              }
             >
               <IconEdit />
             </ActionIcon>
@@ -74,7 +82,16 @@ function useTargetBankIndexController() {
               description="Yakin ingin menghapus data ini ?"
               onConfirm={() => handleDeleteTargetBank(record._id)}
             >
-              <ActionIcon variant="light" color="red">
+              <ActionIcon
+                variant="light"
+                color="red"
+                disabled={
+                  !checkPermissions({
+                    permissionsCode: PermissionsEnum.DELETE_BANK_TUJUAN,
+                    type: "action",
+                  })
+                }
+              >
                 <IconTrash />
               </ActionIcon>
             </Popconfirm>
@@ -96,7 +113,7 @@ function useTargetBankIndexController() {
     },
   ];
 
-  usePageTitle({ title: "Bank Tujuan"});
+  usePageTitle({ title: "Bank Tujuan" });
 
   return {
     /**

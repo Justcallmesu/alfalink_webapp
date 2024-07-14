@@ -7,6 +7,8 @@ import { ActionIcon } from "@mantine/core";
 import { IconEdit, IconTrash } from "@tabler/icons-react";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
+import { PermissionsEnum } from "@/lib/enum/PermissionsEnum";
+import { checkPermissions } from "@/lib/utils/CheckPermission";
 
 function useRolesIndexController() {
   const {
@@ -42,7 +44,13 @@ function useRolesIndexController() {
             <ActionIcon
               variant="light"
               color="orange"
-              disabled={record.role_name === "Super Admin"}
+              disabled={
+                record.role_name === "Super Admin" ||
+                !checkPermissions({
+                  permissionsCode: PermissionsEnum.UPDATE_ROLE,
+                  type: "action",
+                })
+              }
               onClick={() => navigate(`./${record._id}/edit`)}
             >
               <IconEdit />
@@ -54,7 +62,13 @@ function useRolesIndexController() {
               <ActionIcon
                 variant="light"
                 color="red"
-                disabled={record.role_name === "Super Admin"}
+                disabled={
+                  record.role_name === "Super Admin" ||
+                  !checkPermissions({
+                    permissionsCode: PermissionsEnum.DELETE_ROLE,
+                    type: "action",
+                  })
+                }
               >
                 <IconTrash />
               </ActionIcon>

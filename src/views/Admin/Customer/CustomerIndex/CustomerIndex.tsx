@@ -2,6 +2,8 @@ import { Button, Card, Grid, Input, Table } from "@mantine/core";
 import useCustomerIndexController from "./CustomerIndexController";
 import { IconMoodEmpty, IconPlus, IconReload } from "@tabler/icons-react";
 import { DataTable } from "mantine-datatable";
+import { checkPermissions } from "@/lib/utils/CheckPermission";
+import { PermissionsEnum } from "@/lib/enum/PermissionsEnum";
 
 function CustomerIndex() {
   const {
@@ -40,7 +42,15 @@ function CustomerIndex() {
               </Button>
             </Grid.Col>
             <Grid.Col span={4} className="flex justify-end">
-              <Button onClick={() => navigate("./create")}>
+              <Button
+                onClick={() => navigate("./create")}
+                disabled={
+                  !checkPermissions({
+                    permissionsCode: PermissionsEnum.CREATE_CUSTOMER,
+                    type: "action",
+                  })
+                }
+              >
                 <IconPlus />
               </Button>
             </Grid.Col>

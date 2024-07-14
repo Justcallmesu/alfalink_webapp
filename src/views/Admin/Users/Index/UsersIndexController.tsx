@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import dayjs from "dayjs";
 import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
+import { PermissionsEnum } from "@/lib/enum/PermissionsEnum";
+import { checkPermissions } from "@/lib/utils/CheckPermission";
 
 function useUsersIndexController() {
   const {
@@ -44,7 +46,13 @@ function useUsersIndexController() {
             <ActionIcon
               variant="light"
               color="orange"
-              disabled={record.role_id.role_name === "Super Admin"}
+              disabled={
+                record.role_id.role_name === "Super Admin" ||
+                !checkPermissions({
+                  permissionsCode: PermissionsEnum.UPDATE_USER,
+                  type: "action",
+                })
+              }
               onClick={() => navigate(`./${record._id}/edit`)}
             >
               <IconEdit />
@@ -56,7 +64,13 @@ function useUsersIndexController() {
               <ActionIcon
                 variant="light"
                 color="red"
-                disabled={record.role_id.role_name === "Super Admin"}
+                disabled={
+                  record.role_id.role_name === "Super Admin" ||
+                  !checkPermissions({
+                    permissionsCode: PermissionsEnum.DELETE_USER,
+                    type: "action",
+                  })
+                }
               >
                 <IconTrash />
               </ActionIcon>

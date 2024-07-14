@@ -7,6 +7,8 @@ import { IconEdit, IconFile, IconTrash } from "@tabler/icons-react";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import { useNavigate } from "react-router-dom";
 import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
+import { checkPermissions } from "@/lib/utils/CheckPermission";
+import { PermissionsEnum } from "@/lib/enum/PermissionsEnum";
 
 function useCarModelController() {
   /**
@@ -66,6 +68,12 @@ function useCarModelController() {
               variant="light"
               color="orange"
               onClick={() => navigate(`./${record._id}/edit`)}
+              disabled={
+                !checkPermissions({
+                  permissionsCode: PermissionsEnum.UPDATE_MODEL,
+                  type: "action",
+                })
+              }
             >
               <IconEdit />
             </ActionIcon>
@@ -73,7 +81,16 @@ function useCarModelController() {
               description="Yakin ingin menghapus data ini ?"
               onConfirm={() => handleDeleteCarModel(record._id)}
             >
-              <ActionIcon variant="light" color="red">
+              <ActionIcon
+                variant="light"
+                color="red"
+                disabled={
+                  !checkPermissions({
+                    permissionsCode: PermissionsEnum.DELETE_MODEL,
+                    type: "action",
+                  })
+                }
+              >
                 <IconTrash />
               </ActionIcon>
             </Popconfirm>
@@ -87,8 +104,7 @@ function useCarModelController() {
     },
   ];
 
-    usePageTitle({ title: "Model Mobil" });
-
+  usePageTitle({ title: "Model Mobil" });
 
   return {
     /**

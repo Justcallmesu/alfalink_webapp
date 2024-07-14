@@ -16,6 +16,8 @@ import CarStatusNode from "../Components/CarStatusNode/CarStatusNode";
 import { Form } from "@mantine/form";
 import { StatusMobil } from "@/lib/models/Car/Car";
 import { Link } from "react-router-dom";
+import { checkPermissions } from "@/lib/utils/CheckPermission";
+import { PermissionsEnum } from "@/lib/enum/PermissionsEnum";
 
 function CarDetails() {
   const {
@@ -98,19 +100,23 @@ function CarDetails() {
                   <CarStatusNode carRecord={carData?.data!} />
                 </DataDisplay>
               </Grid.Col>
-              {carData?.data.inspeksi && (
-                <Grid.Col span={6}>
-                  <DataDisplay title="Inspeksi Mobil">
-                    <Link
-                      to={`/admin/inspections/${carData?.data.inspeksi}`}
-                      className="flex gap-2 text-blue-500"
-                    >
-                      <IconLink />
-                      Lihat Inspeksi
-                    </Link>
-                  </DataDisplay>
-                </Grid.Col>
-              )}
+              {carData?.data.inspeksi &&
+                checkPermissions({
+                  permissionsCode: PermissionsEnum.READ_INSPEKSI,
+                  type: "action",
+                }) && (
+                  <Grid.Col span={6}>
+                    <DataDisplay title="Inspeksi Mobil">
+                      <Link
+                        to={`/admin/inspections/${carData?.data.inspeksi}`}
+                        className="flex gap-2 text-blue-500"
+                      >
+                        <IconLink />
+                        Lihat Inspeksi
+                      </Link>
+                    </DataDisplay>
+                  </Grid.Col>
+                )}
             </Grid>
 
             <Divider label="Harga Mobil" my="lg"></Divider>
@@ -149,7 +155,16 @@ function CarDetails() {
         <Grid.Col span={3}>
           <Card shadow="md">
             <Stack>
-              <Button color="orange" onClick={() => navigate("./edit")}>
+              <Button
+                color="orange"
+                onClick={() => navigate("./edit")}
+                disabled={
+                  !checkPermissions({
+                    permissionsCode: PermissionsEnum.UPDATE_MOBIL,
+                    type: "action",
+                  })
+                }
+              >
                 <IconEdit /> Edit
               </Button>
 
@@ -157,11 +172,29 @@ function CarDetails() {
                 description="Yakin ingin menghapus data ini ?"
                 onConfirm={() => handleDeleteCar()}
               >
-                <Button color="red" fullWidth>
+                <Button
+                  color="red"
+                  fullWidth
+                  disabled={
+                    !checkPermissions({
+                      permissionsCode: PermissionsEnum.DELETE_MOBIL,
+                      type: "action",
+                    })
+                  }
+                >
                   <IconTrash /> Hapus
                 </Button>
               </Popconfirm>
-              <Button color="blue" onClick={() => handleOpenFormModal()}>
+              <Button
+                color="blue"
+                onClick={() => handleOpenFormModal()}
+                disabled={
+                  !checkPermissions({
+                    permissionsCode: PermissionsEnum.UPDATE_MOBIL,
+                    type: "action",
+                  })
+                }
+              >
                 <IconEdit /> Ubah Status
               </Button>
             </Stack>

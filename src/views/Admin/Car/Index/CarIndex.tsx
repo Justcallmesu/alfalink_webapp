@@ -5,6 +5,8 @@ import React from "react";
 import useCarIndexController from "./CarIndexController";
 import { Form } from "@mantine/form";
 import { StatusMobil } from "@/lib/models/Car/Car";
+import { checkPermissions } from "@/lib/utils/CheckPermission";
+import { PermissionsEnum } from "@/lib/enum/PermissionsEnum";
 
 function CarIndex() {
   const {
@@ -42,7 +44,15 @@ function CarIndex() {
                 </Button>
               </Grid.Col>
               <Grid.Col span={4} className="flex justify-end">
-                <Button onClick={() => navigate("./create")}>
+                <Button
+                  onClick={() => navigate("./create")}
+                  disabled={
+                    !checkPermissions({
+                      permissionsCode: PermissionsEnum.CREATE_MOBIL,
+                      type: "action",
+                    })
+                  }
+                >
                   <IconPlus />
                 </Button>
               </Grid.Col>

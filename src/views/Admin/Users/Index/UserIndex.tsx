@@ -3,6 +3,8 @@ import React from "react";
 import useUsersIndexController from "./UsersIndexController";
 import { IconPlus, IconReload } from "@tabler/icons-react";
 import { DataTable } from "mantine-datatable";
+import { checkPermissions } from "@/lib/utils/CheckPermission";
+import { PermissionsEnum } from "@/lib/enum/PermissionsEnum";
 
 function UserIndex() {
   const {
@@ -35,7 +37,15 @@ function UserIndex() {
               </Button>
             </Grid.Col>
             <Grid.Col span={4} className="flex justify-end">
-              <Button onClick={() => navigate("./create")}>
+              <Button
+                onClick={() => navigate("./create")}
+                disabled={
+                  !checkPermissions({
+                    permissionsCode: PermissionsEnum.CREATE_USER,
+                    type: "action",
+                  })
+                }
+              >
                 <IconPlus />
               </Button>
             </Grid.Col>

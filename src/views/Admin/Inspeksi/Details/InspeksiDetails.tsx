@@ -24,6 +24,8 @@ import { Form } from "@mantine/form";
 import InspeksiStatusNode from "../Components/InspeksiStatusNode";
 import InspeksiStatusModal from "../Components/Modal/InspeksiStatusModal";
 import { Link } from "react-router-dom";
+import { checkPermissions } from "@/lib/utils/CheckPermission";
+import { PermissionsEnum } from "@/lib/enum/PermissionsEnum";
 
 function InspeksiDetails() {
   const {
@@ -54,13 +56,20 @@ function InspeksiDetails() {
               </Grid.Col>
               <Grid.Col span={6}>
                 <DataDisplay title="Nomor Polisi Mobil">
-                  <Link
-                    to={`/admin/cars/${inspectionData?.data.mobil._id}`}
-                    className="flex gap-2 text-blue-500"
-                  >
-                    <IconLink />
-                    {inspectionData?.data.mobil.noPolisi}
-                  </Link>
+                  {checkPermissions({
+                    permissionsCode: PermissionsEnum.READ_MOBIL,
+                    type: "action",
+                  }) ? (
+                    <Link
+                      to={`/admin/cars/${inspectionData?.data.mobil._id}`}
+                      className="flex gap-2 text-blue-500"
+                    >
+                      <IconLink />
+                      {inspectionData?.data.mobil.noPolisi}
+                    </Link>
+                  ) : (
+                    inspectionData?.data.mobil.noPolisi
+                  )}
                 </DataDisplay>
               </Grid.Col>
               <Grid.Col span={6}>
@@ -1851,7 +1860,16 @@ function InspeksiDetails() {
         <Grid.Col span={3}>
           <Card shadow="md">
             <Stack>
-              <Button color="orange" onClick={() => navigate("./edit")}>
+              <Button
+                color="orange"
+                onClick={() => navigate("./edit")}
+                disabled={
+                  !checkPermissions({
+                    permissionsCode: PermissionsEnum.UPDATE_INSPEKSI,
+                    type: "action",
+                  })
+                }
+              >
                 <IconEdit /> Edit
               </Button>
 
@@ -1859,13 +1877,28 @@ function InspeksiDetails() {
                 description="Yakin ingin menghapus data ini ?"
                 onConfirm={() => handleDelete(inspectionData?.data._id!)}
               >
-                <Button color="red" fullWidth>
+                <Button
+                  color="red"
+                  fullWidth
+                  disabled={
+                    !checkPermissions({
+                      permissionsCode: PermissionsEnum.DELETE_INSPEKSI,
+                      type: "action",
+                    })
+                  }
+                >
                   <IconTrash /> Hapus
                 </Button>
               </Popconfirm>
               <Button
                 color="blue"
                 onClick={() => handleOpenFormModal(inspectionData?.data!)}
+                disabled={
+                  !checkPermissions({
+                    permissionsCode: PermissionsEnum.UPDATE_INSPEKSI,
+                    type: "action",
+                  })
+                }
               >
                 <IconSettingsCheck /> Ubah Status
               </Button>

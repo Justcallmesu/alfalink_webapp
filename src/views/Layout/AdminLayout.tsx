@@ -15,7 +15,11 @@ import { Outlet } from "react-router-dom";
 import NavbarBottomSection from "../Admin/Navbar/NavbarBottomSection/Navbar-BottomSection";
 import NavigationRender from "../Admin/Navbar/NavigationItems/NavigationRender";
 import { getMe, refreshToken } from "@/lib/services/Auth/auth.service";
-import { removeAllCredentials, setUserData } from "@/lib/utils/LocalStorage";
+import {
+  getUserData,
+  removeAllCredentials,
+  setUserData,
+} from "@/lib/utils/LocalStorage";
 import { AxiosError } from "axios";
 import { IconArrowLeft } from "@tabler/icons-react";
 import PageTitle, { PageTitleProps } from "@/lib/Components/Layout/PageTitle";
@@ -25,18 +29,13 @@ function AdminLayout() {
   const [opened, { toggle }] = useDisclosure();
 
   const [pageTitleProps, setPageTitleProps] = useState<PageTitleProps>({});
-
   useEffect(() => {
-    getMe()
-      .then((value) => {
-        setUserData(value.data);
-      })
-      .catch((res: AxiosError) => {
-        if (res?.response?.status === 401) {
-          removeAllCredentials();
-          window.location.href = "/login";
-        }
-      });
+    getMe().catch((res: AxiosError) => {
+      if (res?.response?.status === 401) {
+        removeAllCredentials();
+        window.location.href = "/login";
+      }
+    });
   }, []);
 
   return (

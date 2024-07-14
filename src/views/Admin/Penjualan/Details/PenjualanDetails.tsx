@@ -14,6 +14,8 @@ import dayjs from "dayjs";
 import PenjualanStatusNode from "../Components/PenjualanStatusNode";
 import { PenjualanStatus } from "@/lib/models/penjualan/Penjualan";
 import PenjualanStatusModal from "../Components/Modal/PenjualanStatusModal";
+import { checkPermissions } from "@/lib/utils/CheckPermission";
+import { PermissionsEnum } from "@/lib/enum/PermissionsEnum";
 
 function PenjualanDetails() {
   const {
@@ -123,7 +125,16 @@ function PenjualanDetails() {
         <Grid.Col span={3}>
           <Card shadow="md">
             <Stack>
-              <Button color="orange" onClick={() => navigate("./edit")}>
+              <Button
+                color="orange"
+                onClick={() => navigate("./edit")}
+                disabled={
+                  !checkPermissions({
+                    permissionsCode: PermissionsEnum.UPDATE_PENJUALAN,
+                    type: "action",
+                  })
+                }
+              >
                 <IconEdit /> Edit
               </Button>
 
@@ -133,13 +144,28 @@ function PenjualanDetails() {
                   handleDeletePenjualan(penjualanData?.data._id!)
                 }
               >
-                <Button color="red" fullWidth>
+                <Button
+                  color="red"
+                  fullWidth
+                  disabled={
+                    !checkPermissions({
+                      permissionsCode: PermissionsEnum.DELETE_PENJUALAN,
+                      type: "action",
+                    })
+                  }
+                >
                   <IconTrash /> Hapus
                 </Button>
               </Popconfirm>
               <Button
                 color="blue"
                 onClick={() => handleOpenFormModal(penjualanData?.data!)}
+                disabled={
+                  !checkPermissions({
+                    permissionsCode: PermissionsEnum.UPDATE_PENJUALAN,
+                    type: "action",
+                  })
+                }
               >
                 <IconSettingsCheck /> Ubah Status
               </Button>

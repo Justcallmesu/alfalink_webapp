@@ -7,6 +7,8 @@ import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import { useNavigate } from "react-router-dom";
 import { CarTypeModel } from "@/lib/models/MasterData/CarType";
 import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
+import { checkPermissions } from "@/lib/utils/CheckPermission";
+import { PermissionsEnum } from "@/lib/enum/PermissionsEnum";
 
 function useCarTypeIndexController() {
   /**
@@ -66,6 +68,12 @@ function useCarTypeIndexController() {
               variant="light"
               color="orange"
               onClick={() => navigate(`./${record._id}/edit`)}
+              disabled={
+                !checkPermissions({
+                  permissionsCode: PermissionsEnum.UPDATE_TIPE,
+                  type: "action",
+                })
+              }
             >
               <IconEdit />
             </ActionIcon>
@@ -73,7 +81,16 @@ function useCarTypeIndexController() {
               description="Yakin ingin menghapus data ini ?"
               onConfirm={() => handleDeleteCarType(record._id)}
             >
-              <ActionIcon variant="light" color="red">
+              <ActionIcon
+                variant="light"
+                color="red"
+                disabled={
+                  !checkPermissions({
+                    permissionsCode: PermissionsEnum.DELETE_TIPE,
+                    type: "action",
+                  })
+                }
+              >
                 <IconTrash />
               </ActionIcon>
             </Popconfirm>

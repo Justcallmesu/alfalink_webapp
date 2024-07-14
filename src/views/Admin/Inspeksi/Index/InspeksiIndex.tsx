@@ -4,6 +4,8 @@ import useInspeksiIndexController from "./InspeksiIndexController";
 import { IconPlus, IconReload } from "@tabler/icons-react";
 import { DataTable } from "mantine-datatable";
 import InspeksiStatusModal from "../Components/Modal/InspeksiStatusModal";
+import { checkPermissions } from "@/lib/utils/CheckPermission";
+import { PermissionsEnum } from "@/lib/enum/PermissionsEnum";
 
 function InspeksiIndex() {
   const {
@@ -44,7 +46,15 @@ function InspeksiIndex() {
                 </Button>
               </Grid.Col>
               <Grid.Col span={4} className="flex justify-end">
-                <Button onClick={() => navigate("./create")}>
+                <Button
+                  onClick={() => navigate("./create")}
+                  disabled={
+                    !checkPermissions({
+                      permissionsCode: PermissionsEnum.CREATE_INSPEKSI,
+                      type: "action",
+                    })
+                  }
+                >
                   <IconPlus />
                 </Button>
               </Grid.Col>

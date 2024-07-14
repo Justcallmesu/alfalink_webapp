@@ -7,6 +7,8 @@ import { ActionIcon } from "@mantine/core";
 import { IconEdit, IconTrash } from "@tabler/icons-react";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
+import { checkPermissions } from "@/lib/utils/CheckPermission";
+import { PermissionsEnum } from "@/lib/enum/PermissionsEnum";
 
 function useBodyStyleIndexController() {
   /**
@@ -66,6 +68,12 @@ function useBodyStyleIndexController() {
               variant="light"
               color="orange"
               onClick={() => navigate(`./${record._id}/edit`)}
+              disabled={
+                !checkPermissions({
+                  permissionsCode: PermissionsEnum.UPDATE_BODY_STYLE,
+                  type: "action",
+                })
+              }
             >
               <IconEdit />
             </ActionIcon>
@@ -73,7 +81,16 @@ function useBodyStyleIndexController() {
               description="Yakin ingin menghapus data ini ?"
               onConfirm={() => handleDeleteBodyStyle(record._id)}
             >
-              <ActionIcon variant="light" color="red">
+              <ActionIcon
+                variant="light"
+                color="red"
+                disabled={
+                  !checkPermissions({
+                    permissionsCode: PermissionsEnum.DELETE_BODY_STYLE,
+                    type: "action",
+                  })
+                }
+              >
                 <IconTrash />
               </ActionIcon>
             </Popconfirm>
@@ -87,7 +104,7 @@ function useBodyStyleIndexController() {
     },
   ];
 
-  usePageTitleusePageTitle({ title: "Body Style" });
+  usePageTitle({ title: "Body Style" });
 
   return {
     /**

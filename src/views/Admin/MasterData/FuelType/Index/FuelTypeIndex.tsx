@@ -3,6 +3,8 @@ import { Button, Card, Grid, Input } from "@mantine/core";
 import { IconPlus, IconReload } from "@tabler/icons-react";
 import { DataTable } from "mantine-datatable";
 import useFuelTypeIndexController from "./FuelTypeIndexController";
+import { checkPermissions } from "@/lib/utils/CheckPermission";
+import { PermissionsEnum } from "@/lib/enum/PermissionsEnum";
 
 function fuelTypeIndex() {
   const {
@@ -34,7 +36,15 @@ function fuelTypeIndex() {
               </Button>
             </Grid.Col>
             <Grid.Col span={4} className="flex justify-end">
-              <Button onClick={() => navigate("./create")}>
+              <Button
+                onClick={() => navigate("./create")}
+                disabled={
+                  !checkPermissions({
+                    permissionsCode: PermissionsEnum.CREATE_FUEL_TYPE,
+                    type: "action",
+                  })
+                }
+              >
                 <IconPlus />
               </Button>
             </Grid.Col>

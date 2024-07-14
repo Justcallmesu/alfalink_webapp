@@ -21,6 +21,8 @@ import { modals } from "@mantine/modals";
 import { Form, useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
 import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
+import { checkPermissions } from "@/lib/utils/CheckPermission";
+import { PermissionsEnum } from "@/lib/enum/PermissionsEnum";
 
 function useCarIndexController() {
   const {
@@ -114,6 +116,12 @@ function useCarIndexController() {
               variant="light"
               color="orange"
               onClick={() => navigate(`./${record._id}/edit`)}
+              disabled={
+                !checkPermissions({
+                  permissionsCode: PermissionsEnum.UPDATE_MOBIL,
+                  type: "action",
+                })
+              }
             >
               <IconEdit />
             </ActionIcon>
@@ -121,7 +129,16 @@ function useCarIndexController() {
               description="Yakin ingin menghapus data ini ?"
               onConfirm={() => handleDeleteCar(record._id)}
             >
-              <ActionIcon variant="light" color="red">
+              <ActionIcon
+                variant="light"
+                color="red"
+                disabled={
+                  !checkPermissions({
+                    permissionsCode: PermissionsEnum.DELETE_MOBIL,
+                    type: "action",
+                  })
+                }
+              >
                 <IconTrash />
               </ActionIcon>
             </Popconfirm>
@@ -130,6 +147,12 @@ function useCarIndexController() {
               variant="light"
               color="orange"
               onClick={() => handleOpenFormModal(record)}
+              disabled={
+                !checkPermissions({
+                  permissionsCode: PermissionsEnum.UPDATE_MOBIL,
+                  type: "action",
+                })
+              }
             >
               <IconSettingsCheck />
             </ActionIcon>

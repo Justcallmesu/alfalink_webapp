@@ -7,6 +7,8 @@ import { ActionIcon } from "@mantine/core";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import { IconEdit, IconTrash } from "@tabler/icons-react";
 import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
+import { checkPermissions } from "@/lib/utils/CheckPermission";
+import { PermissionsEnum } from "@/lib/enum/PermissionsEnum";
 
 function useCarBrandIndexController() {
   const {
@@ -62,6 +64,12 @@ function useCarBrandIndexController() {
               variant="light"
               color="orange"
               onClick={() => navigate(`./${record._id}/edit`)}
+              disabled={
+                !checkPermissions({
+                  permissionsCode: PermissionsEnum.UPDATE_MERK,
+                  type: "action",
+                })
+              }
             >
               <IconEdit />
             </ActionIcon>
@@ -69,7 +77,16 @@ function useCarBrandIndexController() {
               description="Yakin ingin menghapus data ini ?"
               onConfirm={() => handleDeleteCarModel(record._id)}
             >
-              <ActionIcon variant="light" color="red">
+              <ActionIcon
+                variant="light"
+                color="red"
+                disabled={
+                  !checkPermissions({
+                    permissionsCode: PermissionsEnum.DELETE_MERK,
+                    type: "action",
+                  })
+                }
+              >
                 <IconTrash />
               </ActionIcon>
             </Popconfirm>
