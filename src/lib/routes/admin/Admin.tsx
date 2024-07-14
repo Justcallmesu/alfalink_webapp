@@ -10,6 +10,7 @@ import { InspeksiRoutes } from "./Inspeksi/InspeksiRoutes";
 import { PenjualanRoutes } from "./Penjualan/PenjualanRoutes";
 import { UsersRoutes } from "./Users/UsersRoutes";
 import { RolesRoutes } from "./Roles/RolesRoutes";
+import { checkPermissions } from "@/lib/utils/CheckPermission";
 
 /**
  * Layout
@@ -50,25 +51,44 @@ export default (
         ></Route>
 
         {/* Customer Routes */}
-        {CustomerRoutes}
+        {checkPermissions({
+          group: "Customer",
+        }) && CustomerRoutes}
 
         {/* Cars Routes */}
-        {CarRoutes}
+        {checkPermissions({
+          group: "Mobil",
+        }) && CarRoutes}
 
         {/* Inspection Routes */}
-        {InspeksiRoutes}
+        {checkPermissions({
+          group: "Inspeksi",
+        }) && InspeksiRoutes}
 
         {/* Penjualan Routes */}
-        {PenjualanRoutes}
+        {checkPermissions({
+          group: "Penjualan",
+        }) && PenjualanRoutes}
 
         {/* Master Data */}
-        {MasterDataRoutes}
+        {(checkPermissions({ group: "Merk" }) ||
+          checkPermissions({ group: "Model" }) ||
+          checkPermissions({ group: "Warna" }) ||
+          checkPermissions({ group: "Bank Tujuan" }) ||
+          checkPermissions({ group: "Tipe" }) ||
+          checkPermissions({ group: "Body Style" }) ||
+          checkPermissions({ group: "Fuel Type" })) &&
+          MasterDataRoutes}
 
         {/* Users Routes */}
-        {UsersRoutes}
+        {checkPermissions({
+          group: "User",
+        }) && UsersRoutes}
 
         {/* Roles Routes */}
-        {RolesRoutes}
+        {checkPermissions({
+          group: "Role",
+        }) && RolesRoutes}
 
         <Route
           path="change-password"

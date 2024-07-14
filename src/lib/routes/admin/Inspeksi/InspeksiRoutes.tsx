@@ -1,4 +1,6 @@
 import { FormTypeEnum } from "@/lib/enum/FormType";
+import { PermissionsEnum } from "@/lib/enum/PermissionsEnum";
+import { checkPermissions } from "@/lib/utils/CheckPermission";
 import SuspenseLoading from "@/views/Base/SuspenseLoading";
 import { lazy } from "react";
 import { Route } from "react-router-dom";
@@ -17,40 +19,60 @@ const InspeksiDetails = lazy(
 
 export const InspeksiRoutes = (
   <Route path="inspections">
-    <Route
-      index
-      element={
-        <SuspenseLoading>
-          <InspeksiIndex />
-        </SuspenseLoading>
-      }
-    ></Route>
+    {checkPermissions({
+      permissionsCode: PermissionsEnum.READ_INSPEKSI,
+      type: "action",
+    }) && (
+      <Route
+        index
+        element={
+          <SuspenseLoading>
+            <InspeksiIndex />
+          </SuspenseLoading>
+        }
+      ></Route>
+    )}
 
-    <Route
-      path="create"
-      element={
-        <SuspenseLoading>
-          <InspeksiForm formType={FormTypeEnum.CREATE} />
-        </SuspenseLoading>
-      }
-    />
+    {checkPermissions({
+      permissionsCode: PermissionsEnum.CREATE_INSPEKSI,
+      type: "action",
+    }) && (
+      <Route
+        path="create"
+        element={
+          <SuspenseLoading>
+            <InspeksiForm formType={FormTypeEnum.CREATE} />
+          </SuspenseLoading>
+        }
+      />
+    )}
 
-    <Route
-      path=":id/edit"
-      element={
-        <SuspenseLoading>
-          <InspeksiForm formType={FormTypeEnum.UPDATE} />
-        </SuspenseLoading>
-      }
-    ></Route>
+    {checkPermissions({
+      permissionsCode: PermissionsEnum.UPDATE_INSPEKSI,
+      type: "action",
+    }) && (
+      <Route
+        path=":id/edit"
+        element={
+          <SuspenseLoading>
+            <InspeksiForm formType={FormTypeEnum.UPDATE} />
+          </SuspenseLoading>
+        }
+      ></Route>
+    )}
 
-    <Route
-      path=":id"
-      element={
-        <SuspenseLoading>
-          <InspeksiDetails />
-        </SuspenseLoading>
-      }
-    />
+    {checkPermissions({
+      permissionsCode: PermissionsEnum.READ_INSPEKSI,
+      type: "action",
+    }) && (
+      <Route
+        path=":id"
+        element={
+          <SuspenseLoading>
+            <InspeksiDetails />
+          </SuspenseLoading>
+        }
+      />
+    )}
   </Route>
 );
