@@ -12,6 +12,7 @@ import {
 import { FormTypeEnum } from "@/lib/enum/FormType";
 import { FormType } from "@/lib/interface/FormType";
 import { useDisclosure } from "@mantine/hooks";
+import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
 
 function useCarFormController({ formType }: FormType) {
   /**
@@ -143,6 +144,8 @@ function useCarFormController({ formType }: FormType) {
         tipe: carData.data?.tipe?._id,
       });
   }, [carData]);
+
+  usePageTitle({ title: "Mobil Form", prevRoute: "../" });
 
   return {
     /**

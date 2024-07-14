@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { FuelTypeModel } from "@/lib/models/MasterData/FuelType";
 import useFuelTypeIndexModel from "./TargetBankIndexModel";
 import { TargetBankModel } from "@/lib/models/MasterData/TargetBank";
+import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
 
 function useTargetBankIndexController() {
   /**
@@ -94,6 +95,8 @@ function useTargetBankIndexController() {
       title: "Nama Pemilik Rekening",
     },
   ];
+
+  usePageTitle({ title: "Bank Tujuan"});
 
   return {
     /**

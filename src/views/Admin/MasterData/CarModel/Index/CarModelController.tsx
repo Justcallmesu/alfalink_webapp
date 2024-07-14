@@ -6,6 +6,7 @@ import { ActionIcon } from "@mantine/core";
 import { IconEdit, IconFile, IconTrash } from "@tabler/icons-react";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import { useNavigate } from "react-router-dom";
+import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
 
 function useCarModelController() {
   /**
@@ -85,6 +86,9 @@ function useCarModelController() {
       title: "Nama",
     },
   ];
+
+    usePageTitle({ title: "Model Mobil" });
+
 
   return {
     /**

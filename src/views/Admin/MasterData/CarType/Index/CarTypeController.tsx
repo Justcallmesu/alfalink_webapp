@@ -6,6 +6,7 @@ import { IconEdit, IconFile, IconTrash } from "@tabler/icons-react";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import { useNavigate } from "react-router-dom";
 import { CarTypeModel } from "@/lib/models/MasterData/CarType";
+import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
 
 function useCarTypeIndexController() {
   /**
@@ -85,6 +86,8 @@ function useCarTypeIndexController() {
       title: "Nama Tipe Mobil",
     },
   ];
+
+  usePageTitle({ title: "Tipe Mobil" });
 
   return {
     /**

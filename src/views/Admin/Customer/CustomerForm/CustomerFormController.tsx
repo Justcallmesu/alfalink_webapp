@@ -5,6 +5,7 @@ import { CreateCustomerModel } from "@/lib/models/customer/customer";
 import dayjs from "dayjs";
 import { FormType } from "@/lib/interface/FormType";
 import { FormTypeEnum } from "@/lib/enum/FormType";
+import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
 
 function useCustomerFormController({ formType }: FormType) {
   const { mutatePostPatchCustomer, customerData } = useCustomerFormModel();
@@ -73,6 +74,8 @@ function useCustomerFormController({ formType }: FormType) {
         birthDate: dayjs(customerData.data.birthDate),
       });
   }, [customerData]);
+
+  usePageTitle({ title: "Form Customer", prevRoute: "../" });
 
   return {
     /**

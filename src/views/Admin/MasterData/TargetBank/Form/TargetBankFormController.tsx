@@ -5,6 +5,7 @@ import { FormType } from "@/lib/interface/FormType";
 import { FormTypeEnum } from "@/lib/enum/FormType";
 import { CreateFuelTypeDto } from "@/lib/models/MasterData/FuelType";
 import { CreateTargetBankDto } from "@/lib/models/MasterData/TargetBank";
+import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
 
 function useTargetBankFormController({ formType }: FormType) {
   const { targetBankData, mutateTargetBank } = useTargetBankFormModel();
@@ -63,6 +64,8 @@ function useTargetBankFormController({ formType }: FormType) {
         ...targetBankData.data,
       });
   }, [targetBankData]);
+
+  usePageTitle({ title: "Form Bank Tujuan", prevRoute: "../" });
 
   return {
     form,

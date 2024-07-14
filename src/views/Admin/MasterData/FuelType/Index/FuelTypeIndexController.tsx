@@ -6,6 +6,7 @@ import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import { useNavigate } from "react-router-dom";
 import { FuelTypeModel } from "@/lib/models/MasterData/FuelType";
 import useFuelTypeIndexModel from "./FuelTypeIndexModel";
+import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
 
 function useFuelTypeIndexController() {
   /**
@@ -85,6 +86,8 @@ function useFuelTypeIndexController() {
       title: "Nama Tipe Mobil",
     },
   ];
+
+  usePageTitle({ title: "Jenis Bahan Bakar" });
 
   return {
     /**

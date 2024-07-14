@@ -12,6 +12,7 @@ import {
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
+import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
 
 function useCustomerIndexController() {
   /**
@@ -111,6 +112,8 @@ function useCustomerIndexController() {
       title: "Alamat",
     },
   ];
+
+  usePageTitle({ title: "Customers" });
 
   return {
     /**

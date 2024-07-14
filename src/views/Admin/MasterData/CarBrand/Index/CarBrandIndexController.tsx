@@ -6,6 +6,7 @@ import { CarBrandModel } from "@/lib/models/MasterData/CarBrand";
 import { ActionIcon } from "@mantine/core";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import { IconEdit, IconTrash } from "@tabler/icons-react";
+import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
 
 function useCarBrandIndexController() {
   const {
@@ -81,6 +82,8 @@ function useCarBrandIndexController() {
       title: "Nama",
     },
   ];
+
+  usePageTitle({ title: "Merk Mobil" });
 
   return {
     carBrandData,

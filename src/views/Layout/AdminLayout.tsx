@@ -3,10 +3,12 @@ import {
   Avatar,
   Burger,
   Container,
+  Flex,
   Group,
   Paper,
   ScrollArea,
   Skeleton,
+  Text,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { Outlet } from "react-router-dom";
@@ -15,6 +17,9 @@ import NavigationRender from "../Admin/Navbar/NavigationItems/NavigationRender";
 import { getMe } from "@/lib/services/Auth/auth.service";
 import { removeAllCredentials } from "@/lib/utils/LocalStorage";
 import { AxiosError } from "axios";
+import { IconArrowLeft } from "@tabler/icons-react";
+import PageTitle, { PageTitleProps } from "@/lib/Components/Layout/PageTitle";
+import { useState } from "react";
 
 function AdminLayout() {
   const [opened, { toggle }] = useDisclosure();
@@ -25,6 +30,8 @@ function AdminLayout() {
       window.location.href = "/login";
     }
   });
+
+  const [pageTitleProps, setPageTitleProps] = useState<PageTitleProps>({});
 
   return (
     <AppShell
@@ -42,9 +49,13 @@ function AdminLayout() {
         },
       })}
     >
-      <AppShell.Header bg={"black"}>
-        <Group h="100%" px="md">
+      <AppShell.Header bg={"blue"}>
+        <Group h="100%" px="md" gap={"lg"} flex={2}>
           <Burger opened={!opened} onClick={toggle} color="white" />
+          <PageTitle
+            prevRoute={pageTitleProps.prevRoute}
+            title={pageTitleProps.title}
+          />
         </Group>
       </AppShell.Header>
       <AppShell.Navbar>
@@ -65,7 +76,7 @@ function AdminLayout() {
       </AppShell.Navbar>
       <AppShell.Main>
         <main className="px-5 py-5">
-          <Outlet />
+          <Outlet context={{ setPageTitleProps }} />
         </main>
       </AppShell.Main>
     </AppShell>

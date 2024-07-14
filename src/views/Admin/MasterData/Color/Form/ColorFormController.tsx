@@ -4,6 +4,7 @@ import { useForm } from "@mantine/form";
 import { FormType } from "@/lib/interface/FormType";
 import { FormTypeEnum } from "@/lib/enum/FormType";
 import { CreateColorDto } from "@/lib/models/MasterData/Color";
+import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
 
 function useColorFormController({ formType }: FormType) {
   const { colorData, mutateColor } = useColorFormModel();
@@ -41,6 +42,8 @@ function useColorFormController({ formType }: FormType) {
         ...colorData.data,
       });
   }, [colorData]);
+
+  usePageTitle({ title: "Form Warna", prevRoute: "../" });
 
   return {
     form,

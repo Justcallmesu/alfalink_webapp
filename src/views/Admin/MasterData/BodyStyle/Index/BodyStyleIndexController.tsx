@@ -6,6 +6,7 @@ import { BodyStyleModel } from "@/lib/models/MasterData/BodyStyle";
 import { ActionIcon } from "@mantine/core";
 import { IconEdit, IconTrash } from "@tabler/icons-react";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
+import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
 
 function useBodyStyleIndexController() {
   /**
@@ -85,6 +86,8 @@ function useBodyStyleIndexController() {
       title: "Nama Tipe Mobil",
     },
   ];
+
+  usePageTitle({ title: "Body Style" });
 
   return {
     /**

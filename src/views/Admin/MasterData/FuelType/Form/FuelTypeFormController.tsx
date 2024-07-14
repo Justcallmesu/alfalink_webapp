@@ -4,6 +4,7 @@ import { useForm } from "@mantine/form";
 import { FormType } from "@/lib/interface/FormType";
 import { FormTypeEnum } from "@/lib/enum/FormType";
 import { CreateFuelTypeDto } from "@/lib/models/MasterData/FuelType";
+import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
 
 function useFuelTypeFormController({ formType }: FormType) {
   const { fuelTypeData, mutateFuelType } = useColorFormModel();
@@ -44,6 +45,8 @@ function useFuelTypeFormController({ formType }: FormType) {
         ...fuelTypeData.data,
       });
   }, [fuelTypeData]);
+
+  usePageTitle({ title: "Form Jenis Bahan Bakar", prevRoute: "../" });
 
   return {
     form,

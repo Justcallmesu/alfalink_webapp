@@ -3,6 +3,7 @@ import useInspeksiDetailsModel from "./InspeksiDetailsModel";
 import { CreateInspeksiDto } from "@/lib/models/Inspeksi/inspeksi";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
 
 function useInspeksiDetailsController() {
   const { inspectionData, mutateDeleteInspection, mutateUpdateInspection } =
@@ -17,7 +18,6 @@ function useInspeksiDetailsController() {
   const navigate = useNavigate();
 
   const form = useForm<CreateInspeksiDto>({
-    
     initialValues: {
       mobil: "",
       catatan: "",
@@ -120,6 +120,8 @@ function useInspeksiDetailsController() {
       });
     }
   }, [inspectionData]);
+
+  usePageTitle({ title: "Detail Inspeksi", prevRoute: "../" });
 
   return {
     form,

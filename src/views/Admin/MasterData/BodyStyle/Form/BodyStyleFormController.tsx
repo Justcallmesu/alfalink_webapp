@@ -4,6 +4,7 @@ import { useForm } from "@mantine/form";
 import { FormType } from "@/lib/interface/FormType";
 import { FormTypeEnum } from "@/lib/enum/FormType";
 import { CreateBodyStyleDto } from "@/lib/models/MasterData/BodyStyle";
+import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
 
 function useBodyStyleFormController({ formType }: FormType) {
   const { bodyStyleData, mutateBodyStyle } = useBodyStyleFormModel();
@@ -42,6 +43,8 @@ function useBodyStyleFormController({ formType }: FormType) {
         ...bodyStyleData.data,
       });
   }, [bodyStyleData]);
+
+  usePageTitle({ title: "Form Body Style", prevRoute: "../" });
 
   return {
     form,

@@ -20,6 +20,7 @@ import CarStatusNode from "../Components/CarStatusNode/CarStatusNode";
 import { modals } from "@mantine/modals";
 import { Form, useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
+import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
 
 function useCarIndexController() {
   const {
@@ -169,6 +170,8 @@ function useCarIndexController() {
       },
     },
   ];
+
+  usePageTitle({ title: "Mobil" });
 
   return {
     carData,

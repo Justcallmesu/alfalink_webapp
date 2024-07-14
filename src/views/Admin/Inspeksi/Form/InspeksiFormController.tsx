@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import useInspeksiFormModel from "./InspeksiFormModel";
 import { useForm } from "@mantine/form";
 import { CreateInspeksiDto } from "@/lib/models/Inspeksi/inspeksi";
+import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
 
 function useInspeksiFormController() {
   const { inspectionData, mutatePostInspection, carsData, setCarQuery } =
@@ -136,6 +137,8 @@ function useInspeksiFormController() {
       });
     }
   }, [inspectionData]);
+
+  usePageTitle({ title: "Form Inspeksi", prevRoute: "../" });
 
   return {
     form,

@@ -1,3 +1,4 @@
+import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
 import { getRoleData, getUserData } from "@/lib/utils/LocalStorage";
 import { Badge, Flex, Group, Paper, Text, rem } from "@mantine/core";
 import { IconCircleKey } from "@tabler/icons-react";
@@ -6,6 +7,8 @@ import React from "react";
 function AdminHome() {
   const userData = getUserData();
   const roleData = getRoleData();
+
+  usePageTitle({ title: "Admin Home" });
 
   return (
     <Paper w={"100%"} shadow="sm" p="md">

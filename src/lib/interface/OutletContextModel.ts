@@ -1,3 +1,5 @@
+import { PageTitleProps } from "../Components/Layout/PageTitle";
+
 export interface OutletContextModel {
-  toggleNavbar: () => void;
+  setPageTitleProps: (props: PageTitleProps) => void;
 }

@@ -7,6 +7,7 @@ import { ActionIcon } from "@mantine/core";
 import { IconEdit, IconFile, IconTrash } from "@tabler/icons-react";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import InspeksiStatusNode from "../Components/InspeksiStatusNode";
+import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
 
 function useInspeksiIndexController() {
   const {
@@ -105,6 +106,8 @@ function useInspeksiIndexController() {
       },
     },
   ];
+
+  usePageTitle({ title: "Inspeksi" });
 
   return {
     InspectionsData,

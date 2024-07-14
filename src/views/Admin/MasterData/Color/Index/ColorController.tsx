@@ -6,6 +6,7 @@ import { IconEdit, IconFile, IconTrash } from "@tabler/icons-react";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import { useNavigate } from "react-router-dom";
 import { ColorModel } from "@/lib/models/MasterData/Color";
+import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
 
 function useColorIndexController() {
   /**
@@ -85,6 +86,8 @@ function useColorIndexController() {
       title: "Nama Tipe Mobil",
     },
   ];
+
+  usePageTitle({ title: "Warna" });
 
   return {
     /**

@@ -4,6 +4,7 @@ import { CreateCarModelDto } from "@/lib/models/MasterData/CarModel";
 import { useForm } from "@mantine/form";
 import { FormType } from "@/lib/interface/FormType";
 import { FormTypeEnum } from "@/lib/enum/FormType";
+import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
 
 function useCarModelFormController({ formType }: FormType) {
   const { carModelData, mutateCarModel } = useCarModelFormModel();
@@ -42,6 +43,8 @@ function useCarModelFormController({ formType }: FormType) {
         ...carModelData.data,
       });
   }, [carModelData]);
+
+  usePageTitle({ title: "Form Model Mobil", prevRoute: "../" });
 
   return {
     form,

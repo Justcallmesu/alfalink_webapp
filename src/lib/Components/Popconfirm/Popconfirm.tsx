@@ -38,7 +38,14 @@ export function Popconfirm(props: PopconfirmProps) {
           >
             {cancelText}
           </Button>
-          <Button onClick={() => onConfirm?.()}>{confirmText}</Button>
+          <Button
+            onClick={() => {
+              setOpened(false);
+              onConfirm?.();
+            }}
+          >
+            {confirmText}
+          </Button>
         </Group>
       </Popover.Dropdown>
     </Popover>
