@@ -5,6 +5,7 @@ import {
   IconCar,
   IconCar4wd,
   IconCashBanknote,
+  IconCurrencyDollar,
   IconFile,
   IconFriends,
   IconGasStation,
@@ -40,6 +41,12 @@ function NavigationItems() {
       leftSection: <IconZoomCheck />,
       description: "Data Inspeksi mobil",
       href: "/admin/inspections",
+    },
+    {
+      label: "Penjualan",
+      leftSection: <IconCurrencyDollar />,
+      description: "Data Penjualan mobil",
+      href: "/admin/penjualan",
     },
     {
       label: "Master Data",

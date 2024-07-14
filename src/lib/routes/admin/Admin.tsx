@@ -7,6 +7,7 @@ import CustomerRoutes from "./Customers/Customer";
 import { MasterDataRoutes } from "./MasterData/MasterData";
 import CarRoutes from "./Car/CarRoutes";
 import { InspeksiRoutes } from "./Inspeksi/InspeksiRoutes";
+import { PenjualanRoutes } from "./Penjualan/PenjualanRoutes";
 
 /**
  * Layout
@@ -50,6 +51,9 @@ export default (
 
         {/* Inspection Routes */}
         {InspeksiRoutes}
+
+        {/* Penjualan Routes */}
+        {PenjualanRoutes}
 
         {/* Master Data */}
         {MasterDataRoutes}
