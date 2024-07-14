@@ -1,13 +1,8 @@
 import React from "react";
 import { useCarIndexModel } from "./CarIndexModel";
 import { DataTableColumn } from "mantine-datatable";
-import {
-  CarModel,
-  CarTaxStatusEnum,
-  StatusMobil,
-  UpdateCarStatusDto,
-} from "@/lib/models/Car/Car";
-import { ActionIcon, Select } from "@mantine/core";
+import { CarModel, UpdateCarStatusDto } from "@/lib/models/Car/Car";
+import { ActionIcon } from "@mantine/core";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import {
   IconEdit,
@@ -17,8 +12,7 @@ import {
 } from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
 import CarStatusNode from "../Components/CarStatusNode/CarStatusNode";
-import { modals } from "@mantine/modals";
-import { Form, useForm } from "@mantine/form";
+import { useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
 import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
 import { checkPermissions } from "@/lib/utils/CheckPermission";

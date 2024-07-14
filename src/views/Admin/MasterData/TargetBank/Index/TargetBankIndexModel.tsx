@@ -10,7 +10,7 @@ import {
 } from "@/lib/models/MasterData/TargetBank";
 import { PaginationModel } from "@/lib/models/globals/ResponseModel";
 import { targetBankKeys } from "@/lib/queryKeys/MasterData/TargetBank";
-import React, { useState } from "react";
+import { useState } from "react";
 
 function useTargetBankIndexModel() {
   const [targetBankQuery, settargetBankQuery] = useState<TargetBankQueryDto>({

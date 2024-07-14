@@ -7,7 +7,7 @@ import useGetAxios from "@/lib/hooks/axios/UseAxiosGet";
 import { ColorModel, ColorQueryDto } from "@/lib/models/MasterData/Color";
 import { PaginationModel } from "@/lib/models/globals/ResponseModel";
 import { colorKeys } from "@/lib/queryKeys/MasterData/Color";
-import React, { useState } from "react";
+import { useState } from "react";
 
 function useColorIndexModel() {
   const [colorQuery, setcolorQuery] = useState<ColorQueryDto>({

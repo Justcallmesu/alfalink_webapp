@@ -1,16 +1,13 @@
 import { CarModel, StatusMobil } from "@/lib/models/Car/Car";
-import { Badge, Pill } from "@mantine/core";
+import { Badge } from "@mantine/core";
 import {
   IconCheck,
   IconCurrencyDollar,
-  IconDesk,
   IconExclamationMark,
   IconEye,
   IconEyeDollar,
-  IconServicemark,
   IconSettings,
 } from "@tabler/icons-react";
-import React from "react";
 
 function CarStatusNode({ carRecord }: { carRecord: CarModel }) {
   if (!carRecord) return;

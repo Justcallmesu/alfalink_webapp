@@ -1,7 +1,6 @@
 import {
   axiosDeleteInspection,
   axiosGetInspectionById,
-  axiosPutInspection,
   axiosPutInspectionStatus,
 } from "@/lib/axios-config/Inspeksi/inspeksi";
 import { useAxiosDelete } from "@/lib/hooks/axios/UseAxiosDelete";
@@ -10,7 +9,6 @@ import { useAxiosPostPatch } from "@/lib/hooks/axios/UseAxiosPostPatch";
 import { InspeksiModel } from "@/lib/models/Inspeksi/inspeksi";
 import { ResponseData } from "@/lib/models/globals/ResponseModel";
 import { inspeksiKeys } from "@/lib/queryKeys/inspeksi/InspeksiKeys";
-import React from "react";
 import { Params, useParams } from "react-router-dom";
 
 function useInspeksiDetailsModel() {

@@ -6,10 +6,8 @@ import {
   Grid,
   Group,
   PasswordInput,
-  TextInput,
 } from "@mantine/core";
 import { Form } from "@mantine/form";
-import React from "react";
 import useChangePasswordController from "./ChangePasswordController";
 
 function ChangePassword() {

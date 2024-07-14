@@ -1,15 +1,6 @@
 import { FormType } from "@/lib/interface/FormType";
-import {
-  Button,
-  Card,
-  Fieldset,
-  Grid,
-  Group,
-  NumberInput,
-  TextInput,
-} from "@mantine/core";
+import { Button, Card, Fieldset, Grid, Group, TextInput } from "@mantine/core";
 import { Form } from "@mantine/form";
-import React from "react";
 import useCustomerFormController from "./CustomerFormController";
 import { DateInput } from "@mantine/dates";
 import { CreateCustomerModel } from "@/lib/models/customer/customer";

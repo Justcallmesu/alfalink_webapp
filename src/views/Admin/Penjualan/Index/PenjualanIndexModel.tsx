@@ -12,7 +12,7 @@ import {
   PenjualanQueryDto,
 } from "@/lib/models/penjualan/Penjualan";
 import { penjualanKeys } from "@/lib/queryKeys/Penjualan/Penjualan";
-import React, { useState } from "react";
+import { useState } from "react";
 
 function usePenjualanIndexModel() {
   const [penjualanQuery, setPenjualanQuery] = useState<PenjualanQueryDto>({

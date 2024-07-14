@@ -1,4 +1,3 @@
-import React from "react";
 import use1BodyStyleIndexModel from "./BodyStyleIndexModel";
 import { useNavigate } from "react-router-dom";
 import { DataTableColumn } from "mantine-datatable";

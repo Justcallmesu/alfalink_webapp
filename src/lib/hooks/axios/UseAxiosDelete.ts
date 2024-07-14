@@ -5,10 +5,7 @@ import { DeleteDto } from "@/lib/models/globals/AxiosProps";
 import { useNavigate } from "react-router-dom";
 import { notificationSystem } from "@/lib/notification-system/NotificationSystem";
 import { NotificationSystemType } from "@/lib/notification-system/enum/NotificationSystemType";
-import {
-  ErrorResponse,
-  ResponseMessage,
-} from "@/lib/models/globals/ResponseModel";
+import { ErrorResponse } from "@/lib/models/globals/ResponseModel";
 import { AxiosError } from "axios";
 
 export function useAxiosDelete(props: UseAxiosDeleteProps) {
@@ -16,7 +13,6 @@ export function useAxiosDelete(props: UseAxiosDeleteProps) {
     config,
     invalidateQueryKey,
     invalidateType,
-    onSuccess,
     queryParams,
     removeQueryKey,
     removeType,

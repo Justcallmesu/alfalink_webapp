@@ -1,6 +1,5 @@
-import React from "react";
 import useCustomerDetailsController from "./CustomerDetailsController";
-import { Button, Card, Divider, Flex, Grid, Stack } from "@mantine/core";
+import { Button, Card, Divider, Grid, Stack } from "@mantine/core";
 import DataDisplay from "@/lib/Components/DataDisplay/DataDisplay";
 import dayjs from "dayjs";
 import { IconEdit, IconTrash } from "@tabler/icons-react";
@@ -9,7 +8,7 @@ import { checkPermissions } from "@/lib/utils/CheckPermission";
 import { PermissionsEnum } from "@/lib/enum/PermissionsEnum";
 
 function CustomerDetails() {
-  const { customerData, handleDeleteCustomer, isCustomerFetching, navigate } =
+  const { customerData, handleDeleteCustomer, navigate } =
     useCustomerDetailsController();
 
   return (

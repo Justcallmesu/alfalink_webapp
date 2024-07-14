@@ -1,7 +1,6 @@
 import { Button, Card, Grid, Input, Modal, Select, Stack } from "@mantine/core";
 import { IconPlus, IconReload } from "@tabler/icons-react";
 import { DataTable } from "mantine-datatable";
-import React from "react";
 import useCarIndexController from "./CarIndexController";
 import { Form } from "@mantine/form";
 import { StatusMobil } from "@/lib/models/Car/Car";

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import usePenjualanDetailsModel from "./PenjualanDetailsModel";
 import { useNavigate } from "react-router-dom";
 import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";

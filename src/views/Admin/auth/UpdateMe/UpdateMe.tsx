@@ -1,15 +1,6 @@
 import { UpdateMeDto } from "@/lib/models/Auth/auth";
-import {
-  Button,
-  Card,
-  Fieldset,
-  Grid,
-  Group,
-  PasswordInput,
-  TextInput,
-} from "@mantine/core";
+import { Button, Card, Fieldset, Grid, Group, TextInput } from "@mantine/core";
 import { Form } from "@mantine/form";
-import React from "react";
 import useUpdateMeController from "./UpdateMeController";
 
 function ChangePassword() {

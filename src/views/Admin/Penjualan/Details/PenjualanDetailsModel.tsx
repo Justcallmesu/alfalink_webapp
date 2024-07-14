@@ -9,7 +9,6 @@ import { useAxiosPostPatch } from "@/lib/hooks/axios/UseAxiosPostPatch";
 import { ResponseData } from "@/lib/models/globals/ResponseModel";
 import { PenjualanModel } from "@/lib/models/penjualan/Penjualan";
 import { penjualanKeys } from "@/lib/queryKeys/Penjualan/Penjualan";
-import React from "react";
 import { useParams } from "react-router-dom";
 
 function usePenjualanDetailsModel() {

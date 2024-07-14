@@ -5,7 +5,7 @@ import { UserModel } from "@/lib/models/Auth/auth";
 import { UserQueryDto } from "@/lib/models/Users/Users";
 import { PaginationModel } from "@/lib/models/globals/ResponseModel";
 import { usersKeys } from "@/lib/queryKeys/Auth/AuthKeys";
-import React, { useState } from "react";
+import { useState } from "react";
 
 function useUsersIndexModel() {
   const [userQuery, setUserQuery] = useState<UserQueryDto>({

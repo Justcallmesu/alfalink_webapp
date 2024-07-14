@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import useTargetBankFormModel from "./TargetBankFormModel";
 import { useForm } from "@mantine/form";
 import { FormType } from "@/lib/interface/FormType";
 import { FormTypeEnum } from "@/lib/enum/FormType";
-import { CreateFuelTypeDto } from "@/lib/models/MasterData/FuelType";
 import { CreateTargetBankDto } from "@/lib/models/MasterData/TargetBank";
 import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
 

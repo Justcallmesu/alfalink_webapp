@@ -11,7 +11,6 @@ import {
 } from "@/lib/models/MasterData/CarType";
 import { ResponseModel } from "@/lib/models/base";
 import { carTypeKeys } from "@/lib/queryKeys/MasterData/CarType";
-import React from "react";
 import { useParams } from "react-router-dom";
 
 function useCarTypeFormModel() {

@@ -1,4 +1,3 @@
-import React from "react";
 import usePenjualanDetailsController from "./PenjualanDetailsController";
 import { Button, Card, Checkbox, Divider, Grid, Stack } from "@mantine/core";
 import DataDisplay from "@/lib/Components/DataDisplay/DataDisplay";
@@ -12,7 +11,6 @@ import {
 import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 import PenjualanStatusNode from "../Components/PenjualanStatusNode";
-import { PenjualanStatus } from "@/lib/models/penjualan/Penjualan";
 import PenjualanStatusModal from "../Components/Modal/PenjualanStatusModal";
 import { checkPermissions } from "@/lib/utils/CheckPermission";
 import { PermissionsEnum } from "@/lib/enum/PermissionsEnum";
@@ -20,7 +18,6 @@ import { PermissionsEnum } from "@/lib/enum/PermissionsEnum";
 function PenjualanDetails() {
   const {
     handleDeletePenjualan,
-    isPenjualanFetching,
     navigate,
     penjualanData,
     formModal,

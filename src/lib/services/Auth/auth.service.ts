@@ -13,7 +13,7 @@ export const getMe = async (): Promise<ResponseModel<UserModel>> => {
 };
 
 export const refreshToken = async (): Promise<void> => {
-  const response = await api.post<any>("/auth/refresh-token");
+  await api.post<any>("/auth/refresh-token");
 };
 
 export const logout = async () => {

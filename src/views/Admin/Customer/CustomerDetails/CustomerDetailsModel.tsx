@@ -7,7 +7,6 @@ import useGetAxios from "@/lib/hooks/axios/UseAxiosGet";
 import { CustomerModel } from "@/lib/models/customer/customer";
 import { ResponseData } from "@/lib/models/globals/ResponseModel";
 import customerKeys from "@/lib/queryKeys/customer/customer";
-import React from "react";
 import { useParams } from "react-router-dom";
 
 function useCustomerDetailsModel() {

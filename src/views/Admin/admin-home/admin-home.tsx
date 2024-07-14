@@ -1,8 +1,7 @@
 import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
 import { getRoleData, getUserData } from "@/lib/utils/LocalStorage";
-import { Badge, Flex, Group, Paper, Text, rem } from "@mantine/core";
+import { Badge, Flex, Paper, Text, rem } from "@mantine/core";
 import { IconCircleKey } from "@tabler/icons-react";
-import React from "react";
 
 function AdminHome() {
   const userData = getUserData();

@@ -1,17 +1,14 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import useCarFormModel from "./CarFormModel";
 import { useForm } from "@mantine/form";
 import {
-  CarModel,
   CarTaxStatusEnum,
   CarTransmisionEnum,
   CreateCarDto,
   UpdateCarDto,
-  UpdateCarStatusDto,
 } from "@/lib/models/Car/Car";
 import { FormTypeEnum } from "@/lib/enum/FormType";
 import { FormType } from "@/lib/interface/FormType";
-import { useDisclosure } from "@mantine/hooks";
 import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
 
 function useCarFormController({ formType }: FormType) {

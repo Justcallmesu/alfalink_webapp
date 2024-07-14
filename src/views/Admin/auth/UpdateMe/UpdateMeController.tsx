@@ -1,4 +1,3 @@
-import React from "react";
 import { useForm } from "@mantine/form";
 import { UpdateMeDto } from "@/lib/models/Auth/auth";
 import useUpdateMeModel from "./UpdateMeModel";

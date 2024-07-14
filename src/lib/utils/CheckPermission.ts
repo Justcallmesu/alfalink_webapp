@@ -1,5 +1,5 @@
 import { PermissionsEnum } from "../enum/PermissionsEnum";
-import { getPermissionsData, getUserData } from "./LocalStorage";
+import { getPermissionsData } from "./LocalStorage";
 
 export interface checkPermissionsProps {
   permissionsCode?: PermissionsEnum;

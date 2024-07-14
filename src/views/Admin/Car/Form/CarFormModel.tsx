@@ -10,12 +10,7 @@ import {
 } from "@/lib/axios-config/car/Car";
 import useGetAxios from "@/lib/hooks/axios/UseAxiosGet";
 import { useAxiosPostPatch } from "@/lib/hooks/axios/UseAxiosPostPatch";
-import {
-  CarModel,
-  CarQueryDto,
-  CreateCarDto,
-  UpdateCarDto,
-} from "@/lib/models/Car/Car";
+import { CarModel, CreateCarDto, UpdateCarDto } from "@/lib/models/Car/Car";
 import {
   BodyStyleModel,
   BodyStyleQueryDto,
@@ -40,7 +35,7 @@ import { carTypeKeys } from "@/lib/queryKeys/MasterData/CarType";
 import { colorKeys } from "@/lib/queryKeys/MasterData/Color";
 import { fuelTypeKeys } from "@/lib/queryKeys/MasterData/FuelType";
 import { carKeys } from "@/lib/queryKeys/car/Car";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 
 function useCarFormModel() {

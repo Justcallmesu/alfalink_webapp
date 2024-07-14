@@ -1,9 +1,7 @@
-import React from "react";
 import useCarTypeController from "./CarTypeFormController";
 import { FormType } from "@/lib/interface/FormType";
 import { Button, Card, Fieldset, Grid, Group, TextInput } from "@mantine/core";
 import { Form } from "@mantine/form";
-import { CreateCarModelDto } from "@/lib/models/MasterData/CarModel";
 import { CreateCarTypeDto } from "@/lib/models/MasterData/CarType";
 
 function CarTypeForm(formType: FormType) {

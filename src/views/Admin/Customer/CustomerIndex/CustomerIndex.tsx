@@ -1,6 +1,6 @@
-import { Button, Card, Grid, Input, Table } from "@mantine/core";
+import { Button, Card, Grid, Input } from "@mantine/core";
 import useCustomerIndexController from "./CustomerIndexController";
-import { IconMoodEmpty, IconPlus, IconReload } from "@tabler/icons-react";
+import { IconPlus, IconReload } from "@tabler/icons-react";
 import { DataTable } from "mantine-datatable";
 import { checkPermissions } from "@/lib/utils/CheckPermission";
 import { PermissionsEnum } from "@/lib/enum/PermissionsEnum";

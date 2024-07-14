@@ -24,7 +24,7 @@ import { targetBankKeys } from "@/lib/queryKeys/MasterData/TargetBank";
 import { penjualanKeys } from "@/lib/queryKeys/Penjualan/Penjualan";
 import { carKeys } from "@/lib/queryKeys/car/Car";
 import customerKeys from "@/lib/queryKeys/customer/customer";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Params, useParams } from "react-router-dom";
 
 function usePenjualanFormModel() {

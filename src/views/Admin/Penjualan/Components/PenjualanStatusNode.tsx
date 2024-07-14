@@ -3,7 +3,6 @@ import { Badge } from "@mantine/core";
 import {
   IconCheck,
   IconClock,
-  IconCross,
   IconExclamationCircle,
   IconEyeDollar,
   IconKey,
@@ -13,7 +12,6 @@ import {
   IconX,
   IconZoom,
 } from "@tabler/icons-react";
-import React from "react";
 
 function PenjualanStatusNode({ status }: { status: PenjualanStatus }) {
   if (!status) return;

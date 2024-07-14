@@ -1,25 +1,16 @@
-import {axiosPostBodyStyle, 
+import {
+  axiosPostBodyStyle,
   axiosGetBodyStyle,
   axiosUpdateBodyStyle,
 } from "@/lib/axios-config/MasterData/BodyStyle";
-import {
-  axiosGetCarType,
-  axiosPostCarType,
-  axiosUpdateCarType,
-} from "@/lib/axios-config/MasterData/CarType";
 import useGetAxios from "@/lib/hooks/axios/UseAxiosGet";
 import { useAxiosPostPatch } from "@/lib/hooks/axios/UseAxiosPostPatch";
 import {
   BodyStyleModel,
   CreateBodyStyleDto,
 } from "@/lib/models/MasterData/BodyStyle";
-import {
-  CarTypeModel,
-  CreateCarTypeDto,
-} from "@/lib/models/MasterData/CarType";
 import { ResponseModel } from "@/lib/models/base";
 import { bodyStyleKeys } from "@/lib/queryKeys/MasterData/BodyStyle";
-import React from "react";
 import { useParams } from "react-router-dom";
 
 function useBodyStyleFormModel() {

@@ -8,7 +8,6 @@ import {
   Select,
   Stack,
 } from "@mantine/core";
-import React from "react";
 import useCarDetailsController from "./CarDetailsController";
 import { IconEdit, IconLink, IconTrash } from "@tabler/icons-react";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
@@ -28,7 +27,6 @@ function CarDetails() {
     handleCloseModal,
     handleOpenFormModal,
     handleUpdateCarStatus,
-    isCarFetching,
     opened,
   } = useCarDetailsController();
 

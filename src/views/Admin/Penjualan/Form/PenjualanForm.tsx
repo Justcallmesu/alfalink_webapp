@@ -1,4 +1,3 @@
-import React from "react";
 import usePenjualanFormController from "./PenjualanFormController";
 import {
   Button,
@@ -9,13 +8,12 @@ import {
   Group,
   NumberInput,
   Select,
-  TextInput,
 } from "@mantine/core";
 import {
   CreatePenjualanDto,
   metodePembayaran,
 } from "@/lib/models/penjualan/Penjualan";
-import { DateInput, DatePicker } from "@mantine/dates";
+import { DateInput } from "@mantine/dates";
 import { Form } from "@mantine/form";
 import { FormType } from "@/lib/interface/FormType";
 import { FormTypeEnum } from "@/lib/enum/FormType";

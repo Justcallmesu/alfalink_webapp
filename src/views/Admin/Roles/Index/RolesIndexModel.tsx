@@ -5,7 +5,7 @@ import { RoleModel } from "@/lib/models/Auth/auth";
 import { RolesQueryDto } from "@/lib/models/Roles/Roles";
 import { PaginationModel } from "@/lib/models/globals/ResponseModel";
 import { rolesKeys } from "@/lib/queryKeys/Auth/AuthKeys";
-import React, { useState } from "react";
+import { useState } from "react";
 
 function useRolesIndexModel() {
   const [roleQuery, setRoleQuery] = useState<RolesQueryDto>({

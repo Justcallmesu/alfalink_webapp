@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import useCarBrandIndexModel from "./CarBrandIndexModel";
 import { DataTableColumn } from "mantine-datatable";

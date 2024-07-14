@@ -1,5 +1,4 @@
 import { Button, Card, Fieldset, Grid, Group, TextInput } from "@mantine/core";
-import React from "react";
 import useCarBrandFormController from "./CarBrandFormController";
 import { FormType } from "@/lib/interface/FormType";
 import { Form } from "@mantine/form";

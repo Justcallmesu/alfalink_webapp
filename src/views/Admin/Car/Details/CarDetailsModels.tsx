@@ -3,18 +3,13 @@ import {
   axiosGetCar,
   axiosUpdateStatusCar,
 } from "@/lib/axios-config/car/Car";
-import {
-  deleteCustomer,
-  getCustomer,
-} from "@/lib/axios-config/customer/customer";
 import { useAxiosDelete } from "@/lib/hooks/axios/UseAxiosDelete";
 import useGetAxios from "@/lib/hooks/axios/UseAxiosGet";
 import { useAxiosPostPatch } from "@/lib/hooks/axios/UseAxiosPostPatch";
 import { CarModel, UpdateCarStatusDto } from "@/lib/models/Car/Car";
 import { ResponseModel } from "@/lib/models/base";
 import { carKeys } from "@/lib/queryKeys/car/Car";
-import customerKeys from "@/lib/queryKeys/customer/customer";
-import { redirect, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function useCarDetailsModels() {
   /**

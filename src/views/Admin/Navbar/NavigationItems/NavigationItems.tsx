@@ -1,7 +1,6 @@
 import { checkPermissions } from "@/lib/utils/CheckPermission";
 import { NavigationItemsProps } from "./Interface/NavigationItems.interface";
 import {
-  IconBrand4chan,
   IconBuildingFactory,
   IconCar,
   IconCar4wd,

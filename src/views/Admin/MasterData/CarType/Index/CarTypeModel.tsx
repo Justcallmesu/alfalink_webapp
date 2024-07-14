@@ -7,7 +7,7 @@ import useGetAxios from "@/lib/hooks/axios/UseAxiosGet";
 import { CarTypeModel, CarTypeQueryDto } from "@/lib/models/MasterData/CarType";
 import { PaginationModel } from "@/lib/models/globals/ResponseModel";
 import { carTypeKeys } from "@/lib/queryKeys/MasterData/CarType";
-import React, { useState } from "react";
+import { useState } from "react";
 
 function useCarTypeIndexModel() {
   const [carTypeQuery, setCarTypeQuery] = useState<CarTypeQueryDto>({

@@ -1,7 +1,6 @@
-import React from "react";
 import useCarDetailsModels from "./CarDetailsModels";
 import { useNavigate } from "react-router-dom";
-import { CarModel, UpdateCarStatusDto } from "@/lib/models/Car/Car";
+import { UpdateCarStatusDto } from "@/lib/models/Car/Car";
 import { useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
 import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";

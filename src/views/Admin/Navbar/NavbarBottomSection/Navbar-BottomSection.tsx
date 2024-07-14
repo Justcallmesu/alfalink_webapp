@@ -1,8 +1,5 @@
-import { getUserData } from "@/lib/utils/LocalStorage";
 import {
   Avatar,
-  Button,
-  Flex,
   Group,
   Menu,
   MenuDropdown,
@@ -13,12 +10,10 @@ import {
 import {
   IconChevronRight,
   IconEdit,
-  IconExchange,
   IconKey,
   IconLogout,
   IconUser,
 } from "@tabler/icons-react";
-import React from "react";
 import useNavbarBottomSectionController from "./NavbarBottomSectionController";
 
 function NavbarBottomSection() {

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import useCarBrandFormModel from "./CarBrandFormModel";
 import { FormType } from "@/lib/interface/FormType";
 import { useForm } from "@mantine/form";

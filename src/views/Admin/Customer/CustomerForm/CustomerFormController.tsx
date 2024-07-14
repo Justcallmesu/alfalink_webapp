@@ -1,5 +1,5 @@
 import { useForm } from "@mantine/form";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import useCustomerFormModel from "./CustomerFormModel";
 import { CreateCustomerModel } from "@/lib/models/customer/customer";
 import dayjs from "dayjs";

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import usePenjualanIndexModel from "./PenjualanIndexModel";
 import { DataTableColumn } from "mantine-datatable";
 import {

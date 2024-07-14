@@ -1,6 +1,5 @@
 import { Container, Flex, Text } from "@mantine/core";
 import { IconArrowLeft } from "@tabler/icons-react";
-import React from "react";
 import { To, useNavigate } from "react-router-dom";
 
 export type PageTitleProps = {

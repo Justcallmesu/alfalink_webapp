@@ -1,4 +1,3 @@
-import React from "react";
 import useRolesIndexModel from "./RolesIndexModel";
 import { useNavigate } from "react-router-dom";
 import { DataTableColumn } from "mantine-datatable";

@@ -1,4 +1,3 @@
-import React from "react";
 import useCustomerDetailsModel from "./CustomerDetailsModel";
 import { useNavigate } from "react-router-dom";
 import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";

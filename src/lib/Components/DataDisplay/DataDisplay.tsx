@@ -1,5 +1,4 @@
 import { Flex, Text, Title } from "@mantine/core";
-import { Children } from "react";
 import { DataDisplayProps } from "./interface/DataDisplayProps";
 
 function DataDisplay(props: DataDisplayProps) {

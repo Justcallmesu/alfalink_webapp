@@ -11,7 +11,6 @@ import {
 } from "@/lib/models/customer/customer";
 import { ResponseData } from "@/lib/models/globals/ResponseModel";
 import customerKeys from "@/lib/queryKeys/customer/customer";
-import React from "react";
 import { Params, useParams } from "react-router-dom";
 
 function useCustomerFormModel() {

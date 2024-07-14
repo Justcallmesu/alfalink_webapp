@@ -11,7 +11,6 @@ import {
   Stack,
   TextInput,
 } from "@mantine/core";
-import React from "react";
 import useInspeksiDetailsController from "./InspeksiDetailsController";
 import {
   IconEdit,
@@ -31,7 +30,6 @@ function InspeksiDetails() {
   const {
     form,
     handleDelete,
-    mutateUpdateInspection,
     inspectionData,
     navigate,
     formModal,

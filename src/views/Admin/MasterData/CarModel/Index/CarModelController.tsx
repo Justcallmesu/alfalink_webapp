@@ -1,9 +1,8 @@
-import React from "react";
 import useCarModelModel from "./CarModelModel";
 import { DataTableColumn } from "mantine-datatable";
 import { CarModelModel } from "@/lib/models/MasterData/CarModel";
 import { ActionIcon } from "@mantine/core";
-import { IconEdit, IconFile, IconTrash } from "@tabler/icons-react";
+import { IconEdit, IconTrash } from "@tabler/icons-react";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import { useNavigate } from "react-router-dom";
 import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
@@ -16,7 +15,6 @@ function useCarModelController() {
    */
   const {
     carModelData,
-    carModelQuery,
     carModelRefetch,
     isCarModelFetching,
     setCarModelQuery,

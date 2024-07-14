@@ -1,4 +1,3 @@
-import React from "react";
 import useChangePasswordModel from "./ChangePasswordModel";
 import { useForm } from "@mantine/form";
 import { ChangePasswordDto } from "@/lib/models/Auth/auth";
@@ -14,7 +13,7 @@ function useChangePasswordController() {
       confirmPassword: "",
     },
     validate: {
-      password: (value, values) => {
+      password: (value) => {
         if (value.length < 10) {
           return "Password must be at least 10 characters long";
         }

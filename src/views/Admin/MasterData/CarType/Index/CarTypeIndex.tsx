@@ -1,4 +1,3 @@
-import React from "react";
 import useCarTypeIndexController from "./CarTypeController";
 import { Button, Card, Grid, Input } from "@mantine/core";
 import { IconPlus, IconReload } from "@tabler/icons-react";

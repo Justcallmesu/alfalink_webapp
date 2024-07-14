@@ -1,4 +1,3 @@
-import React from "react";
 import useInspeksiFormController from "./InspeksiFormController";
 import {
   Accordion,

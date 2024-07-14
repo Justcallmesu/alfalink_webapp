@@ -1,4 +1,4 @@
-import { Button, Group, Popover, Text, UnstyledButton } from "@mantine/core";
+import { Button, Group, Popover, Text } from "@mantine/core";
 import { PopconfirmProps } from "./interface/Popconfirm.interface";
 import { useState } from "react";
 
@@ -10,11 +10,8 @@ export function Popconfirm(props: PopconfirmProps) {
     description,
     onCancel,
     onConfirm,
-    title,
     cancelText = "Batal",
-    closeText,
     confirmText = "Yakin",
-    icon,
     placement = "bottom",
     size = 200,
   } = props;

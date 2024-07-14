@@ -1,4 +1,3 @@
-import React from "react";
 import useCarFormController from "./CarFormController";
 import { FormType } from "@/lib/interface/FormType";
 import {
@@ -30,7 +29,6 @@ function CarForm({ formType }: FormType) {
     bodyStyleData,
     fuelTypeData,
     carTypeData,
-    carData,
 
     /**
      * Form

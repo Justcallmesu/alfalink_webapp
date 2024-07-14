@@ -1,7 +1,6 @@
 import {
   axiosDeleteCar,
   axiosGetCars,
-  axiosUpdateCar,
   axiosUpdateStatusCar,
 } from "@/lib/axios-config/car/Car";
 import { useAxiosDelete } from "@/lib/hooks/axios/UseAxiosDelete";

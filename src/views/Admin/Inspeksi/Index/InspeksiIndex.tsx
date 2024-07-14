@@ -1,5 +1,4 @@
 import { Button, Card, Grid, Input } from "@mantine/core";
-import React from "react";
 import useInspeksiIndexController from "./InspeksiIndexController";
 import { IconPlus, IconReload } from "@tabler/icons-react";
 import { DataTable } from "mantine-datatable";
@@ -11,15 +10,11 @@ function InspeksiIndex() {
   const {
     InspectionTableColumns,
     InspectionsData,
-    handleDelete,
     handleInspectionSearch,
-    inspectionQuery,
     isInspectionsFetching,
-    mutateUpdateInspection,
     refetchInspections,
     handlePageChange,
     navigate,
-    close,
     formModal,
     opened,
     handleCloseModal,

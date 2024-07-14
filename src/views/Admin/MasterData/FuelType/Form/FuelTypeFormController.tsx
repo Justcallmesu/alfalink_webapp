@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import useColorFormModel from "./FuelTypeFormModel";
 import { useForm } from "@mantine/form";
 import { FormType } from "@/lib/interface/FormType";

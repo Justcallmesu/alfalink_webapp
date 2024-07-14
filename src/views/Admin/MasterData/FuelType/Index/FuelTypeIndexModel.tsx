@@ -10,7 +10,7 @@ import {
 } from "@/lib/models/MasterData/FuelType";
 import { PaginationModel } from "@/lib/models/globals/ResponseModel";
 import { fuelTypeKeys } from "@/lib/queryKeys/MasterData/FuelType";
-import React, { useState } from "react";
+import { useState } from "react";
 
 function useFuelTypeIndexModel() {
   const [fuelTypeQuery, setFuelTypeQuery] = useState<FuelTypeQueryDto>({

@@ -10,7 +10,7 @@ import {
 } from "@/lib/models/MasterData/BodyStyle";
 import { PaginationModel } from "@/lib/models/globals/ResponseModel";
 import { bodyStyleKeys } from "@/lib/queryKeys/MasterData/BodyStyle";
-import React, { useState } from "react";
+import { useState } from "react";
 
 function use1BodyStyleIndexModel() {
   const [bodyStyleQuery, setBodyStyleQuery] = useState<BodyStyleQueryDto>({

@@ -1,4 +1,3 @@
-import React from "react";
 import useCarBrandIndexController from "./CarBrandIndexController";
 import { IconPlus, IconReload } from "@tabler/icons-react";
 import { Button, Card, Grid, Input } from "@mantine/core";

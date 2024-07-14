@@ -10,7 +10,7 @@ import {
 } from "@/lib/models/MasterData/CarBrand";
 import { PaginationModel } from "@/lib/models/globals/ResponseModel";
 import { carBrandKeys } from "@/lib/queryKeys/MasterData/CarBrand";
-import React, { useState } from "react";
+import { useState } from "react";
 
 function useCarBrandIndexModel() {
   const [carBrandQuery, setCarBrandQuery] = useState<CarBrandQueryDto>({

@@ -1,7 +1,6 @@
 import { logout } from "@/lib/services/Auth/auth.service";
 import { getUserData, removeAllCredentials } from "@/lib/utils/LocalStorage";
-import { notifications, showNotification } from "@mantine/notifications";
-import React from "react";
+import { notifications } from "@mantine/notifications";
 import { useNavigate } from "react-router-dom";
 
 function useNavbarBottomSectionController() {

@@ -1,15 +1,6 @@
-import {
-  AppShell,
-  Paper,
-  Center,
-  Container,
-  Grid,
-  Image,
-  GridCol,
-} from "@mantine/core";
+import { AppShell, Paper, Center, Grid, Image, GridCol } from "@mantine/core";
 import { Outlet } from "react-router-dom";
 import LoginImage from "@/Assets/LoginLogo.jpg";
-import { notifications } from "@mantine/notifications";
 
 function LoginLayout() {
   return (
@@ -19,7 +10,7 @@ function LoginLayout() {
         width: 250,
         breakpoint: "sm",
       }}
-      styles={(theme) => ({
+      styles={() => ({
         main: {
           height: "100vh",
           display: "flex",

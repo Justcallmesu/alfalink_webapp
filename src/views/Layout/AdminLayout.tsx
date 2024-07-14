@@ -1,27 +1,11 @@
-import {
-  AppShell,
-  Avatar,
-  Burger,
-  Container,
-  Flex,
-  Group,
-  Paper,
-  ScrollArea,
-  Skeleton,
-  Text,
-} from "@mantine/core";
+import { AppShell, Burger, Group, Paper, ScrollArea } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { Outlet } from "react-router-dom";
 import NavbarBottomSection from "../Admin/Navbar/NavbarBottomSection/Navbar-BottomSection";
 import NavigationRender from "../Admin/Navbar/NavigationItems/NavigationRender";
-import { getMe, refreshToken } from "@/lib/services/Auth/auth.service";
-import {
-  getUserData,
-  removeAllCredentials,
-  setUserData,
-} from "@/lib/utils/LocalStorage";
+import { getMe } from "@/lib/services/Auth/auth.service";
+import { removeAllCredentials } from "@/lib/utils/LocalStorage";
 import { AxiosError } from "axios";
-import { IconArrowLeft } from "@tabler/icons-react";
 import PageTitle, { PageTitleProps } from "@/lib/Components/Layout/PageTitle";
 import { useEffect, useState } from "react";
 
@@ -46,7 +30,7 @@ function AdminLayout() {
         breakpoint: "sm",
         collapsed: { mobile: !opened, desktop: opened },
       }}
-      styles={(theme) => ({
+      styles={() => ({
         main: {
           height: "100vh",
           display: "flex",

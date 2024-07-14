@@ -1,15 +1,9 @@
 import { DataTableColumn } from "mantine-datatable";
-import React from "react";
 import useCustomerIndexModel from "./CustomerIndexModel";
 import { CustomerModel } from "@/lib/models/customer/customer";
 import { useNavigate } from "react-router-dom";
-import { ActionIcon, Button } from "@mantine/core";
-import {
-  IconEdit,
-  IconFile,
-  IconFilterEdit,
-  IconTrash,
-} from "@tabler/icons-react";
+import { ActionIcon } from "@mantine/core";
+import { IconEdit, IconFile, IconTrash } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";

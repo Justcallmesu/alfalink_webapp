@@ -1,4 +1,3 @@
-import React from "react";
 import useUsersFormController from "./UsersFormController";
 import {
   Button,
@@ -21,7 +20,6 @@ function UsersForm() {
     form,
     handleFormSubmit,
     rolesModel,
-    handleRoleSearch,
   } = useUsersFormController();
 
   return (

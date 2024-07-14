@@ -1,9 +1,8 @@
-import React from "react";
 import useUsersIndexModel from "./UsersIndexModel";
 import { DataTableColumn } from "mantine-datatable";
 import { UserModel } from "@/lib/models/Auth/auth";
 import { ActionIcon } from "@mantine/core";
-import { IconEdit, IconFile, IconTrash } from "@tabler/icons-react";
+import { IconEdit, IconTrash } from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import dayjs from "dayjs";

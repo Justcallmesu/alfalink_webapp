@@ -17,7 +17,7 @@ import {
 } from "@/lib/models/globals/ResponseModel";
 import { carKeys } from "@/lib/queryKeys/car/Car";
 import { inspeksiKeys } from "@/lib/queryKeys/inspeksi/InspeksiKeys";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Params, useParams } from "react-router-dom";
 
 function useInspeksiFormModel() {

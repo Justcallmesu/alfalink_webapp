@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import useInspeksiIndexModel from "./InspeksiIndexModel";
 import { DataTableColumn } from "mantine-datatable";
 import {
   InspeksiModel,
-  InspeksiStatus,
   UpdateInspeksiStatus,
 } from "@/lib/models/Inspeksi/inspeksi";
 import { useNavigate } from "react-router-dom";

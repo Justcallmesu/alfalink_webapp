@@ -1,4 +1,3 @@
-import React from "react";
 import useBodyStyleFormController from "./BodyStyleFormController";
 import { FormType } from "@/lib/interface/FormType";
 import { Button, Card, Fieldset, Grid, Group, TextInput } from "@mantine/core";

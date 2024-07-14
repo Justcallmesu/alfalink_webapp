@@ -1,4 +1,3 @@
-import React from "react";
 import useBodyStyleIndexController from "./BodyStyleIndexController";
 import { Button, Card, Grid, Input } from "@mantine/core";
 import { IconPlus, IconReload } from "@tabler/icons-react";

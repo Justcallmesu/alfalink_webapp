@@ -1,5 +1,4 @@
 import { Button, Card, Grid, Input } from "@mantine/core";
-import React from "react";
 import useUsersIndexController from "./UsersIndexController";
 import { IconPlus, IconReload } from "@tabler/icons-react";
 import { DataTable } from "mantine-datatable";
@@ -13,7 +12,6 @@ function UserIndex() {
     isUserFetching,
     refetchUser,
     tableColumns,
-    userQuery,
     usersData,
     navigate,
   } = useUsersIndexController();

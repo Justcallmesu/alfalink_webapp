@@ -1,4 +1,3 @@
-import { InspeksiStatus } from "@/lib/models/Inspeksi/inspeksi";
 import {
   PenjualanModel,
   PenjualanStatus,
@@ -6,7 +5,6 @@ import {
 } from "@/lib/models/penjualan/Penjualan";
 import { Button, Modal, Select, Stack } from "@mantine/core";
 import { Form } from "@mantine/form";
-import React from "react";
 
 export interface PenjualanStatusModalProps {
   opened: boolean;

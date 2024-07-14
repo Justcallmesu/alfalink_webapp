@@ -11,7 +11,6 @@ import {
 } from "@/lib/models/MasterData/TargetBank";
 import { ResponseModel } from "@/lib/models/base";
 import { targetBankKeys } from "@/lib/queryKeys/MasterData/TargetBank";
-import React from "react";
 import { useParams } from "react-router-dom";
 
 function useTargetBankFormModel() {

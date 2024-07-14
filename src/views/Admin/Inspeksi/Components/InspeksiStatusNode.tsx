@@ -8,7 +8,6 @@ import {
   IconWash,
   IconZoom,
 } from "@tabler/icons-react";
-import React from "react";
 
 function InspeksiStatusNode({ status }: { status: InspeksiStatus }) {
   if (!status) return;

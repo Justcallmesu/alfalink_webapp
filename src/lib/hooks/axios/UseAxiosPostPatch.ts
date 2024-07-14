@@ -18,7 +18,6 @@ export function useAxiosPostPatch<T extends any>(
 ) {
   const {
     config,
-    data,
     invalidateQueryKey,
     invalidateType,
     onSuccess,
@@ -82,7 +81,7 @@ export function useAxiosPostPatch<T extends any>(
         type: invalidateType,
       });
 
-    onSuccess?.(data);
+    onSuccess?.();
 
     if (redirect) navigate(redirect);
   };

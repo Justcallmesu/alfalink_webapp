@@ -1,7 +1,6 @@
-import React from "react";
 import { DataTableColumn } from "mantine-datatable";
 import { ActionIcon } from "@mantine/core";
-import { IconEdit, IconFile, IconTrash } from "@tabler/icons-react";
+import { IconEdit, IconTrash } from "@tabler/icons-react";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import { useNavigate } from "react-router-dom";
 import { FuelTypeModel } from "@/lib/models/MasterData/FuelType";

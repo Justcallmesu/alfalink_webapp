@@ -1,6 +1,6 @@
 import { PageTitleProps } from "@/lib/Components/Layout/PageTitle";
 import { OutletContextModel } from "@/lib/interface/OutletContextModel";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
 
 function usePageTitle(props: PageTitleProps) {

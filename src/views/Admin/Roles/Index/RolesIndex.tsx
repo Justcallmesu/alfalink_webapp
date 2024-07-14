@@ -1,5 +1,4 @@
 import { Button, Card, Grid, Input } from "@mantine/core";
-import React from "react";
 import useRolesIndexController from "./RolesIndexController";
 import { IconPlus, IconReload } from "@tabler/icons-react";
 import { DataTable } from "mantine-datatable";

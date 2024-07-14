@@ -1,7 +1,6 @@
 import { InspeksiStatus } from "@/lib/models/Inspeksi/inspeksi";
 import { Button, Modal, Select, Stack } from "@mantine/core";
 import { Form } from "@mantine/form";
-import React from "react";
 
 export interface InspeksiStatusModalProps {
   opened: boolean;

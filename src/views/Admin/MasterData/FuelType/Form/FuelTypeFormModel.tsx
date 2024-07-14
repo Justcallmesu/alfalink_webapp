@@ -11,7 +11,6 @@ import {
 } from "@/lib/models/MasterData/FuelType";
 import { ResponseModel } from "@/lib/models/base";
 import { fuelTypeKeys } from "@/lib/queryKeys/MasterData/FuelType";
-import React from "react";
 import { useParams } from "react-router-dom";
 
 function useFuelTypeFormModel() {

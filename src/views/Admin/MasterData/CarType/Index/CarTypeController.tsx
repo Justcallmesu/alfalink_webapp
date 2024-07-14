@@ -1,8 +1,7 @@
-import React from "react";
 import useCarTypeIndexModel from "./CarTypeModel";
 import { DataTableColumn } from "mantine-datatable";
 import { ActionIcon } from "@mantine/core";
-import { IconEdit, IconFile, IconTrash } from "@tabler/icons-react";
+import { IconEdit, IconTrash } from "@tabler/icons-react";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import { useNavigate } from "react-router-dom";
 import { CarTypeModel } from "@/lib/models/MasterData/CarType";

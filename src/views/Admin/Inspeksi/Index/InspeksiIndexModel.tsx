@@ -1,7 +1,6 @@
 import {
   axiosDeleteInspection,
   axiosGetInspections,
-  axiosPutInspection,
   axiosPutInspectionStatus,
 } from "@/lib/axios-config/Inspeksi/inspeksi";
 import { useAxiosDelete } from "@/lib/hooks/axios/UseAxiosDelete";
@@ -13,7 +12,7 @@ import {
 } from "@/lib/models/Inspeksi/inspeksi";
 import { PaginationModel } from "@/lib/models/globals/ResponseModel";
 import { inspeksiKeys } from "@/lib/queryKeys/inspeksi/InspeksiKeys";
-import React, { useState } from "react";
+import { useState } from "react";
 
 function useInspeksiIndexModel() {
   const [inspectionQuery, setInspectionQuery] = useState<InspeksiQueryDto>({

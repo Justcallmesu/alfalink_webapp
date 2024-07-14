@@ -1,4 +1,3 @@
-import React from "react";
 import useColorIndexController from "./ColorController";
 import { Button, Card, Grid, Input } from "@mantine/core";
 import { IconPlus, IconReload } from "@tabler/icons-react";
