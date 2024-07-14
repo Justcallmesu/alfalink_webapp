@@ -3,6 +3,7 @@ import React from "react";
 import useInspeksiIndexController from "./InspeksiIndexController";
 import { IconPlus, IconReload } from "@tabler/icons-react";
 import { DataTable } from "mantine-datatable";
+import InspeksiStatusModal from "../Components/Modal/InspeksiStatusModal";
 
 function InspeksiIndex() {
   const {
@@ -16,6 +17,11 @@ function InspeksiIndex() {
     refetchInspections,
     handlePageChange,
     navigate,
+    close,
+    formModal,
+    opened,
+    handleCloseModal,
+    handleInspeksiStatusUpdate,
   } = useInspeksiIndexController();
 
   return (
@@ -64,6 +70,12 @@ function InspeksiIndex() {
           </Grid.Col>
         </Grid>
       </Card>
+      <InspeksiStatusModal
+        formModal={formModal}
+        handleCloseModal={handleCloseModal}
+        handleUpdateInspeksiStatus={handleInspeksiStatusUpdate}
+        opened={opened}
+      />
     </>
   );
 }

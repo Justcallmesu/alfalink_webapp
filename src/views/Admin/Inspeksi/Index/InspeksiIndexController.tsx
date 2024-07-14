@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import useInspeksiIndexModel from "./InspeksiIndexModel";
 import { DataTableColumn } from "mantine-datatable";
-import { InspeksiModel } from "@/lib/models/Inspeksi/inspeksi";
+import {
+  InspeksiModel,
+  InspeksiStatus,
+  UpdateInspeksiStatus,
+} from "@/lib/models/Inspeksi/inspeksi";
 import { useNavigate } from "react-router-dom";
 import { ActionIcon } from "@mantine/core";
-import { IconEdit, IconFile, IconTrash } from "@tabler/icons-react";
+import {
+  IconEdit,
+  IconFile,
+  IconSettingsCheck,
+  IconTrash,
+} from "@tabler/icons-react";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import InspeksiStatusNode from "../Components/InspeksiStatusNode";
 import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
+import { useForm } from "@mantine/form";
+import { useDisclosure } from "@mantine/hooks";
 
 function useInspeksiIndexController() {
   const {
@@ -41,6 +52,45 @@ function useInspeksiIndexController() {
   };
 
   const navigate = useNavigate();
+  const formModal = useForm<UpdateInspeksiStatus>({
+    initialValues: {
+      status: undefined,
+    },
+    validate: {
+      status: (value) => {
+        if (!value) {
+          return "Status is required";
+        }
+      },
+    },
+  });
+
+  const [opened, { open, close }] = useDisclosure(false);
+  const [selectedInspeksi, setSelectedInspeksi] =
+    useState<InspeksiModel | null>(null);
+
+  const handleOpenFormModal = async (record: InspeksiModel) => {
+    setSelectedInspeksi(record);
+    formModal.reset();
+    formModal.setFieldValue("status", record.status!);
+    open();
+  };
+
+  const handleInspeksiStatusUpdate = async (values: UpdateInspeksiStatus) => {
+    mutateUpdateInspection({
+      id: selectedInspeksi?._id!,
+      data: {
+        status: values.status,
+      },
+    });
+    formModal.reset();
+    close();
+  };
+
+  const handleCloseModal = () => {
+    formModal.reset();
+    close();
+  };
 
   const InspectionTableColumns: DataTableColumn<InspeksiModel>[] = [
     {
@@ -73,6 +123,13 @@ function useInspeksiIndexController() {
                 <IconTrash />
               </ActionIcon>
             </Popconfirm>
+            <ActionIcon
+              variant="light"
+              color="orange"
+              onClick={() => handleOpenFormModal(record)}
+            >
+              <IconSettingsCheck />
+            </ActionIcon>
           </div>
         );
       },
@@ -120,6 +177,11 @@ function useInspeksiIndexController() {
     refetchInspections,
     navigate,
     handlePageChange,
+    opened,
+    close,
+    formModal,
+    handleCloseModal,
+    handleInspeksiStatusUpdate,
   };
 }
 

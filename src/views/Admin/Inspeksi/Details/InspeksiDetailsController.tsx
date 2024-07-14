@@ -1,9 +1,14 @@
 import { useForm } from "@mantine/form";
 import useInspeksiDetailsModel from "./InspeksiDetailsModel";
-import { CreateInspeksiDto } from "@/lib/models/Inspeksi/inspeksi";
-import { useEffect } from "react";
+import {
+  CreateInspeksiDto,
+  InspeksiModel,
+  UpdateInspeksiStatus,
+} from "@/lib/models/Inspeksi/inspeksi";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
+import { useDisclosure } from "@mantine/hooks";
 
 function useInspeksiDetailsController() {
   const { inspectionData, mutateDeleteInspection, mutateUpdateInspection } =
@@ -109,6 +114,48 @@ function useInspeksiDetailsController() {
     },
   });
 
+  const formModal = useForm<UpdateInspeksiStatus>({
+    initialValues: {
+      status: undefined,
+    },
+    validate: {
+      status: (value) => {
+        if (!value) {
+          return "Status is required";
+        }
+      },
+    },
+  });
+
+  const [opened, { open, close }] = useDisclosure(false);
+  const [selectedInspeksi, setSelectedInspeksi] =
+    useState<InspeksiModel | null>(null);
+
+  const handleOpenFormModal = async (record: InspeksiModel) => {
+    if (!record) return;
+
+    setSelectedInspeksi(record);
+    formModal.reset();
+    formModal.setFieldValue("status", record.status!);
+    open();
+  };
+
+  const handleInspeksiStatusUpdate = async (values: UpdateInspeksiStatus) => {
+    mutateUpdateInspection({
+      id: selectedInspeksi?._id!,
+      data: {
+        status: values.status,
+      },
+    });
+    formModal.reset();
+    close();
+  };
+
+  const handleCloseModal = () => {
+    formModal.reset();
+    close();
+  };
+
   useEffect(() => {
     if (inspectionData) {
       form.initialize({
@@ -129,6 +176,11 @@ function useInspeksiDetailsController() {
     mutateUpdateInspection,
     inspectionData,
     navigate,
+    formModal,
+    opened,
+    handleCloseModal,
+    handleOpenFormModal,
+    handleInspeksiStatusUpdate,
   };
 }
 

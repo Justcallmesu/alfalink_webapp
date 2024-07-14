@@ -28,6 +28,13 @@ export function axiosUpdatePenjualan(id: string): AxiosRequestConfig {
   };
 }
 
+export function axiosUpdatePenjualanStatus(id: string): AxiosRequestConfig {
+  return {
+    method: "PUT",
+    url: `/penjualan/${id}/status`,
+  };
+}
+
 export function axiosDeletePenjualan(id: string): AxiosRequestConfig {
   return {
     method: "DELETE",

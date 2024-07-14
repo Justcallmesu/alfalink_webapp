@@ -4,9 +4,9 @@ import { BaseRequestModel } from "../globals/RequestModel";
 
 export enum InspeksiStatus {
   BARU = "Mobil baru",
-  CUCI = "CUCI Mobil",
-  POLES = "POLES Mobil",
-  BENGKEL = "SERVIS Mobil",
+  CUCI = "Cuci Mobil",
+  POLES = "Poles Mobil",
+  BENGKEL = "Servis Mobil",
   INSPEKSI = "Inspeksi Mobil",
   SELESAI = "Selesai",
 }
@@ -170,6 +170,10 @@ export interface CreateInspeksiDto {
 }
 
 export interface UpdateInspeksiDto extends CreateInspeksiDto {}
+
+export interface UpdateInspeksiStatus {
+  status?: InspeksiStatus;
+}
 
 export interface InspeksiQueryDto extends BaseRequestModel {
   mobil?: string;

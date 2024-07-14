@@ -28,6 +28,13 @@ export function axiosPutInspection(id: string): AxiosRequestConfig {
   };
 }
 
+export function axiosPutInspectionStatus(id: string): AxiosRequestConfig {
+  return {
+    method: "PUT",
+    url: `/inspeksi/${id}/status`,
+  };
+}
+
 export function axiosDeleteInspection(id: string): AxiosRequestConfig {
   return {
     method: "DELETE",

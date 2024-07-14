@@ -3,6 +3,7 @@ import { useForm } from "@mantine/form";
 import { UpdateMeDto } from "@/lib/models/Auth/auth";
 import useUpdateMeModel from "./UpdateMeModel";
 import { getUserData } from "@/lib/utils/LocalStorage";
+import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
 
 function useUpdateMeController() {
   const { mutateUpdateMe } = useUpdateMeModel();
@@ -37,6 +38,8 @@ function useUpdateMeController() {
   const updateMe = (values: UpdateMeDto) => {
     mutateUpdateMe({ data: values });
   };
+
+  usePageTitle({ prevRoute: "/admin", title: "Update Me" });
 
   return {
     form,

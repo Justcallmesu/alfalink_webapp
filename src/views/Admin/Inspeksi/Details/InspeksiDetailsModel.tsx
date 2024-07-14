@@ -2,6 +2,7 @@ import {
   axiosDeleteInspection,
   axiosGetInspectionById,
   axiosPutInspection,
+  axiosPutInspectionStatus,
 } from "@/lib/axios-config/Inspeksi/inspeksi";
 import { useAxiosDelete } from "@/lib/hooks/axios/UseAxiosDelete";
 import useGetAxios from "@/lib/hooks/axios/UseAxiosGet";
@@ -31,7 +32,7 @@ function useInspeksiDetailsModel() {
   });
 
   const { mutate: mutateUpdateInspection } = useAxiosPostPatch({
-    config: (id) => axiosPutInspection(id!),
+    config: (id) => axiosPutInspectionStatus(id!),
     invalidateQueryKey: inspeksiKeys.byId(id!).queryKey,
     invalidateType: "all",
   });

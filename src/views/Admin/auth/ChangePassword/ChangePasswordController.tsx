@@ -2,6 +2,7 @@ import React from "react";
 import useChangePasswordModel from "./ChangePasswordModel";
 import { useForm } from "@mantine/form";
 import { ChangePasswordDto } from "@/lib/models/Auth/auth";
+import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
 
 function useChangePasswordController() {
   const { mutateUpdatePassword } = useChangePasswordModel();
@@ -37,6 +38,8 @@ function useChangePasswordController() {
   const changePassword = (values: ChangePasswordDto) => {
     mutateUpdatePassword({ data: values });
   };
+
+  usePageTitle({ prevRoute: "/admin", title: "Change Password" });
 
   return {
     form,

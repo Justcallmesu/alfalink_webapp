@@ -1,9 +1,11 @@
 import {
   axiosDeletePenjualan,
   axiosGetPenjualan,
+  axiosUpdatePenjualanStatus,
 } from "@/lib/axios-config/penjualan/Penjualan";
 import { useAxiosDelete } from "@/lib/hooks/axios/UseAxiosDelete";
 import useGetAxios from "@/lib/hooks/axios/UseAxiosGet";
+import { useAxiosPostPatch } from "@/lib/hooks/axios/UseAxiosPostPatch";
 import { PaginationModel } from "@/lib/models/globals/ResponseModel";
 import {
   PenjualanModel,
@@ -34,6 +36,12 @@ function usePenjualanIndexModel() {
     invalidateType: "all",
   });
 
+  const { mutate: mutateUpdatePenjualanStatus } = useAxiosPostPatch({
+    config: (id) => axiosUpdatePenjualanStatus(id!),
+    invalidateQueryKey: penjualanKeys.lists(penjualanQuery).queryKey,
+    invalidateType: "all",
+  });
+
   return {
     penjualanQuery,
     setPenjualanQuery,
@@ -41,6 +49,7 @@ function usePenjualanIndexModel() {
     isPenjualanFetching,
     refetchPenjualan,
     mutateDeletePenjualan,
+    mutateUpdatePenjualanStatus,
   };
 }
 

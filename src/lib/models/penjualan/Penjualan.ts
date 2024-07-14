@@ -68,7 +68,9 @@ export interface CreatePenjualanDto {
   bankTujuan?: string;
 }
 
-export interface UpdatePenjualanDto extends CreatePenjualanDto {
+export interface UpdatePenjualanDto extends CreatePenjualanDto {}
+
+export interface UpdatePenjualanStatusDto {
   status?: PenjualanStatus;
 }
 

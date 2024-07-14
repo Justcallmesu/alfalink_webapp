@@ -1,14 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import usePenjualanIndexModel from "./PenjualanIndexModel";
 import { DataTableColumn } from "mantine-datatable";
-import { PenjualanModel } from "@/lib/models/penjualan/Penjualan";
+import {
+  PenjualanModel,
+  UpdatePenjualanStatusDto,
+} from "@/lib/models/penjualan/Penjualan";
 import { ActionIcon } from "@mantine/core";
-import { IconEdit, IconFile, IconTrash } from "@tabler/icons-react";
+import {
+  IconEdit,
+  IconFile,
+  IconSettingsCheck,
+  IconTrash,
+} from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
 import { Popconfirm } from "@/lib/Components/Popconfirm/Popconfirm";
 import dayjs from "dayjs";
 import PenjualanStatusNode from "../Components/PenjualanStatusNode";
 import usePageTitle from "@/lib/hooks/usePage/UsePageTitle";
+import { useForm } from "@mantine/form";
+import { useDisclosure } from "@mantine/hooks";
 
 function usePenjualanIndexController() {
   const {
@@ -18,6 +28,7 @@ function usePenjualanIndexController() {
     penjualanQuery,
     refetchPenjualan,
     setPenjualanQuery,
+    mutateUpdatePenjualanStatus,
   } = usePenjualanIndexModel();
 
   const handlePenjualanSearch = (value: string) => {
@@ -45,6 +56,48 @@ function usePenjualanIndexController() {
 
   const navigate = useNavigate();
 
+  const formModal = useForm<UpdatePenjualanStatusDto>({
+    initialValues: {
+      status: undefined,
+    },
+    validate: {
+      status: (value) => {
+        if (!value) {
+          return "Status is required";
+        }
+      },
+    },
+  });
+
+  const [opened, { open, close }] = useDisclosure(false);
+  const [selectedPenjualan, setSelectedPenjualan] =
+    useState<PenjualanModel | null>(null);
+
+  const handleOpenFormModal = async (record: PenjualanModel) => {
+    setSelectedPenjualan(record);
+    formModal.reset();
+    formModal.setFieldValue("status", record.status!);
+    open();
+  };
+
+  const handleUpdatePenjualanStatus = async (
+    values: UpdatePenjualanStatusDto
+  ) => {
+    mutateUpdatePenjualanStatus({
+      id: selectedPenjualan?._id!,
+      data: {
+        status: values.status,
+      },
+    });
+    formModal.reset();
+    close();
+  };
+
+  const handleCloseModal = () => {
+    formModal.reset();
+    close();
+  };
+
   const tableColumns: DataTableColumn<PenjualanModel>[] = [
     {
       accessor: "actions",
@@ -71,6 +124,13 @@ function usePenjualanIndexController() {
                 <IconTrash />
               </ActionIcon>
             </Popconfirm>
+            <ActionIcon
+              variant="light"
+              color="orange"
+              onClick={() => handleOpenFormModal(record)}
+            >
+              <IconSettingsCheck />
+            </ActionIcon>
           </div>
         );
       },
@@ -104,6 +164,10 @@ function usePenjualanIndexController() {
       },
     },
     {
+      accessor: "metodePembayaran",
+      title: "Metode Pembayaran",
+    },
+    {
       accessor: "status",
       title: "Status",
       render(record) {
@@ -123,6 +187,12 @@ function usePenjualanIndexController() {
     handlePageChange,
     tableColumns,
     navigate,
+    formModal,
+    opened,
+    handleCloseModal,
+    handleOpenFormModal,
+    handleUpdatePenjualanStatus,
+    selectedPenjualan,
   };
 }
 
