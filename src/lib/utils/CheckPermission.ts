@@ -10,13 +10,13 @@ export interface checkPermissionsProps {
 function checkActionPermission(permissionsCode: PermissionsEnum) {
   const permission = getPermissionsData();
 
-  return !!permission.find((item) => item.permission_name === permissionsCode);
+  return !!permission?.find((item) => item.permission_name === permissionsCode);
 }
 
 function checkPermissionGroup(group: string) {
   const permission = getPermissionsData();
 
-  return !!permission.find((item) => item.permission_group === group);
+  return !!permission?.find((item) => item.permission_group === group);
 }
 
 export function checkPermissions(props: checkPermissionsProps): boolean {
