@@ -1,4 +1,4 @@
-import { Navigate, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { Suspense } from "react";
 
 /**
@@ -7,12 +7,17 @@ import { Suspense } from "react";
 import Admin from "./admin/Admin";
 
 export function MainRoutes() {
-  return (
-    <Suspense>
-      <Routes>
-        {/* Admin */}
-        <>{Admin}</>
-      </Routes>
-    </Suspense>
-  );
+	return (
+		<Suspense>
+			<Routes>
+				{/* Admin */}
+				<>{Admin}</>
+
+				<Route
+					path="*"
+					element={<Navigate to="/admin" />}
+				/>
+			</Routes>
+		</Suspense>
+	);
 }
