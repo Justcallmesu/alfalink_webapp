@@ -1,41 +1,41 @@
 import { BaseModel } from "../base";
 
 export interface AuthLoginDto {
-  username: string;
-  password: string;
+	username: string;
+	password: string;
 }
 
 export interface AuthLoginModel {
-  username: string;
-  name: string;
+	username: string;
+	name: string;
 }
 
 export interface PermissionsModel extends BaseModel {
-  permission_name: string;
-  permission_description: string;
-  permission_group: string;
+	permissionName: string;
+	permissionDescription: string;
+	permissionGroup: string;
 }
 
 export interface RoleModel extends BaseModel {
-  role_name: string;
-  role_description: string;
-  permissions_id: PermissionsModel[];
+	roleName: string;
+	roleDescription: string;
+	permissionsId: PermissionsModel[];
 }
 
 export interface UserModel extends BaseModel {
-  name: string;
-  username: string;
-  date_created: Date;
-  role_id: RoleModel;
+	name: string;
+	username: string;
+	dateCreated: Date;
+	roleId: RoleModel;
 }
 
 export interface ChangePasswordDto {
-  password: string;
-  confirmPassword: string;
-  oldPassword: string;
+	password: string;
+	confirmPassword: string;
+	oldPassword: string;
 }
 
 export interface UpdateMeDto {
-  name: string;
-  username: string;
+	name: string;
+	username: string;
 }
