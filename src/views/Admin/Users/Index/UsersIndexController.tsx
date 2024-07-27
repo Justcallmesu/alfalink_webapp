@@ -46,7 +46,7 @@ function useUsersIndexController() {
 							variant="light"
 							color="orange"
 							disabled={
-								record?.role_id?.role_name === "Super Admin" ||
+								record?.roleId?.roleName === "Super Admin" ||
 								!checkPermissions({
 									permissionsCode: PermissionsEnum.UPDATE_USER,
 									type: "action",
@@ -62,7 +62,7 @@ function useUsersIndexController() {
 								variant="light"
 								color="red"
 								disabled={
-									record?.role_id?.role_name === "Super Admin" ||
+									record?.roleId?.roleName === "Super Admin" ||
 									!checkPermissions({
 										permissionsCode: PermissionsEnum.DELETE_USER,
 										type: "action",
@@ -84,17 +84,17 @@ function useUsersIndexController() {
 			title: "Username",
 		},
 		{
-			accessor: "role_id.role_name",
+			accessor: "roleId.roleName",
 			title: "Role",
 			render(record) {
-				return record?.role_id?.role_name;
+				return record?.roleId?.roleName;
 			},
 		},
 		{
-			accessor: "date_created",
+			accessor: "dateCreated",
 			title: "Tanggal Dibuat",
 			render(record) {
-				return dayjs(record.date_created).format("DD MMM YYYY");
+				return dayjs(record.dateCreated).format("DD MMM YYYY");
 			},
 		},
 	];

@@ -1,14 +1,14 @@
 import { BaseRequestModel } from "../globals/RequestModel";
 
 export interface CreateUsersDto {
-  name: string;
-  username: string;
-  password: string;
-  role_id: string;
+	name: string;
+	username: string;
+	password: string;
+	roleId: string;
 }
 
 export interface UpdateUsersDto extends CreateUsersDto {}
 
 export interface UserQueryDto extends BaseRequestModel {
-  name?: string;
+	name?: string;
 }
