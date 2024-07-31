@@ -40,6 +40,7 @@ function InspeksiForm(props: FormType) {
               <Select
                 searchable
                 placeholder="Pilih Mobil"
+                withAsterisk
                 label="Mobil"
                 onSearchChange={(value) => handleCarSearch(value)}
                 data={carsData?.data.map((car) => ({

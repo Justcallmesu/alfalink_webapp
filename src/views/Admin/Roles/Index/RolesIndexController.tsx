@@ -44,7 +44,7 @@ function useRolesIndexController() {
 							variant="light"
 							color="orange"
 							disabled={
-								record?.role_name === "Super Admin" ||
+								record?.roleName === "Super Admin" ||
 								!checkPermissions({
 									permissionsCode: PermissionsEnum.UPDATE_ROLE,
 									type: "action",
@@ -60,7 +60,7 @@ function useRolesIndexController() {
 								variant="light"
 								color="red"
 								disabled={
-									record?.role_name === "Super Admin" ||
+									record?.roleName === "Super Admin" ||
 									!checkPermissions({
 										permissionsCode: PermissionsEnum.DELETE_ROLE,
 										type: "action",
@@ -74,11 +74,11 @@ function useRolesIndexController() {
 			},
 		},
 		{
-			accessor: "role_name",
+			accessor: "roleName",
 			title: "Nama Role",
 		},
 		{
-			accessor: "role_description",
+			accessor: "roleDescription",
 			title: "Description",
 		},
 	];
