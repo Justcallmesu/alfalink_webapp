@@ -53,7 +53,7 @@ function PenjualanDetails() {
               </Grid.Col>
               <Grid.Col span={6}>
                 <DataDisplay title="Merk Mobil">
-                  {penjualanData?.data.mobil.merk.name}
+                  {penjualanData?.data.mobil.merk?.name}
                 </DataDisplay>
               </Grid.Col>
             </Grid>

@@ -93,9 +93,9 @@ function NavigationItems() {
     checkPermissions({ group: "Body Style" }) ||
     checkPermissions({ group: "Fuel Type" })
       ? {
-          label: "Master Data",
+          label: "Data Atribut Mobil dan Penjualan",
           leftSection: <IconFile />,
-          description: "Master Data Management",
+          description: "Data Atribut Mobil dan Penjualan Management",
           children: [
             checkPermissions({ group: "Warna" })
               ? {

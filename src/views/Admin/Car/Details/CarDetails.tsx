@@ -45,7 +45,7 @@ function CarDetails() {
               </Grid.Col>
               <Grid.Col span={6}>
                 <DataDisplay title="Merk Mobil">
-                  {carData?.data.merk.name ?? "-"}
+                  {carData?.data.merk?.name ?? "-"}
                 </DataDisplay>
               </Grid.Col>
               <Grid.Col span={6}>

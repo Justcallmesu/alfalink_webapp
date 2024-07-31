@@ -36,9 +36,9 @@ export default (
       <Route
         path="/admin"
         element={
-          <SuspenseLoading>
-            <AdminLayout />
-          </SuspenseLoading>
+          // <SuspenseLoading>
+          <AdminLayout />
+          // </SuspenseLoading>
         }
       >
         <Route
