@@ -35,6 +35,7 @@ function useInspeksiFormModel() {
   const [carQuery, setCarQuery] = useState<CarQueryDto>({
     page: 1,
     limit: 10,
+    isNotInspected: true,
   });
 
   /**

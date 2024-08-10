@@ -25,6 +25,7 @@ function useCarFormController({ formType }: FormType) {
     bodyStyleData,
     fuelTypeData,
     carTypeData,
+    carModelData,
     carData,
 
     /**
@@ -36,6 +37,7 @@ function useCarFormController({ formType }: FormType) {
     setBodyStyleQuery,
     setFuelTypeQuery,
     setCarTypeQuery,
+    setcarModelQuery,
 
     /**
      * Mutate
@@ -70,6 +72,7 @@ function useCarFormController({ formType }: FormType) {
     initialValues: {
       nama: "",
       merk: "",
+      model: "",
       bodyStyle: "",
       warnaInterior: "",
       warnaExterior: "",
@@ -89,6 +92,10 @@ function useCarFormController({ formType }: FormType) {
    */
   const handleInteriorColorSearch = (value: string) => {
     setInteriorColorQuery((prev) => ({ ...prev, name: value }));
+  };
+
+  const handleCarModelSearch = (value: string) => {
+    setcarModelQuery((prev) => ({ ...prev, name: value }));
   };
 
   const handleExteriorColorSearch = (value: string) => {
@@ -135,6 +142,7 @@ function useCarFormController({ formType }: FormType) {
         ...carData.data!,
         merk: carData.data?.merk?._id,
         bodyStyle: carData.data?.bodyStyle?._id,
+        model: carData.data?.model?._id,
         warnaInterior: carData.data?.warnaInterior?._id,
         warnaExterior: carData.data?.warnaExterior?._id,
         jenisBahanBakar: carData.data?.jenisBahanBakar?._id,
@@ -154,6 +162,7 @@ function useCarFormController({ formType }: FormType) {
     bodyStyleData,
     fuelTypeData,
     carTypeData,
+    carModelData,
     carData,
 
     /**
@@ -170,6 +179,7 @@ function useCarFormController({ formType }: FormType) {
     handleBodyStyleSearch,
     handleFuelTypeSearch,
     handleCarTypeSearch,
+    handleCarModelSearch,
     handleFormSubmit,
   };
 }

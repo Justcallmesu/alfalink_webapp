@@ -1,5 +1,6 @@
 import { BodyStyleModel } from "../MasterData/BodyStyle";
 import { CarBrandModel } from "../MasterData/CarBrand";
+import { CarModelModel } from "../MasterData/CarModel";
 import { CarTypeModel } from "../MasterData/CarType";
 import { ColorModel } from "../MasterData/Color";
 import { FuelTypeModel } from "../MasterData/FuelType";
@@ -32,6 +33,7 @@ export interface CarModel extends BaseModel {
   merk: CarBrandModel;
   bodyStyle?: BodyStyleModel;
   warnaInterior?: ColorModel;
+  model: CarModelModel;
   warnaExterior?: ColorModel;
   jenisBahanBakar?: FuelTypeModel;
   tipe?: CarTypeModel;
@@ -49,6 +51,7 @@ export interface CreateCarDto {
   merk: string;
   bodyStyle?: string;
   warnaInterior?: string;
+  model?: string;
   warnaExterior?: string;
   jenisBahanBakar?: string;
   tipe?: string;
@@ -78,4 +81,5 @@ export interface CarQueryDto extends BaseRequestModel {
   tahunRakit?: string;
   transmisi?: CarTransmisionEnum;
   status?: StatusMobil;
+  isNotInspected?: boolean;
 }

@@ -1,5 +1,6 @@
 import { axiosGetBodyStyles } from "@/lib/axios-config/MasterData/BodyStyle";
 import { axiosGetCarBrands } from "@/lib/axios-config/MasterData/CarBrand";
+import { axiosGetCarModels } from "@/lib/axios-config/MasterData/CarModel";
 import { axiosGetCarTypes } from "@/lib/axios-config/MasterData/CarType";
 import { axiosGetColors } from "@/lib/axios-config/MasterData/Color";
 import { axiosGetFuelTypes } from "@/lib/axios-config/MasterData/FuelType";
@@ -19,6 +20,10 @@ import {
   CarBrandModel,
   CarBrandQueryDto,
 } from "@/lib/models/MasterData/CarBrand";
+import {
+  CarModelModel,
+  CarModelQueryDto,
+} from "@/lib/models/MasterData/CarModel";
 import { CarTypeModel, CarTypeQueryDto } from "@/lib/models/MasterData/CarType";
 import { ColorModel, ColorQueryDto } from "@/lib/models/MasterData/Color";
 import {
@@ -31,6 +36,7 @@ import {
 } from "@/lib/models/globals/ResponseModel";
 import { bodyStyleKeys } from "@/lib/queryKeys/MasterData/BodyStyle";
 import { carBrandKeys } from "@/lib/queryKeys/MasterData/CarBrand";
+import { carModelKeys } from "@/lib/queryKeys/MasterData/CarModel";
 import { carTypeKeys } from "@/lib/queryKeys/MasterData/CarType";
 import { colorKeys } from "@/lib/queryKeys/MasterData/Color";
 import { fuelTypeKeys } from "@/lib/queryKeys/MasterData/FuelType";
@@ -146,6 +152,23 @@ function useCarFormModel() {
   });
 
   /**
+   * Car Model Query
+   */
+  const [carModelQuery, setcarModelQuery] = useState<CarModelQueryDto>({
+    page: 1,
+    limit: 10,
+  });
+
+  /**
+   * Car Model
+   */
+  const { data: carModelData } = useGetAxios<PaginationModel<CarModelModel>>({
+    config: axiosGetCarModels(),
+    queryKey: carModelKeys.lists(carModelQuery).queryKey,
+    queryParams: carModelQuery,
+  });
+
+  /**
    *! Car Data
    */
 
@@ -185,6 +208,7 @@ function useCarFormModel() {
     bodyStyleData,
     fuelTypeData,
     carTypeData,
+    carModelData,
     carData,
 
     /**
@@ -196,6 +220,7 @@ function useCarFormModel() {
     setBodyStyleQuery,
     setFuelTypeQuery,
     setCarTypeQuery,
+    setcarModelQuery,
 
     /**
      * Mutate

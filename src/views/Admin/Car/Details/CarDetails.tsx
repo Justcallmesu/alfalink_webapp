@@ -54,8 +54,8 @@ function CarDetails() {
                 </DataDisplay>
               </Grid.Col>
               <Grid.Col span={6}>
-                <DataDisplay title="Warna Interior Mobil">
-                  {carData?.data.warnaInterior?.name ?? "-"}
+                <DataDisplay title="Model Mobil">
+                  {carData?.data.model?.name ?? "-"}
                 </DataDisplay>
               </Grid.Col>
               <Grid.Col span={6}>
@@ -63,6 +63,7 @@ function CarDetails() {
                   {carData?.data.warnaExterior?.name ?? "-"}
                 </DataDisplay>
               </Grid.Col>
+
               <Grid.Col span={6}>
                 <DataDisplay title="Warna Interior Mobil">
                   {carData?.data.warnaInterior?.name ?? "-"}

@@ -29,6 +29,7 @@ function CarForm({ formType }: FormType) {
     bodyStyleData,
     fuelTypeData,
     carTypeData,
+    carModelData,
 
     /**
      * Form
@@ -45,6 +46,7 @@ function CarForm({ formType }: FormType) {
     handleFuelTypeSearch,
     handleCarTypeSearch,
     handleFormSubmit,
+    handleCarModelSearch,
   } = useCarFormController({ formType });
 
   return (
@@ -83,6 +85,24 @@ function CarForm({ formType }: FormType) {
                 name="merk"
                 {...form.getInputProps("merk")}
                 key={form.key("merk")}
+              ></Select>
+            </Grid.Col>
+            <Grid.Col span={6}>
+              <Select
+                data={
+                  carModelData?.data.map((value) => ({
+                    label: value.name,
+                    value: value._id,
+                  })) ?? []
+                }
+                searchable
+                label="Model Mobil"
+                clearable
+                placeholder="Model Mobil"
+                onSearchChange={(value) => handleCarModelSearch(value)}
+                name="model"
+                {...form.getInputProps("model")}
+                key={form.key("model")}
               ></Select>
             </Grid.Col>
             <Grid.Col span={6}>
